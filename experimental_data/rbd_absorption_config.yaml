@@ -1,0 +1,30 @@
+# Specify configuration of RBD depletion validation plots
+
+sample_information: data/sample_information.csv
+
+resultsdir: results/rbd_absorptions
+
+elisa_input_files:
+  #- data/210122_ELISA_wide.csv # had to repeat this one with 2x depletion
+  - data/210123_ELISA_wide.csv
+  - data/210205_ELISA_wide.csv
+
+neut_input_files: # make sure it is in this format:
+  data/210127_depletion_neuts.csv: 210127
+  data/210128_depletion_neuts.csv: 210128
+  # note that these files (above) are the day 36 and 119 time points
+  # both have a REGN10987 50ug/mL (pre and post depletion) control
+
+neut_samples_ignore:
+  - REGN10987
+
+# the neutralization limit of detection is equal to the starting dilution
+NT50_LOD: 25
+
+elisa_ignore_dates:
+  2017-2018 serum pool: 201020
+
+elisa_background_file: data/prepandemic_elisa.csv
+
+convalescent_data: data/haarvi_rbd_depletion_foldchange_ic50.csv
+convalescent_elisa: data/haarvi_elisa_auc.csv

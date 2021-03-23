@@ -1,0 +1,21 @@
+﻿serum,depleted,ligand,dilution_or_ugpermL,date,dilution,OD450,antibody_ugpermL,replicate,log_dilution
+2017-2018 serum pool,pre,RBD,dilution,201022,100,0.031400003,NA,1,4.605170186
+2017-2018 serum pool,pre,RBD,dilution,201022,300,0.008200001,NA,1,5.703782475
+2017-2018 serum pool,pre,RBD,dilution,201022,900,0.0011,NA,1,6.802394763
+2017-2018 serum pool,pre,RBD,dilution,201022,2700,-0.001699999,NA,1,7.901007052
+2017-2018 serum pool,pre,RBD,dilution,201022,8100,-0.0042,NA,1,8.999619341
+2017-2018 serum pool,pre,spike,dilution,201022,100,0.293199999,NA,1,4.605170186
+2017-2018 serum pool,pre,spike,dilution,201022,300,0.104,NA,1,5.703782475
+2017-2018 serum pool,pre,spike,dilution,201022,900,0.0415,NA,1,6.802394763
+2017-2018 serum pool,pre,spike,dilution,201022,2700,0.018300002,NA,1,7.901007052
+2017-2018 serum pool,pre,spike,dilution,201022,8100,0.005299998,NA,1,8.999619341
+2017-2018 serum pool,pre,RBD,dilution,201022,100,0.056100003,NA,2,4.605170186
+2017-2018 serum pool,pre,RBD,dilution,201022,300,0.0156,NA,2,5.703782475
+2017-2018 serum pool,pre,RBD,dilution,201022,900,0.0075,NA,2,6.802394763
+2017-2018 serum pool,pre,RBD,dilution,201022,2700,0.002900001,NA,2,7.901007052
+2017-2018 serum pool,pre,RBD,dilution,201022,8100,0.0024,NA,2,8.999619341
+2017-2018 serum pool,pre,spike,dilution,201022,100,0.329749996,NA,2,4.605170186
+2017-2018 serum pool,pre,spike,dilution,201022,300,0.120149994,NA,2,5.703782475
+2017-2018 serum pool,pre,spike,dilution,201022,900,0.046049999,NA,2,6.802394763
+2017-2018 serum pool,pre,spike,dilution,201022,2700,0.015849998,NA,2,7.901007052
+2017-2018 serum pool,pre,spike,dilution,201022,8100,0.005450001,NA,2,8.999619341

@@ -1,0 +1,59 @@
+# Specify configuration of mutant validation plots
+
+published_metadata: data/Crawford_SuppFile2.csv # this is Supplementary File 2 from Crawford et al. (2020)
+
+# path to file containing rbd depletion fold change data
+moderna_depletions: results/rbd_absorptions/TableS1.csv
+haarvi_depletions: data/haarvi_rbd_depletion_foldchange_ic50.csv
+
+neut_input_files: # make sure it is in this format:
+  data/210308_mutneuts.csv: 210308
+  data/210312_mutneuts.csv: 210312
+
+# enter all the samples and stuff to ignore here
+neut_samples_ignore: False
+neut_ignore_viruses:
+  E484K: 210308 # these were repeated on 210312
+
+# the neutralization limit of detection is equal to the starting dilution
+NT50_LOD: 25
+
+validated_samples:
+  M06-day-119: M06 (day 119)
+  M11-day-119: M11 (day 119)
+  M05-day-119: M05 (day 119)
+  M03-day-119: M03 (day 119)
+  M12-day-119: M12 (day 119)
+  M14-day-119: M14 (day 119)
+  24C_d104: subject C (day 104)
+  22C_d104: subject E (day 104)
+  23C_d102: subject I (day 102)
+  1C_d113: subject B (day 113)
+  23_d120: subject A (day 120)
+  25_d94: subject G (day 94)
+
+sample_types:
+  M06 (day 119): vaccine
+  M11 (day 119): vaccine
+  M05 (day 119): vaccine
+  M03 (day 119): vaccine
+  M12 (day 119): vaccine
+  M14 (day 119): vaccine
+  subject C (day 104): convalescent
+  subject E (day 104): convalescent
+  subject I (day 102): convalescent
+  subject B (day 113): convalescent
+  subject A (day 120): convalescent
+  subject G (day 94): convalescent
+
+viruses:
+  - wildtype
+  - P384R
+  - K417N
+  - F456A
+  - G446V
+  - L452R
+  - E484K
+  - E484P
+  - K417N-G446V-E484K
+  - RBD antibodies depleted
