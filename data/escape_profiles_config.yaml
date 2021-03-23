@@ -252,12 +252,12 @@ Moderna_6validations:  # name of plot
 
 Moderna_6validations_27sites:  # name of plot
   conditions:  # antibodies / sera to show and names to use for them
-    M06-day-119_80: M06 (day 119)
-    M11-day-119_200: M11 (day 119)
-    M05-day-119_500: M05 (day 119)
-    M03-day-119_200: M03 (day 119)
     M12-day-119_200: M12 (day 119)
     M14-day-119_500: M14 (day 119)
+    M06-day-119_80: M06 (day 119)
+    M11-day-119_200: M11 (day 119)
+    M03-day-119_200: M03 (day 119)
+    M05-day-119_500: M05 (day 119)
   plot_auto_identified_sites: False
   add_sites: [383, 384, 385, 386, 417, 446, 447, 448, 449, 450, 452, 455, 456, 472, 473, 475, 477, 484, 485, 486, 487, 489, 490, 493, 494, 496, 501]
   exclude_sites: []
