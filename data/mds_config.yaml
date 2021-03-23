@@ -112,7 +112,7 @@ Moderna_HAARVI_mAbs:
   plot_size: 6
   expand_points: [1.3, 1.7]
   default_circle_color: "#000000"
-  random_state: 3
+  random_state: 2
   pie_size: 200
   pie_alpha: 0.5
   no_labels: True
