@@ -1,0 +1,237 @@
+# configuration for logo overlays
+
+# specify logo with overlay and shading for S309
+S309: &S309
+  # name of sample in the pipeline (e.g., for escape fractions)
+  full_name: S309_421
+  # another name for antibody that might be used in specifying site_info
+  short_name: S309
+  # list all sites to show
+  sites: [333, 334, 335, 336, 337, 339, 340, 341,
+          343, 344, 345, 346, 354, 356, 357, 358,
+          359, 360, 361, 440, 441, 509]
+  # keyword args here: https://jbloomlab.github.io/dmslogo/dmslogo.logo.html#dmslogo.logo.draw_logo
+  dmslogo_draw_logo_kwargs:
+    widthscale: 1.2
+    heightscale: 1.2
+  # Now we specify CSVs with additional information per site and optionally per 
+  # antibody. Specify columns that give site, antibody, and value of interest;
+  # also how to fill any missing values
+  site_info:
+    sarbecovirus Neff:
+      csv: ../experimental_data/Vir_annotations/RBD_site_annotations_wide.csv
+      site_col: site
+      antibody_col: null
+      val_col: sarbecovirus_Neff
+      missing_vals: 1
+    SARS-CoV-2 frequency:
+      csv: ../experimental_data/Vir_annotations/RBD_site_annotations_wide.csv
+      site_col: site
+      antibody_col: null
+      val_col: GISAID_total_freq
+      missing_vals: 0
+    dummy contacts:
+      csv: dummy_contacts.csv
+      site_col: site
+      antibody_col: antibody
+      val_col: contact_energy
+      missing_vals: 0
+  # how to color letters: provide color, or use DMS (bind_color or expr_color)
+  letter_colors: expr_color
+  # Overlays of site info along with color scale. Specify min and max if you don't
+  # want to scale to data range (can be useful if want same on multiplots). Color
+  # scales from here: https://matplotlib.org/3.3.3/tutorials/colors/colormaps.html
+  overlays:
+    sarbecovirus Neff:
+      min: 1
+      max: null
+      color_scale: Greys
+    SARS-CoV-2 frequency:
+      min: 0
+      max: null
+      color_scale: Greys
+  # how to shade sites
+  shading:
+    property: dummy contacts  # set to null for no shading
+    alpha: 0.25  # transparency of shading
+    color_scale: Blues
+    min: 0
+    max: null
+
+# S309 with only overlays
+S309_overlay_only:
+  <<: *S309  # copy template from S309
+  # overlays now include dummy contacts
+  overlays:
+    sarbecovirus Neff:
+      min: 1
+      max: null
+      color_scale: Greys
+    SARS-CoV-2 frequency:
+      min: 0
+      max: null
+      color_scale: Greys
+    dummy contacts:
+      min: 0
+      max: null
+      color_scale: Blues
+  # no shading
+  shading:
+    property: null
+    
+# S309 with subdomain-colored sites
+S309_overlay_only:
+  <<: *S309  # copy template from S309
+  # overlays now include dummy contacts
+  site_color_scheme: subdomain
+  overlays:
+    sarbecovirus Neff:
+      min: 1
+      max: null
+      color_scale: Greys
+    SARS-CoV-2 frequency:
+      min: 0
+      max: null
+      color_scale: Greys
+    dummy contacts:
+      min: 0
+      max: null
+      color_scale: Blues
+  # no shading
+  shading:
+    property: null
+    
+    
+# Vir core mAbs with heatmap info overlay
+Vir_core: &core
+  # name of sample in the pipeline (e.g., for escape fractions)
+  full_name: S309_421
+  # another name for antibody that might be used in specifying site_info
+  short_name: S309
+  # list all sites to show
+  sites: [337, 340, 345, 376, 381, 383, 384, 385, 386,
+          394, 396, 428, 462, 504, 514, 516, 518]
+  # keyword args here: https://jbloomlab.github.io/dmslogo/dmslogo.logo.html#dmslogo.logo.draw_logo
+  dmslogo_draw_logo_kwargs:
+    widthscale: 1.2
+    heightscale: 1.2
+  # Now we specify CSVs with additional information per site and optionally per 
+  # antibody. Specify columns that give site, antibody, and value of interest;
+  # also how to fill any missing values
+  site_info:
+    sarbecovirus Neff:
+      csv: ../experimental_data/Vir_annotations/RBD_site_annotations_wide.csv
+      site_col: site
+      antibody_col: null
+      val_col: sarbecovirus_Neff
+      missing_vals: 1
+    SARS-CoV-2 frequency:
+      csv: ../experimental_data/Vir_annotations/RBD_site_annotations_wide.csv
+      site_col: site
+      antibody_col: null
+      val_col: GISAID_total_freq
+      missing_vals: 0
+    SARS-CoV-2 log10 frequency:
+      csv: ../experimental_data/Vir_annotations/RBD_site_annotations_wide.csv
+      site_col: site
+      antibody_col: null
+      val_col: GISAID_log10_pseudofreq
+      missing_vals: -5.5
+    SARS-CoV-2 number amino acid:
+      csv: ../experimental_data/Vir_annotations/RBD_site_annotations_wide.csv
+      site_col: site
+      antibody_col: null
+      val_col: GISAID_number_amino_acids
+      missing_vals: 1
+  # how to color letters: provide color, or use DMS (bind_color or expr_color)
+  letter_colors: expr_color
+  # Overlays of site info along with color scale. Specify min and max if you don't
+  # want to scale to data range (can be useful if want same on multiplots). Color
+  # scales from here: https://matplotlib.org/3.3.3/tutorials/colors/colormaps.html
+  overlays:
+    sarbecovirus Neff:
+      min: 1
+      max: 7
+      color_scale: Blues
+    SARS-CoV-2 frequency:
+      min: 0
+      max: 0.06
+      color_scale: Blues
+    SARS-CoV-2 log10 frequency:
+      min: -5.5
+      max: -1.2
+      color_scale: Blues
+    SARS-CoV-2 number amino acid:
+      min: 1
+      max: 8
+      color_scale: Blues
+  # how to shade sites
+  shading:
+    property: null
+
+# Vir RBM mAbs with heatmap info overlay
+Vir_RBM: &RBM
+  # name of sample in the pipeline (e.g., for escape fractions)
+  full_name: S2E12_56
+  # another name for antibody that might be used in specifying site_info
+  short_name: S2E12
+  # list all sites to show
+  sites: [403, 417, 443, 445, 446, 449, 450, 452, 455, 456, 472, 473, 475, 476, 481,
+          483, 484, 485, 486, 487, 489, 490, 493, 494, 496, 498, 499, 500, 501]
+  # keyword args here: https://jbloomlab.github.io/dmslogo/dmslogo.logo.html#dmslogo.logo.draw_logo
+  dmslogo_draw_logo_kwargs:
+    widthscale: 1.2
+    heightscale: 1.2
+  # Now we specify CSVs with additional information per site and optionally per 
+  # antibody. Specify columns that give site, antibody, and value of interest;
+  # also how to fill any missing values
+  site_info:
+    sarbecovirus Neff:
+      csv: ../experimental_data/Vir_annotations/RBD_site_annotations_wide.csv
+      site_col: site
+      antibody_col: null
+      val_col: sarbecovirus_Neff
+      missing_vals: 1
+    SARS-CoV-2 frequency:
+      csv: ../experimental_data/Vir_annotations/RBD_site_annotations_wide.csv
+      site_col: site
+      antibody_col: null
+      val_col: GISAID_total_freq
+      missing_vals: 0
+    SARS-CoV-2 log10 frequency:
+      csv: ../experimental_data/Vir_annotations/RBD_site_annotations_wide.csv
+      site_col: site
+      antibody_col: null
+      val_col: GISAID_log10_pseudofreq
+      missing_vals: -5.5
+    SARS-CoV-2 number amino acid:
+      csv: ../experimental_data/Vir_annotations/RBD_site_annotations_wide.csv
+      site_col: site
+      antibody_col: null
+      val_col: GISAID_number_amino_acids
+      missing_vals: 1
+  # how to color letters: provide color, or use DMS (bind_color or expr_color)
+  letter_colors: bind_color
+  # Overlays of site info along with color scale. Specify min and max if you don't
+  # want to scale to data range (can be useful if want same on multiplots). Color
+  # scales from here: https://matplotlib.org/3.3.3/tutorials/colors/colormaps.html
+  overlays:
+    sarbecovirus Neff:
+      min: 1
+      max: 7
+      color_scale: Blues
+    SARS-CoV-2 frequency:
+      min: 0
+      max: 0.06
+      color_scale: Blues
+    SARS-CoV-2 log10 frequency:
+      min: -5.5
+      max: -1.2
+      color_scale: Blues
+    SARS-CoV-2 number amino acid:
+      min: 1
+      max: 8
+      color_scale: Blues
+  # how to shade sites
+  shading:
+    property: null

@@ -1,0 +1,21 @@
+# Information about outputting B-factor re-assigned PDBs and dms-view inputs
+#
+# Top-level keys are antibodies/ligands for which we want to annotate structural contacts
+# Under each antibody key, specify:
+#  pdbfile -> path to file containing PDB
+#  chains_RBD -> chain(s) of RBDs in structure
+#  chains_ligand -> chain(s) of ligands (Ab, ACE2)
+#  distance_cutoff -> for annotating structural contacts, distance cutoff
+#                     (typically 4 Angstrom for high-res with resolved side chains, 8
+#                     Angstrom for low res cryo-EM with only backbone atoms)
+
+# 6m0j is ACE2 bound RBD
+ACE2:
+  name: ACE2
+  pdbfile: data/pdbs/6M0J.pdb
+  chains_RBD:
+    - E
+  chains_ligand:
+    - A
+  distance_cutoff:
+    - 4
