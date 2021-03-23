@@ -17,6 +17,8 @@ neut_input_files: # make sure it is in this format:
 
 neut_samples_ignore:
   - REGN10987
+  - M15-day-36 # did not receive second dose
+  - M15-day-119 # did not receive second dose
 
 # the neutralization limit of detection is equal to the starting dilution
 NT50_LOD: 25

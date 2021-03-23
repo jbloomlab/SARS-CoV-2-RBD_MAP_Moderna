@@ -46,7 +46,7 @@ import neutcurve
 from neutcurve.colorschemes import CBMARKERS, CBPALETTE
 import seaborn
 
-# import lifelines
+import lifelines
 import sklearn
 import scipy.stats
 
@@ -96,7 +96,6 @@ pd.options.display.max_rows = 100
 
 ```python
 sample_information = (pd.read_csv(config['sample_information'])
-                      .drop(columns=['Specimen ID'])
                       .drop_duplicates()
                      )
 
@@ -124,7 +123,7 @@ frac_infect.head(2)
 ```
 
     Length before dropping anything = 1024
-    Length after dropping neut_samples_ignore = 960
+    Length after dropping neut_samples_ignore = 896
 
 
 
@@ -164,30 +163,30 @@ frac_infect.head(2)
   <tbody>
     <tr>
       <th>0</th>
-      <td>M15-day-36</td>
+      <td>M13-day-36</td>
       <td>pre-depletion</td>
       <td>1</td>
       <td>0.04</td>
-      <td>0.1192</td>
+      <td>-0.000665</td>
       <td>210127</td>
       <td>36</td>
       <td>18-55y</td>
       <td>250ug</td>
-      <td>M15</td>
+      <td>M13</td>
       <td>False</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>M15-day-36</td>
+      <td>M13-day-36</td>
       <td>pre-depletion</td>
       <td>1</td>
       <td>0.01</td>
-      <td>0.5447</td>
+      <td>-0.000023</td>
       <td>210127</td>
       <td>36</td>
       <td>18-55y</td>
       <td>250ug</td>
-      <td>M15</td>
+      <td>M13</td>
       <td>False</td>
     </tr>
   </tbody>
@@ -258,31 +257,31 @@ fitparams.head(2)
   <tbody>
     <tr>
       <th>0</th>
-      <td>M15-day-36</td>
+      <td>M13-day-36</td>
       <td>pre-depletion</td>
-      <td>0.011551</td>
+      <td>0.000234</td>
       <td>interpolated</td>
-      <td>86.573385</td>
+      <td>4266.426176</td>
       <td>36</td>
       <td>18-55y</td>
       <td>250ug</td>
-      <td>M15</td>
+      <td>M13</td>
       <td>False</td>
       <td>False</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>M15-day-36</td>
+      <td>M13-day-36</td>
       <td>post-depletion</td>
-      <td>0.040000</td>
-      <td>lower</td>
-      <td>25.000000</td>
+      <td>0.021151</td>
+      <td>interpolated</td>
+      <td>47.278690</td>
       <td>36</td>
       <td>18-55y</td>
       <td>250ug</td>
-      <td>M15</td>
+      <td>M13</td>
       <td>False</td>
-      <td>True</td>
+      <td>False</td>
     </tr>
   </tbody>
 </table>
@@ -432,63 +431,6 @@ df['depletion']=pd.Categorical(df['depletion'], categories=['pre', 'post'], orde
 
 ```python
 p = (ggplot(df
-            .assign(mapped=pd.Categorical(df['mapped'], 
-                                          categories=[True, False], 
-                                          ordered=True),
-                    serum=lambda x: pd.Categorical(x['serum'], natsort.natsorted(x['serum'].unique())[::-1], ordered=True)
-                   )
-            , 
-            aes(x='NT50',
-                y='serum',
-                color='mapped',
-                fill='fill_color',
-                group='serum',
-                label='perc_RBD_str'
-               )) +
-     scale_x_log10(name='neutralization titer 50% (NT50)', 
-                   limits=[config['NT50_LOD'],df['NT50'].max()*3]) +
-     geom_vline(xintercept=config['NT50_LOD'], 
-                linetype='dotted', 
-                size=1, 
-                alpha=0.6, 
-                color=CBPALETTE[7]) +
-     geom_line(alpha=1) +
-     geom_point(size=4) +
-     geom_text(aes(x=df['NT50'].max()*3, y='serum'), #
-               color=CBPALETTE[0],
-               ha='right',
-               size=9,
-              ) +
-     theme(figure_size=(3.5,0.2*df['serum'].nunique()),
-           axis_text=element_text(size=12),
-           legend_text=element_text(size=12),
-           legend_title=element_text(size=12),
-           axis_title_x=element_text(size=12),
-          ) +
-     ylab('') +
-     scale_color_manual(values=[CBPALETTE[1], CBPALETTE[0]], name='escape mapped') +
-     scale_fill_manual(values=['#E69F00', '#FFFFFF', '#999999'], 
-                       name='pre- or post-depletion\nof RBD antibodies')
-    )
-
-_ = p.draw()
-
-
-p.save(f'{resultsdir}/NT50_lineplot.pdf')
-```
-
-
-    
-![png](rbd_depletions_files/rbd_depletions_18_0.png)
-    
-
-
-Jesse said he would want this plot without coloring according to what was mapped vs. not.
-So I will make that plot now 
-
-
-```python
-p = (ggplot(df
             .assign(
                     serum=lambda x: pd.Categorical(x['serum'], natsort.natsorted(x['serum'].unique())[::-1], ordered=True)
                    )
@@ -530,41 +472,11 @@ _ = p.draw()
 p.save(f'{resultsdir}/NT50_lineplot_nocolors.pdf')
 ```
 
-### Look at fold-change NT50 at the early and late timepoints to see how RBD targeting changes over time.
 
+    
+![png](rbd_depletions_files/rbd_depletions_18_0.png)
+    
 
-```python
-nconditions = df['serum'].nunique()
-ncol = 5 if nconditions >= 6 else nconditions
-nrow = math.ceil(nconditions / ncol)
-
-p = (ggplot(df
-            [['subject_name', 'day', 'fold_change', 'post_ic50_bound']]
-            .drop_duplicates()
-           ) +
-     aes('day', 'fold_change', group='subject_name', fill='post_ic50_bound') +
-     geom_line(aes(group='subject_name'), size=0.5) +
-     geom_point(size=4, alpha=1) +
-     scale_x_continuous(limits=[15,150], breaks=[36, 119]) +
-     scale_y_log10(limits=[1,1000]) +
-     facet_wrap('~ subject_name', ncol=ncol) +
-     theme(
-         figure_size=(2 * ncol, 1* nrow),
-         strip_background=element_blank(),
-           ) +
-     xlab('days post-vaccine dose 1 (dose 2 at day 28)') +
-     ylab('fold-change IC50') +
-     labs(fill='censored') +
-     scale_fill_manual(values=['black', 'white'], ) #guide=False
-     )
-
-_ = p.draw()
-
-
-plotfile = f'{resultsdir}/depletion_overtime_facet.pdf'
-print(f"Saving to {plotfile}")
-p.save(plotfile, verbose=False)
-```
 
 ## Plot neut curves for all samples
 
@@ -583,6 +495,12 @@ plotfile = PdfPages(f'{resultsdir}/sera_frac_infectivity.pdf')
 plotfile.savefig(bbox_inches='tight', transparent=True)
 plotfile.close()
 ```
+
+
+    
+![png](rbd_depletions_files/rbd_depletions_20_0.png)
+    
+
 
 ## Compare the change in NT50 pre- vs. post-depletion for the Moderna sera vs. the HAARVI convalescent plasma
 
@@ -645,30 +563,75 @@ NT50_lines.save(f'./{resultsdir}/NT50_lines.pdf')
 ```
 
 
-```python
-compare_foldchange=(compare_df.drop(columns=['depletion']).drop_duplicates())
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>serum</th>
+      <th>depletion</th>
+      <th>NT50</th>
+      <th>fold_change</th>
+      <th>day</th>
+      <th>conv_or_vax</th>
+      <th>early_late</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>subject A (day 120)</td>
+      <td>pre</td>
+      <td>861.163942</td>
+      <td>43.058197</td>
+      <td>120</td>
+      <td>convalescent</td>
+      <td>day 100-150</td>
+    </tr>
+    <tr>
+      <td>subject A (day 120)</td>
+      <td>post</td>
+      <td>20.000000</td>
+      <td>43.058197</td>
+      <td>120</td>
+      <td>convalescent</td>
+      <td>day 100-150</td>
+    </tr>
+    <tr>
+      <td>subject A (day 21)</td>
+      <td>pre</td>
+      <td>6881.224570</td>
+      <td>8.142050</td>
+      <td>21</td>
+      <td>convalescent</td>
+      <td>day 30-60</td>
+    </tr>
+    <tr>
+      <td>subject A (day 21)</td>
+      <td>post</td>
+      <td>845.146407</td>
+      <td>8.142050</td>
+      <td>21</td>
+      <td>convalescent</td>
+      <td>day 30-60</td>
+    </tr>
+    <tr>
+      <td>subject A (day 45)</td>
+      <td>pre</td>
+      <td>2751.807740</td>
+      <td>5.954031</td>
+      <td>45</td>
+      <td>convalescent</td>
+      <td>day 30-60</td>
+    </tr>
+  </tbody>
+</table>
 
-#early_late~conv_or_vax
 
-display(HTML(compare_foldchange.head().to_html(index=False)))
 
-p = (ggplot(compare_foldchange) +
-     aes('conv_or_vax', 'fold_change', color='early_late',) +
-     geom_boxplot(notch=True, notchwidth=0.5)+
-     geom_jitter(aes(group='early_late'), position=position_dodge(width=0.75), size=2.5, alpha=0.25) + 
-     scale_y_log10() +
-     theme(figure_size=(4, 3.5),
-           ) +
-     ylab('fold-change IC50 with depletion\nof RBD-binidng antibodies') +
-     xlab('')+
-     scale_color_manual(values=[CBPALETTE[1], CBPALETTE[2]], name='time point')
-     ) 
+    
+![png](rbd_depletions_files/rbd_depletions_22_1.png)
+    
 
-_ = p.draw()
-p.save(f'{resultsdir}/compare_foldchange_ic50.pdf')
-```
 
-Make Jesse-like plots
+# Compare Moderna vs. convalescent change in IC50
 
 
 ```python
@@ -694,44 +657,46 @@ df = (
 df = pd.concat([df.sort_values('day').groupby('subject_name').first().assign(timepoint='first'),
                 df.sort_values('day').groupby('subject_name').last().assign(timepoint='last')])
 
-# comparisons = list(itertools.product(df['timepoint'].unique(), df['serum_type'].unique()))
-# for (timepoint_1, serum_type_1), (timepoint_2, serum_type_2) in itertools.combinations(comparisons, 2):
-#     print(f"Comparing {timepoint_1}/{serum_type_1} to {timepoint_2}/{serum_type_2}")
-#     percent_1 = df.query('(timepoint == @timepoint_1) and (serum_type == @serum_type_1)')['percent_RBD']
-#     percent_2 = df.query('(timepoint == @timepoint_2) and (serum_type == @serum_type_2)')['percent_RBD']
-#     u, p = scipy.stats.mannwhitneyu(percent_1, percent_2)
-#     print(f"  Mann-Whitney test:      P = {p:.2g}")
-#     res = lifelines.statistics.logrank_test(percent_1, percent_2)
-#     print(f"  Log-rank test:          P = {res.p_value:.2g}")
-#     censored_1 = (~df.query('(timepoint == @timepoint_1) and (serum_type == @serum_type_1)')['post_ic50_bound']).astype(int)
-#     censored_2 = (~df.query('(timepoint == @timepoint_2) and (serum_type == @serum_type_2)')['post_ic50_bound']).astype(int)
-#     res = lifelines.statistics.logrank_test(percent_1, percent_2, censored_1, censored_2)
-#     print(f"  Log-rank test censored: P = {res.p_value:.2g}")
-
-
-p = (ggplot((df.replace({"first": "day 15-60", "last": "day 100-150"})
-             .assign(timepoint=lambda x: pd.Categorical(x['timepoint'], categories=['day 15-60', 'day 100-150'], ordered=True),
-                     serum_type=lambda x: pd.Categorical(x['serum_type'], categories=['vaccine', 'convalescent'], ordered=True)
-                    )
-            )
-           ) +
-     aes('timepoint', 'percent_RBD', color='serum_type') +
-     geom_boxplot(width=0.65,
-                  position=position_dodge(width=0.7),
-                  outlier_shape='') +
-     geom_jitter(position=position_dodge(width=0.7),
-                 alpha=0.4, size=2.5) +
-     
-     theme(figure_size=(4, 3.5),
-           ) +
-     scale_color_manual(values=[CBPALETTE[2], CBPALETTE[5]], name='serum type') +
-     ylab('percent neutralizing potency\ndue to RBD antibodies') +
-     xlab ('time point')
-     )
-
-_ = p.draw()
-p.save(f'{resultsdir}/compare_percentRBD.pdf')
+comparisons = list(itertools.product(df['timepoint'].unique(), df['serum_type'].unique()))
+for (timepoint_1, serum_type_1), (timepoint_2, serum_type_2) in itertools.combinations(comparisons, 2):
+    print(f"Comparing {timepoint_1}/{serum_type_1} to {timepoint_2}/{serum_type_2}")
+    percent_1 = df.query('(timepoint == @timepoint_1) and (serum_type == @serum_type_1)')['percent_RBD']
+    percent_2 = df.query('(timepoint == @timepoint_2) and (serum_type == @serum_type_2)')['percent_RBD']
+    u, p = scipy.stats.mannwhitneyu(percent_1, percent_2)
+    print(f"  Mann-Whitney test:      P = {p:.2g}")
+    res = lifelines.statistics.logrank_test(percent_1, percent_2)
+    print(f"  Log-rank test:          P = {res.p_value:.2g}")
+    censored_1 = (~df.query('(timepoint == @timepoint_1) and (serum_type == @serum_type_1)')['post_ic50_bound']).astype(int)
+    censored_2 = (~df.query('(timepoint == @timepoint_2) and (serum_type == @serum_type_2)')['post_ic50_bound']).astype(int)
+    res = lifelines.statistics.logrank_test(percent_1, percent_2, censored_1, censored_2)
+    print(f"  Log-rank test censored: P = {res.p_value:.2g}")
 ```
+
+    Comparing first/convalescent to first/vaccine
+      Mann-Whitney test:      P = 1.3e-05
+      Log-rank test:          P = 7.9e-06
+      Log-rank test censored: P = 1e-06
+    Comparing first/convalescent to last/convalescent
+      Mann-Whitney test:      P = 0.087
+      Log-rank test:          P = 0.33
+      Log-rank test censored: P = 0.0074
+    Comparing first/convalescent to last/vaccine
+      Mann-Whitney test:      P = 0.00012
+      Log-rank test:          P = 0.00049
+      Log-rank test censored: P = 1.9e-05
+    Comparing first/vaccine to last/convalescent
+      Mann-Whitney test:      P = 1.3e-05
+      Log-rank test:          P = 3.7e-06
+      Log-rank test censored: P = 0.072
+    Comparing first/vaccine to last/vaccine
+      Mann-Whitney test:      P = 0.0057
+      Log-rank test:          P = 0.0076
+      Log-rank test censored: P = 0.64
+    Comparing last/convalescent to last/vaccine
+      Mann-Whitney test:      P = 0.00088
+      Log-rank test:          P = 0.0013
+      Log-rank test censored: P = 0.15
+
 
 Change to facet on time point with x-axis as serum_type
 
@@ -762,12 +727,29 @@ _ = p.draw()
 p.save(f'{resultsdir}/compare_percentRBD_facet.pdf')
 ```
 
+
+    
+![png](rbd_depletions_files/rbd_depletions_26_0.png)
+    
+
+
 Save `foldchange` file as Table S1.
 
 
 ```python
 foldchange.columns
 ```
+
+
+
+
+    Index(['serum', 'post-depletion_ic50', 'pre-depletion_ic50', 'fold_change',
+           'percent_RBD', 'NT50_pre', 'NT50_post', 'post_ic50_bound',
+           'perc_RBD_str', 'depletion', 'ic50', 'ic50_bound', 'NT50', 'day', 'age',
+           'dose', 'subject_name', 'mapped', 'ic50_is_bound'],
+          dtype='object')
+
+
 
 
 ```python
@@ -781,6 +763,111 @@ TableS1 = (foldchange
 TableS1.to_csv(f'{resultsdir}/TableS1.csv', index=False)
 display(HTML(TableS1.head().to_html(index=False)))
 ```
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>subject_name</th>
+      <th>day</th>
+      <th>serum</th>
+      <th>dose</th>
+      <th>age</th>
+      <th>pre-depletion_ic50</th>
+      <th>post-depletion_ic50</th>
+      <th>NT50_pre</th>
+      <th>NT50_post</th>
+      <th>fold_change</th>
+      <th>percent_RBD</th>
+      <th>post_ic50_bound</th>
+      <th>perc_RBD_str</th>
+      <th>mapped</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>250ug</td>
+      <td>18-55y</td>
+      <td>0.000444</td>
+      <td>0.022167</td>
+      <td>2250.198641</td>
+      <td>45.112089</td>
+      <td>49.880169</td>
+      <td>97</td>
+      <td>False</td>
+      <td>97%</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>M01</td>
+      <td>119</td>
+      <td>M01-day-119</td>
+      <td>250ug</td>
+      <td>18-55y</td>
+      <td>0.002663</td>
+      <td>0.040000</td>
+      <td>375.470679</td>
+      <td>25.000000</td>
+      <td>15.018827</td>
+      <td>93</td>
+      <td>True</td>
+      <td>&gt;93%</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>M02</td>
+      <td>36</td>
+      <td>M02-day-36</td>
+      <td>250ug</td>
+      <td>18-55y</td>
+      <td>0.000120</td>
+      <td>0.007992</td>
+      <td>8304.529058</td>
+      <td>125.129252</td>
+      <td>66.367607</td>
+      <td>98</td>
+      <td>False</td>
+      <td>98%</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>M02</td>
+      <td>119</td>
+      <td>M02-day-119</td>
+      <td>250ug</td>
+      <td>18-55y</td>
+      <td>0.000416</td>
+      <td>0.006558</td>
+      <td>2401.979726</td>
+      <td>152.483576</td>
+      <td>15.752383</td>
+      <td>93</td>
+      <td>False</td>
+      <td>93%</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>M03</td>
+      <td>36</td>
+      <td>M03-day-36</td>
+      <td>250ug</td>
+      <td>18-55y</td>
+      <td>0.000407</td>
+      <td>0.040000</td>
+      <td>2455.948338</td>
+      <td>25.000000</td>
+      <td>98.237934</td>
+      <td>98</td>
+      <td>True</td>
+      <td>&gt;98%</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+
 
 ## Titration ELISAs
 
@@ -807,6 +894,7 @@ titration_df = (pd.melt(titration_df,
                         value_name='OD450'
                        )
                 .assign(dilution_factor=lambda x: x['dilution_factor'].astype(int))
+                .query('serum not in @neut_samples_ignore')
                )
 
 titration_df = (titration_df
@@ -818,6 +906,102 @@ titration_df = (titration_df
 
 display(titration_df.head())  # display first few lines
 ```
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject</th>
+      <th>timepoint</th>
+      <th>serum</th>
+      <th>depleted</th>
+      <th>ligand</th>
+      <th>date</th>
+      <th>dilution_factor</th>
+      <th>OD450</th>
+      <th>dilution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>500</td>
+      <td>3.6820</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>post</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>500</td>
+      <td>0.0747</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>pre</td>
+      <td>spike</td>
+      <td>210205</td>
+      <td>500</td>
+      <td>3.3455</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>post</td>
+      <td>spike</td>
+      <td>210205</td>
+      <td>500</td>
+      <td>3.1715</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <th>120</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>1500</td>
+      <td>2.6068</td>
+      <td>0.000667</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ```python
@@ -856,6 +1040,12 @@ _ = p.draw()
 p.save(f'{resultsdir}/rbd_depletion_elisa.pdf')
 ```
 
+
+    
+![png](rbd_depletions_files/rbd_depletions_32_0.png)
+    
+
+
 ### Calculate area under curves (AUCs)
 Calculate area under curve (AUC) for each ELISA. Note that these are areas calculated using a trapezoidal rule between the min and max dilutions with the x-axis being the natural log dilution factor.
 
@@ -867,6 +1057,105 @@ Merge with HAARVI ELISA data (but remember not comparable!!)
 ```python
 titration_df.head()
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject</th>
+      <th>timepoint</th>
+      <th>serum</th>
+      <th>depleted</th>
+      <th>ligand</th>
+      <th>date</th>
+      <th>dilution_factor</th>
+      <th>OD450</th>
+      <th>dilution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>500</td>
+      <td>3.6820</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>post</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>500</td>
+      <td>0.0747</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>pre</td>
+      <td>spike</td>
+      <td>210205</td>
+      <td>500</td>
+      <td>3.3455</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>post</td>
+      <td>spike</td>
+      <td>210205</td>
+      <td>500</td>
+      <td>3.1715</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <th>120</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>1500</td>
+      <td>2.6068</td>
+      <td>0.000667</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 
 ```python
@@ -897,6 +1186,87 @@ auc_df = (pd.concat([auc_df, haarvi_elisa])
 
 auc_df.tail().round(3)
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>serum</th>
+      <th>depleted</th>
+      <th>ligand</th>
+      <th>date</th>
+      <th>AUC</th>
+      <th>conv_or_vax</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>135</th>
+      <td>subject R (day 48)</td>
+      <td>post</td>
+      <td>spike</td>
+      <td>201029.0</td>
+      <td>5.385</td>
+      <td>convalescent</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>subject R (day 79)</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>201108.0</td>
+      <td>1.166</td>
+      <td>convalescent</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>subject R (day 79)</td>
+      <td>pre</td>
+      <td>spike</td>
+      <td>201108.0</td>
+      <td>4.408</td>
+      <td>convalescent</td>
+    </tr>
+    <tr>
+      <th>138</th>
+      <td>subject R (day 79)</td>
+      <td>post</td>
+      <td>RBD</td>
+      <td>201108.0</td>
+      <td>0.020</td>
+      <td>convalescent</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>subject R (day 79)</td>
+      <td>post</td>
+      <td>spike</td>
+      <td>201108.0</td>
+      <td>3.747</td>
+      <td>convalescent</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 Get background (pre-pandemic)
 
@@ -934,6 +1304,144 @@ background
 ```
 
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>serum</th>
+      <th>depleted</th>
+      <th>ligand</th>
+      <th>date</th>
+      <th>dilution_factor</th>
+      <th>OD450</th>
+      <th>replicate</th>
+      <th>dilution</th>
+      <th>log_dilution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>pre-pandemic</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>201022</td>
+      <td>100</td>
+      <td>0.0314</td>
+      <td>1</td>
+      <td>0.010000</td>
+      <td>-4.605170</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>pre-pandemic</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>201022</td>
+      <td>300</td>
+      <td>0.0082</td>
+      <td>1</td>
+      <td>0.003333</td>
+      <td>-5.703782</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>pre-pandemic</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>201022</td>
+      <td>900</td>
+      <td>0.0011</td>
+      <td>1</td>
+      <td>0.001111</td>
+      <td>-6.802395</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>pre-pandemic</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>201022</td>
+      <td>2700</td>
+      <td>-0.0017</td>
+      <td>1</td>
+      <td>0.000370</td>
+      <td>-7.901007</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>pre-pandemic</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>201022</td>
+      <td>8100</td>
+      <td>-0.0042</td>
+      <td>1</td>
+      <td>0.000123</td>
+      <td>-8.999619</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ligand</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RBD</td>
+      <td>0.041994</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>spike</td>
+      <td>0.364025</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
 ```python
 AUC_lines = (ggplot(auc_df
                     .query('serum!="pre-pandemic"'), 
@@ -963,8 +1471,14 @@ AUC_lines.save(f'./{resultsdir}/AUC_lines_compare.pdf')
 ```
 
 
+    
+![png](rbd_depletions_files/rbd_depletions_38_0.png)
+    
+
+
+
 ```python
-!jupyter nbconvert rbd_depletions.ipynb --to markdown
+# !jupyter nbconvert rbd_depletions.ipynb --to markdown
 ```
 
 
