@@ -32,6 +32,70 @@
 #   dmslogo_draw_logo_kwargs -> any keyword arguments to dmslogo.draw_logo
 #   dmslogo_draw_line_kwargs -> any keyword arguments to dmslogo.draw_line
 
+moderna_convalescent_all:  # name of plot
+  conditions:  # antibodies / sera to show and names to use for them
+    23_d21_1250: subject A (day 21)
+    23_d45_1250: subject A (day 45)
+    23_d120_500: subject A (day 120)
+    1C_d26_200: subject B (day 26)
+    1C_d113_200: subject B (day 113)
+    24C_d32_200: subject C (day 32)
+    24C_d104_200: subject C (day 104)
+    6C_d33_500: subject D (day 33)
+    6C_d76_500: subject D (day 76)
+    22C_d28_200: subject E (day 28)
+    22C_d104_200: subject E (day 104)
+    25C_d48_200: subject F (day 48)
+    25C_d115_80: subject F (day 115)
+    25_d18_500: subject G (day 18)
+    25_d94_200: subject G (day 94)
+    12C_d61_160: subject H (day 61)
+    12C_d152_80: subject H (day 152)
+    23C_d26_80: subject I (day 26)
+    23C_d102_80: subject I (day 102)
+    13_d15_200: subject J (day 15)
+    13_d121_1250: subject J (day 121)
+    7C_d29_500: subject K (day 29)
+    7C_d103_200: subject K (day 103)
+    COV-021_500: COV-021
+    COV-047_200: COV-047
+    COV-057_50: COV-057
+    COV-072_200: COV-072
+    COV-107_80: COV-107
+    M01-day-119_80: M01 (day 119)
+    M02-day-36_1250: M02 (day 36)
+    M02-day-119_200: M02 (day 119)
+    M03-day-119_200: M03 (day 119)
+    M04-day-119_200: M04 (day 119)
+    M05-day-36_500: M05 (day 36)
+    M05-day-119_500: M05 (day 119)
+    M06-day-119_80: M06 (day 119)
+    M07-day-119_200: M07 (day 119)
+    M08-day-36_1250: M08 (day 36)
+    M08-day-119_200: M08 (day 119)
+    M09-day-119_500: M09 (day 119)
+    M10-day-36_500: M10 (day 36)
+    M10-day-119_200: M10 (day 119)
+    M11-day-119_200: M11 (day 119)
+    M12-day-36_1250: M12 (day 36)
+    M12-day-119_200: M12 (day 119)
+    M13-day-119_200: M13 (day 119)
+    M14-day-119_500: M14 (day 119)
+    M16-day-119_1250: M16 (day 119)
+    M17-day-119_200: M17 (day 119)
+    M18-day-119_80: M18 (day 119)
+    M19-day-119_200: M19 (day 119)
+    M20-day-119_200: M20 (day 119)
+    M21-day-119_200: M21 (day 119)
+    M22-day-119_200: M22 (day 119)
+    M23-day-119_200: M23 (day 119)
+  plot_auto_identified_sites: False
+  add_sites: [484]
+  exclude_sites: []
+  site_color_scheme: barnes_serum_epitopes
+  color_by_dms: false
+  make_supp_data: True
+
 all_convalescent:
   conditions:
     23_d21_1250: 23_d21
@@ -138,7 +202,6 @@ Moderna_sera:  # name of plot
     M12-day-119_200: M12 (day 119)
     M13-day-119_200: M13 (day 119)
     M14-day-119_500: M14 (day 119)
-    M15-day-119_200: M15 (day 119)
     M16-day-119_1250: M16 (day 119)
     M17-day-119_200: M17 (day 119)
     M18-day-119_80: M18 (day 119)
@@ -366,7 +429,6 @@ Moderna_all_day119:  # name of plot
     M12-day-119_200: M12 (day 119)
     M13-day-119_200: M13 (day 119)
     M14-day-119_500: M14 (day 119)
-    M15-day-119_200: M15 (day 119)
     M16-day-119_1250: M16 (day 119)
     M17-day-119_200: M17 (day 119)
     M18-day-119_80: M18 (day 119)
@@ -408,7 +470,6 @@ Moderna_250ug_day119:  # name of plot
     M12-day-119_200: M12 (day 119)
     M13-day-119_200: M13 (day 119)
     M14-day-119_500: M14 (day 119)
-    M15-day-119_200: M15 (day 119)
   plot_auto_identified_sites: sensitive_max_mut
   add_sites: [384, 417, 446, 455, 456, 484, 452, 501, 477]
   exclude_sites: []

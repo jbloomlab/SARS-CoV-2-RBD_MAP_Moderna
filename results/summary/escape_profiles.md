@@ -659,23 +659,70 @@ with multiprocessing.Pool(ncpus) as pool:
         
 ```
 
-    Drawing 15 profiles using 16 CPUs...
+    Drawing 16 profiles using 16 CPUs...
+
+
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+    /fh/fast/bloom_j/software/miniconda3/envs/SARS-CoV-2-RBD_MAP/lib/python3.7/site-packages/dmslogo/facet.py:196: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+
+
     
     Plotted profile 1 to:
-     results/escape_profiles/all_convalescent_stackedlogo.pdf
-     results/escape_profiles/all_convalescent_stackedlogo.png.
-
-
-
-    
-![png](escape_profiles_files/escape_profiles_26_1.png)
-    
-
-
-    
-    Plotted profile 2 to:
-     results/escape_profiles/Moderna_sera_stackedlogo.pdf
-     results/escape_profiles/Moderna_sera_stackedlogo.png.
+     results/escape_profiles/moderna_convalescent_all_stackedlogo.pdf
+     results/escape_profiles/moderna_convalescent_all_stackedlogo.png.
 
 
 
@@ -685,9 +732,9 @@ with multiprocessing.Pool(ncpus) as pool:
 
 
     
-    Plotted profile 3 to:
-     results/escape_profiles/Moderna_sera_color_by_bind_stackedlogo.pdf
-     results/escape_profiles/Moderna_sera_color_by_bind_stackedlogo.png.
+    Plotted profile 2 to:
+     results/escape_profiles/all_convalescent_stackedlogo.pdf
+     results/escape_profiles/all_convalescent_stackedlogo.png.
 
 
 
@@ -697,9 +744,9 @@ with multiprocessing.Pool(ncpus) as pool:
 
 
     
-    Plotted profile 4 to:
-     results/escape_profiles/Moderna_sera_color_by_expr_stackedlogo.pdf
-     results/escape_profiles/Moderna_sera_color_by_expr_stackedlogo.png.
+    Plotted profile 3 to:
+     results/escape_profiles/Moderna_sera_stackedlogo.pdf
+     results/escape_profiles/Moderna_sera_stackedlogo.png.
 
 
 
@@ -709,9 +756,9 @@ with multiprocessing.Pool(ncpus) as pool:
 
 
     
-    Plotted profile 5 to:
-     results/escape_profiles/Moderna_6validations_stackedlogo.pdf
-     results/escape_profiles/Moderna_6validations_stackedlogo.png.
+    Plotted profile 4 to:
+     results/escape_profiles/Moderna_sera_color_by_bind_stackedlogo.pdf
+     results/escape_profiles/Moderna_sera_color_by_bind_stackedlogo.png.
 
 
 
@@ -721,9 +768,9 @@ with multiprocessing.Pool(ncpus) as pool:
 
 
     
-    Plotted profile 6 to:
-     results/escape_profiles/Moderna_6validations_27sites_stackedlogo.pdf
-     results/escape_profiles/Moderna_6validations_27sites_stackedlogo.png.
+    Plotted profile 5 to:
+     results/escape_profiles/Moderna_sera_color_by_expr_stackedlogo.pdf
+     results/escape_profiles/Moderna_sera_color_by_expr_stackedlogo.png.
 
 
 
@@ -733,9 +780,9 @@ with multiprocessing.Pool(ncpus) as pool:
 
 
     
-    Plotted profile 7 to:
-     results/escape_profiles/Moderna_100ug_stackedlogo.pdf
-     results/escape_profiles/Moderna_100ug_stackedlogo.png.
+    Plotted profile 6 to:
+     results/escape_profiles/Moderna_6validations_stackedlogo.pdf
+     results/escape_profiles/Moderna_6validations_stackedlogo.png.
 
 
 
@@ -745,9 +792,9 @@ with multiprocessing.Pool(ncpus) as pool:
 
 
     
-    Plotted profile 8 to:
-     results/escape_profiles/Moderna_day36_subset_stackedlogo.pdf
-     results/escape_profiles/Moderna_day36_subset_stackedlogo.png.
+    Plotted profile 7 to:
+     results/escape_profiles/Moderna_6validations_27sites_stackedlogo.pdf
+     results/escape_profiles/Moderna_6validations_27sites_stackedlogo.png.
 
 
 
@@ -757,9 +804,9 @@ with multiprocessing.Pool(ncpus) as pool:
 
 
     
-    Plotted profile 9 to:
-     results/escape_profiles/Moderna_day119_subset_stackedlogo.pdf
-     results/escape_profiles/Moderna_day119_subset_stackedlogo.png.
+    Plotted profile 8 to:
+     results/escape_profiles/Moderna_100ug_stackedlogo.pdf
+     results/escape_profiles/Moderna_100ug_stackedlogo.png.
 
 
 
@@ -769,9 +816,9 @@ with multiprocessing.Pool(ncpus) as pool:
 
 
     
-    Plotted profile 10 to:
-     results/escape_profiles/Moderna_all_day119_stackedlogo.pdf
-     results/escape_profiles/Moderna_all_day119_stackedlogo.png.
+    Plotted profile 9 to:
+     results/escape_profiles/Moderna_day36_subset_stackedlogo.pdf
+     results/escape_profiles/Moderna_day36_subset_stackedlogo.png.
 
 
 
@@ -781,9 +828,9 @@ with multiprocessing.Pool(ncpus) as pool:
 
 
     
-    Plotted profile 11 to:
-     results/escape_profiles/Moderna_250ug_day119_stackedlogo.pdf
-     results/escape_profiles/Moderna_250ug_day119_stackedlogo.png.
+    Plotted profile 10 to:
+     results/escape_profiles/Moderna_day119_subset_stackedlogo.pdf
+     results/escape_profiles/Moderna_day119_subset_stackedlogo.png.
 
 
 
@@ -793,9 +840,9 @@ with multiprocessing.Pool(ncpus) as pool:
 
 
     
-    Plotted profile 12 to:
-     results/escape_profiles/convalescent_100d_stackedlogo.pdf
-     results/escape_profiles/convalescent_100d_stackedlogo.png.
+    Plotted profile 11 to:
+     results/escape_profiles/Moderna_all_day119_stackedlogo.pdf
+     results/escape_profiles/Moderna_all_day119_stackedlogo.png.
 
 
 
@@ -805,9 +852,9 @@ with multiprocessing.Pool(ncpus) as pool:
 
 
     
-    Plotted profile 13 to:
-     results/escape_profiles/convalescent_30d_stackedlogo.pdf
-     results/escape_profiles/convalescent_30d_stackedlogo.png.
+    Plotted profile 12 to:
+     results/escape_profiles/Moderna_250ug_day119_stackedlogo.pdf
+     results/escape_profiles/Moderna_250ug_day119_stackedlogo.png.
 
 
 
@@ -817,9 +864,9 @@ with multiprocessing.Pool(ncpus) as pool:
 
 
     
-    Plotted profile 14 to:
-     results/escape_profiles/haarvi_6validations_stackedlogo.pdf
-     results/escape_profiles/haarvi_6validations_stackedlogo.png.
+    Plotted profile 13 to:
+     results/escape_profiles/convalescent_100d_stackedlogo.pdf
+     results/escape_profiles/convalescent_100d_stackedlogo.png.
 
 
 
@@ -829,14 +876,38 @@ with multiprocessing.Pool(ncpus) as pool:
 
 
     
+    Plotted profile 14 to:
+     results/escape_profiles/convalescent_30d_stackedlogo.pdf
+     results/escape_profiles/convalescent_30d_stackedlogo.png.
+
+
+
+    
+![png](escape_profiles_files/escape_profiles_26_29.png)
+    
+
+
+    
     Plotted profile 15 to:
+     results/escape_profiles/haarvi_6validations_stackedlogo.pdf
+     results/escape_profiles/haarvi_6validations_stackedlogo.png.
+
+
+
+    
+![png](escape_profiles_files/escape_profiles_26_31.png)
+    
+
+
+    
+    Plotted profile 16 to:
      results/escape_profiles/haarvi_6validations_27sites_stackedlogo.pdf
      results/escape_profiles/haarvi_6validations_27sites_stackedlogo.png.
 
 
 
     
-![png](escape_profiles_files/escape_profiles_26_29.png)
+![png](escape_profiles_files/escape_profiles_26_33.png)
     
 
 

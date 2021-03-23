@@ -68,6 +68,7 @@ print('Making supplementary data for the following condition sets:\n  ' + '\n  '
 ```
 
     Making supplementary data for the following condition sets:
+      moderna_convalescent_all
       Moderna_sera
 
 
@@ -180,12 +181,12 @@ for metric_type, (set_name, condition_set) in itertools.product(['mutation', 'si
     plotfile = os.path.join(config['supp_data_dir'],
                             f"{set_name}-{metric_type}-corr.pdf")
     print(f"Saving plot to {plotfile}")
-    p.save(plotfile, verbose=False)
+    p.save(plotfile, verbose=False, limitsize=False)
     plt.close(fig)
 ```
 
     
-    Plotting correlations of mutation escape for Moderna_sera
+    Plotting correlations of mutation escape for moderna_convalescent_all
 
 
 
@@ -194,14 +195,36 @@ for metric_type, (set_name, condition_set) in itertools.product(['mutation', 'si
     
 
 
+    Saving plot to results/supp_data/moderna_convalescent_all-mutation-corr.pdf
+    
+    Plotting correlations of mutation escape for Moderna_sera
+
+
+
+    
+![png](make_supp_data_files/make_supp_data_16_3.png)
+    
+
+
     Saving plot to results/supp_data/Moderna_sera-mutation-corr.pdf
+    
+    Plotting correlations of site escape for moderna_convalescent_all
+
+
+
+    
+![png](make_supp_data_files/make_supp_data_16_5.png)
+    
+
+
+    Saving plot to results/supp_data/moderna_convalescent_all-site-corr.pdf
     
     Plotting correlations of site escape for Moderna_sera
 
 
 
     
-![png](make_supp_data_files/make_supp_data_16_3.png)
+![png](make_supp_data_files/make_supp_data_16_7.png)
     
 
 
@@ -245,6 +268,9 @@ for set_name, condition_set in condition_sets.items():
     df.to_csv(csv_file, index=False, float_format='%.4g')
 ```
 
+    
+    Raw data for moderna_convalescent_all:
+    Writing to results/supp_data/moderna_convalescent_all_raw_data.csv
     
     Raw data for Moderna_sera:
     Writing to results/supp_data/Moderna_sera_raw_data.csv
@@ -430,6 +456,7 @@ for set_name, condition_set in condition_sets.items():
         df.to_csv(csv_file, index=False, float_format='%.4g')
 ```
 
+    Writing `dms-view` input file for moderna_convalescent_all mapped to PDB 6m0j to results/supp_data/moderna_convalescent_all_6m0j_dms-view_data.csv
     Writing `dms-view` input file for Moderna_sera mapped to PDB 6m0j to results/supp_data/Moderna_sera_6m0j_dms-view_data.csv
 
 

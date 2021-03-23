@@ -125,7 +125,7 @@ for name, specs in escape_profiles_config.items():
 ```
 
     
-    Analyzing homolog escape for all_convalescent, saving plot to results/homologs/all_convalescent_homolog_escape.pdf
+    Analyzing homolog escape for moderna_convalescent_all, saving plot to results/homologs/moderna_convalescent_all_homolog_escape.pdf
 
 
 
@@ -135,7 +135,7 @@ for name, specs in escape_profiles_config.items():
 
 
     
-    Analyzing homolog escape for Moderna_sera, saving plot to results/homologs/Moderna_sera_homolog_escape.pdf
+    Analyzing homolog escape for all_convalescent, saving plot to results/homologs/all_convalescent_homolog_escape.pdf
 
 
 
@@ -145,7 +145,7 @@ for name, specs in escape_profiles_config.items():
 
 
     
-    Analyzing homolog escape for Moderna_6validations, saving plot to results/homologs/Moderna_6validations_homolog_escape.pdf
+    Analyzing homolog escape for Moderna_sera, saving plot to results/homologs/Moderna_sera_homolog_escape.pdf
 
 
 
@@ -155,7 +155,7 @@ for name, specs in escape_profiles_config.items():
 
 
     
-    Analyzing homolog escape for Moderna_6validations_27sites, saving plot to results/homologs/Moderna_6validations_27sites_homolog_escape.pdf
+    Analyzing homolog escape for Moderna_6validations, saving plot to results/homologs/Moderna_6validations_homolog_escape.pdf
 
 
 
@@ -165,7 +165,7 @@ for name, specs in escape_profiles_config.items():
 
 
     
-    Analyzing homolog escape for Moderna_100ug, saving plot to results/homologs/Moderna_100ug_homolog_escape.pdf
+    Analyzing homolog escape for Moderna_6validations_27sites, saving plot to results/homologs/Moderna_6validations_27sites_homolog_escape.pdf
 
 
 
@@ -175,7 +175,7 @@ for name, specs in escape_profiles_config.items():
 
 
     
-    Analyzing homolog escape for Moderna_day36_subset, saving plot to results/homologs/Moderna_day36_subset_homolog_escape.pdf
+    Analyzing homolog escape for Moderna_100ug, saving plot to results/homologs/Moderna_100ug_homolog_escape.pdf
 
 
 
@@ -185,7 +185,7 @@ for name, specs in escape_profiles_config.items():
 
 
     
-    Analyzing homolog escape for Moderna_day119_subset, saving plot to results/homologs/Moderna_day119_subset_homolog_escape.pdf
+    Analyzing homolog escape for Moderna_day36_subset, saving plot to results/homologs/Moderna_day36_subset_homolog_escape.pdf
 
 
 
@@ -195,7 +195,7 @@ for name, specs in escape_profiles_config.items():
 
 
     
-    Analyzing homolog escape for Moderna_all_day119, saving plot to results/homologs/Moderna_all_day119_homolog_escape.pdf
+    Analyzing homolog escape for Moderna_day119_subset, saving plot to results/homologs/Moderna_day119_subset_homolog_escape.pdf
 
 
 
@@ -205,7 +205,7 @@ for name, specs in escape_profiles_config.items():
 
 
     
-    Analyzing homolog escape for Moderna_250ug_day119, saving plot to results/homologs/Moderna_250ug_day119_homolog_escape.pdf
+    Analyzing homolog escape for Moderna_all_day119, saving plot to results/homologs/Moderna_all_day119_homolog_escape.pdf
 
 
 
@@ -215,7 +215,7 @@ for name, specs in escape_profiles_config.items():
 
 
     
-    Analyzing homolog escape for convalescent_100d, saving plot to results/homologs/convalescent_100d_homolog_escape.pdf
+    Analyzing homolog escape for Moderna_250ug_day119, saving plot to results/homologs/Moderna_250ug_day119_homolog_escape.pdf
 
 
 
@@ -225,7 +225,7 @@ for name, specs in escape_profiles_config.items():
 
 
     
-    Analyzing homolog escape for convalescent_30d, saving plot to results/homologs/convalescent_30d_homolog_escape.pdf
+    Analyzing homolog escape for convalescent_100d, saving plot to results/homologs/convalescent_100d_homolog_escape.pdf
 
 
 
@@ -235,7 +235,7 @@ for name, specs in escape_profiles_config.items():
 
 
     
-    Analyzing homolog escape for haarvi_6validations, saving plot to results/homologs/haarvi_6validations_homolog_escape.pdf
+    Analyzing homolog escape for convalescent_30d, saving plot to results/homologs/convalescent_30d_homolog_escape.pdf
 
 
 
@@ -245,12 +245,22 @@ for name, specs in escape_profiles_config.items():
 
 
     
-    Analyzing homolog escape for haarvi_6validations_27sites, saving plot to results/homologs/haarvi_6validations_27sites_homolog_escape.pdf
+    Analyzing homolog escape for haarvi_6validations, saving plot to results/homologs/haarvi_6validations_homolog_escape.pdf
 
 
 
     
 ![png](homolog_escape_files/homolog_escape_14_25.png)
+    
+
+
+    
+    Analyzing homolog escape for haarvi_6validations_27sites, saving plot to results/homologs/haarvi_6validations_27sites_homolog_escape.pdf
+
+
+
+    
+![png](homolog_escape_files/homolog_escape_14_27.png)
     
 
 
