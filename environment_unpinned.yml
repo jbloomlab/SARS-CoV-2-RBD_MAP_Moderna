@@ -13,6 +13,7 @@ dependencies:
   - jupyterlab
   - jupyter_contrib_nbextensions
   - jupytext
+  - lifelines
   - nbdime
   - snakemake
   - altair
