@@ -57,3 +57,17 @@ viruses:
   - E484P
   - K417N-G446V-E484K
   - RBD antibodies depleted
+
+map_conditions:
+  M06-day-119_80: M06 (day 119)
+  M11-day-119_200: M11 (day 119)
+  M05-day-119_500: M05 (day 119)
+  M03-day-119_200: M03 (day 119)
+  M12-day-119_200: M12 (day 119)
+  M14-day-119_500: M14 (day 119)
+  24C_d104_200: subject C (day 104)
+  22C_d104_200: subject E (day 104)
+  23C_d102_80: subject I (day 102)
+  1C_d113_200: subject B (day 113)
+  23_d120_500: subject A (day 120)
+  25_d94_200: subject G (day 94)
