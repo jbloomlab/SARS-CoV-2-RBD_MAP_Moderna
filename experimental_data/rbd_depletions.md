@@ -1166,6 +1166,7 @@ auc_df = (
              'depleted',
              'ligand',
              'date',
+             'timepoint',
              ])
     .apply(lambda g: sklearn.metrics.auc(g['log_dilution'], g['OD450']))
     .rename('AUC')
@@ -1174,7 +1175,7 @@ auc_df = (
     )
 
 haarvi_elisa = (pd.read_csv(config['convalescent_elisa'])
-                [['serum', 'depleted', 'ligand', 'date', 'AUC']]
+                [['serum', 'depleted', 'ligand', 'date', 'AUC', 'timepoint']]
                 .assign(conv_or_vax='convalescent')
                )
 
@@ -1212,6 +1213,7 @@ auc_df.tail().round(3)
       <th>depleted</th>
       <th>ligand</th>
       <th>date</th>
+      <th>timepoint</th>
       <th>AUC</th>
       <th>conv_or_vax</th>
     </tr>
@@ -1222,7 +1224,8 @@ auc_df.tail().round(3)
       <td>subject R (day 48)</td>
       <td>post</td>
       <td>spike</td>
-      <td>201029.0</td>
+      <td>201029</td>
+      <td>48</td>
       <td>5.385</td>
       <td>convalescent</td>
     </tr>
@@ -1231,7 +1234,8 @@ auc_df.tail().round(3)
       <td>subject R (day 79)</td>
       <td>pre</td>
       <td>RBD</td>
-      <td>201108.0</td>
+      <td>201108</td>
+      <td>79</td>
       <td>1.166</td>
       <td>convalescent</td>
     </tr>
@@ -1240,7 +1244,8 @@ auc_df.tail().round(3)
       <td>subject R (day 79)</td>
       <td>pre</td>
       <td>spike</td>
-      <td>201108.0</td>
+      <td>201108</td>
+      <td>79</td>
       <td>4.408</td>
       <td>convalescent</td>
     </tr>
@@ -1249,7 +1254,8 @@ auc_df.tail().round(3)
       <td>subject R (day 79)</td>
       <td>post</td>
       <td>RBD</td>
-      <td>201108.0</td>
+      <td>201108</td>
+      <td>79</td>
       <td>0.020</td>
       <td>convalescent</td>
     </tr>
@@ -1258,7 +1264,8 @@ auc_df.tail().round(3)
       <td>subject R (day 79)</td>
       <td>post</td>
       <td>spike</td>
-      <td>201108.0</td>
+      <td>201108</td>
+      <td>79</td>
       <td>3.747</td>
       <td>convalescent</td>
     </tr>
@@ -1476,10 +1483,166 @@ AUC_lines.save(f'./{resultsdir}/AUC_lines_compare.pdf')
     
 
 
+### Make ELISA plots more similar to the NT50 plots (facet on time point)
+
 
 ```python
-# !jupyter nbconvert rbd_depletions.ipynb --to markdown
+auc_df = (auc_df
+              .assign(
+                      early_late=lambda x: x['timepoint'].apply(lambda x: 'day 30-60' if x<=61 else 'day 100-150'),
+                     )
+              .assign(early_late=lambda x: pd.Categorical(x['early_late'], categories=['day 30-60', 'day 100-150'], ordered=True),)
+             )
+display(HTML(auc_df.head().to_html(index=False))) 
 ```
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>serum</th>
+      <th>depleted</th>
+      <th>ligand</th>
+      <th>date</th>
+      <th>timepoint</th>
+      <th>AUC</th>
+      <th>conv_or_vax</th>
+      <th>early_late</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>M01-day-119</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>119</td>
+      <td>2.889735</td>
+      <td>vaccine</td>
+      <td>day 100-150</td>
+    </tr>
+    <tr>
+      <td>M01-day-119</td>
+      <td>pre</td>
+      <td>spike</td>
+      <td>210205</td>
+      <td>119</td>
+      <td>4.748092</td>
+      <td>vaccine</td>
+      <td>day 100-150</td>
+    </tr>
+    <tr>
+      <td>M01-day-119</td>
+      <td>post</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>119</td>
+      <td>0.016314</td>
+      <td>vaccine</td>
+      <td>day 100-150</td>
+    </tr>
+    <tr>
+      <td>M01-day-119</td>
+      <td>post</td>
+      <td>spike</td>
+      <td>210205</td>
+      <td>119</td>
+      <td>3.382243</td>
+      <td>vaccine</td>
+      <td>day 100-150</td>
+    </tr>
+    <tr>
+      <td>M01-day-36</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>36</td>
+      <td>8.207787</td>
+      <td>vaccine</td>
+      <td>day 30-60</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+```python
+for ligand in ['RBD', 'spike']:
+    AUC_facet = (ggplot(auc_df
+                        .query('serum!="pre-pandemic" & ligand==@ligand'), 
+                        aes(x='depleted', y='AUC', group='serum')) +
+                      geom_point(size=2.5, alpha=0.25) +
+                      geom_line(alpha=0.25) +
+                      facet_grid('early_late ~ conv_or_vax ', scales='free_y',) +
+                      theme(axis_text_x=element_text(angle=0, vjust=1, hjust=0.5),
+                            axis_title_y=element_text(margin={'r': 12}),
+                            strip_background=element_blank(),
+                            figure_size=(4, 6), #subplots_adjust={'wspace':0.25},
+                            legend_entry_spacing=14) +
+                      ylab(f'{ligand} binding (ELISA AUC)\nunits not comparable among panels') +
+                      xlab('pre- or post-depletion\nof RBD antibodies') +
+                 # add line for background defined by 2017-2018 serum pool
+                      geom_hline(data=background.query('ligand==@ligand'),
+                                 mapping=aes(yintercept='AUC'),
+                                 color=CBPALETTE[7],
+                                 alpha=1,
+                                 size=1,
+                                 linetype='dotted',
+                                ) 
+                     )
+
+    _ = AUC_facet.draw()
+
+    # AUC_lines_facet = (ggplot(auc_df, aes(x='depletion', y='NT50', group='serum')) +
+    #               geom_point(size=2.5, alpha=0.25) +
+    #               geom_line(alpha=0.25) +
+    #               facet_grid('early_late~conv_or_vax', ) +
+    #               theme(axis_title_y=element_text(margin={'r': 6}),
+    #                     strip_background=element_blank(),
+    #                     figure_size=(4, 6),) +
+    #               scale_y_log10(name='neutralization titer (NT50)') +
+    #               xlab('pre- or post-depletion\nof RBD antibodies') +
+    #               geom_hline(data=LOD,
+    #                              mapping=aes(yintercept='NT50'),
+    #                              color=CBPALETTE[7],
+    #                              alpha=1,
+    #                              size=1,
+    #                              linetype='dotted',
+    #                             )
+    #                  )
+
+    # _ = AUC_lines_facet.draw()
+    
+    # AUC_facet.save(f'./{resultsdir}/{ligand}_AUC_facet.pdf')
+```
+
+
+    
+![png](rbd_depletions_files/rbd_depletions_41_0.png)
+    
+
+
+
+    
+![png](rbd_depletions_files/rbd_depletions_41_1.png)
+    
+
+
+
+```python
+!jupyter nbconvert rbd_depletions.ipynb --to markdown
+```
+
+    [NbConvertApp] Converting notebook rbd_depletions.ipynb to markdown
+    [NbConvertApp] Support files will be in rbd_depletions_files/
+    [NbConvertApp] Making directory rbd_depletions_files
+    [NbConvertApp] Making directory rbd_depletions_files
+    [NbConvertApp] Making directory rbd_depletions_files
+    [NbConvertApp] Making directory rbd_depletions_files
+    [NbConvertApp] Making directory rbd_depletions_files
+    [NbConvertApp] Making directory rbd_depletions_files
+    [NbConvertApp] Writing 37873 bytes to rbd_depletions.md
+
 
 
 ```python
