@@ -62,4 +62,8 @@ This directory contains input data used for the analysis and configuration for s
 
   - [./pse_config.yaml](pse_config.yaml): config file for writing pymol commands to create a PSE session for certain selections.
 
-  - [./mds_colors_vax_conv.csv](mds_colors_vax_conv.csv): file that specifies colors for MDS plotting of vaccine vs. convalescent sera/plasma. 
+  - [./mds_colors_vax_conv.csv](mds_colors_vax_conv.csv): file that specifies colors for MDS plotting of vaccine vs. convalescent sera/plasma.
+
+## Other files
+
+The [./TableS2_FACSinfo.csv](TableS2_FACSinfo.csv) file contains information on FACS sorting to select cells expressing RBD mutants with reduced binding by sera from vaccinated individuals. The file gives the number of antibody-escaped cells collected per selection for each replicate library and the percent of RBD+ cells in the antibody-escape gate for each selection, and the exact dilution used for each plasma selection. 
