@@ -950,7 +950,7 @@ p = (ggplot((muts_depletions)) +
      facet_wrap('~serum', ncol=6) +
      theme_classic() +
      theme(axis_text_x=element_text(angle=90),
-           figure_size=(0.2 * muts_depletions['virus'].nunique()*muts_depletions['serum'].nunique()/2, 2.5),
+           figure_size=(0.2 * muts_depletions['virus'].nunique()*muts_depletions['serum'].nunique()/2, 4),
            strip_margin_y=0.35,
            strip_background_x=element_blank(),
            ) +
@@ -1059,7 +1059,7 @@ p = (ggplot(muts_depletions
      scale_y_log10(name='fold change IC50') +
      facet_wrap('~serum', ncol=6) +
      theme_classic() +
-     theme(axis_title_x=element_blank(),
+     theme(axis_title_y=element_blank(),
            strip_margin_y=0.35,
            strip_background_x=element_blank(),
            figure_size=(0.2 * (muts_depletions['virus'].nunique()-1)*muts_depletions['serum'].nunique()/2, 4),
@@ -1100,34 +1100,22 @@ p.save(plotfile, verbose=False)
 
 ```python
 p = (ggplot(muts_depletions
-            .query("virus != 'wildtype'")
+            .query("virus != 'wildtype' & virus != 'RBD antibodies depleted'")
+            .assign(sample_type=lambda x: pd.Categorical(x['sample_type'],ordered=True,categories=['vaccine', 'convalescent']))
             ) +
-     aes('virus', 'fold_change', shape='ic50_is_bound', fill='site total escape'
-        ) +
-     geom_point(size=2.5, alpha=0.6) +
+     aes('virus', 'fold_change') +
+     geom_point(size=2.5, alpha=0.4) +
      scale_y_log10(name='fold change IC50') +
-     facet_wrap('~sample_type', ncol=6) +
+     facet_wrap('~sample_type', ncol=1) +
      theme_classic() +
-     theme(axis_title_x=element_blank(),
+     theme(axis_title_y=element_blank(),
            strip_margin_y=0.35,
            strip_background_x=element_blank(),
-           figure_size=(4, 0.2 * (muts_depletions['virus'].nunique()-1)*muts_depletions['serum'].nunique()/12),
+           figure_size=(2.5, 0.55 * (muts_depletions['virus'].nunique()-2)),
            ) +
      geom_hline(yintercept=1, linetype='dashed', size=1,
                 alpha=0.6, color=CBPALETTE[0]) +
-#      geom_hline(data=muts_depletions.query('virus=="RBD antibodies depleted"'),
-#                 mapping=aes(yintercept='fold_change'),
-#                 color=CBPALETTE[1],
-#                 alpha=0.7,
-#                 size=1,
-#                 linetype='dotted',
-#                ) +
-     coord_flip() +
-     scale_fill_gradient(low='white', high='#BD0026') +
-     scale_shape_manual(values=['o','^'], name='upper limit')
-#      scale_color_manual(values=CBPALETTE[1:],
-#                         name='upper limit') +
-#      scale_fill_manual(values=['gray', 'white'],name='upper limit')
+     coord_flip()
      )
 
 _ = p.draw()
@@ -1148,5 +1136,258 @@ p.save(plotfile, verbose=False)
 
 
 ```python
+p1 = (ggplot(muts_depletions
+            .query("virus != 'wildtype' & virus != 'RBD antibodies depleted'")
+            .assign(sample_type=lambda x: pd.Categorical(x['sample_type'],ordered=True,categories=['vaccine', 'convalescent']))
+            ) +
+     aes('virus', 'fold_change', fill='sample_type') +
+     geom_jitter(position=position_dodge(width=0.5), size=2.5, alpha=0.5) +
+     scale_y_log10(name='fold change IC50') +
+     theme_classic() +
+     theme(axis_title_y=element_blank(),
+           axis_title_x=element_text(size=9),
+           legend_title=element_text(size=10),
+           figure_size=(2.5, 0.75 * (muts_depletions['virus'].nunique()-2)),
+           ) +
+     geom_hline(yintercept=1, linetype='dashed', size=1,
+                alpha=0.6, color=CBPALETTE[0]) +
+     coord_flip() +
+     scale_fill_manual(values=['black', 'white'],
+                        name='')
+     )
+
+_ = p1.draw()
+
+plotfile = f'{resultsdir}/fold_change_IC50_rotated_dodged.pdf'
+print(f"Saving to {plotfile}")
+p1.save(plotfile, verbose=False)
+```
+
+    Saving to results/mutant_neuts_results//fold_change_IC50_rotated_dodged.pdf
+
+
+
+    
+![png](mutant_neuts_files/mutant_neuts_32_1.png)
+    
+
+
+
+```python
+p = (ggplot(muts_depletions
+            .query("virus != 'wildtype' & virus != 'RBD antibodies depleted'")
+            .assign(sample_type=lambda x: pd.Categorical(x['sample_type'],ordered=True,categories=['vaccine', 'convalescent']))
+             .replace({'K417N-G446V-E484K':'K417N\nG446V\nE484K'})
+             .assign(virus=lambda x: pd.Categorical(x['virus'],ordered=True,categories=config['viruses']+['K417N\nG446V\nE484K']))
+            ) +
+     aes('virus', 'fold_change', fill='sample_type') +
+     geom_jitter(position=position_dodge(width=0.5), size=2.5, alpha=0.5) +
+     scale_y_log10(name='fold-decrease in neutralization') +
+     theme_classic() +
+     theme(axis_title_x=element_blank(),
+           axis_title_y=element_text(size=9),
+           legend_title=element_text(size=10),
+           figure_size=(0.75 * (muts_depletions['virus'].nunique()-2), 2.5),
+           ) +
+     geom_hline(yintercept=1, linetype='dashed', size=1,
+                alpha=0.6, color=CBPALETTE[0]) +
+     scale_fill_manual(values=['black', 'white'],
+                        name='')
+     )
+
+_ = p.draw()
+
+plotfile = f'{resultsdir}/fold_change_IC50_dodged.pdf'
+print(f"Saving to {plotfile}")
+p.save(plotfile, verbose=False)
+```
+
+    Saving to results/mutant_neuts_results//fold_change_IC50_dodged.pdf
+
+
+
+    
+![png](mutant_neuts_files/mutant_neuts_33_1.png)
+    
+
+
+### Calculate the fraction of the neutralization potency that is derived from RBD-binding antibodies that is eroded by mutations to the RBD.
+
+
+```python
+muts_depletions.head()
+
+mut_v_dep = (muts_depletions #.query('virus!="wildtype"')
+             .merge(muts_depletions.query('virus=="RBD antibodies depleted"')
+                    [['serum', 'NT50', 'fold_change']]
+                    .rename(columns={'fold_change': 'depletion_foldchange',
+                                     'NT50': 'depletion_NT50'
+                                    }
+                           ),
+                    on=['serum'],
+                    how='left',
+                    validate='many_to_one'
+                   )
+             .assign(frac_eroded=lambda x: 1-(1/x['fold_change']),
+                     fc_eroded=lambda x: x['depletion_NT50']/x['NT50'])
+            )
+
+p2 = (ggplot(mut_v_dep
+            .query("virus != 'wildtype' & virus != 'RBD antibodies depleted'")
+            .assign(sample_type=lambda x: pd.Categorical(x['sample_type'],ordered=True,categories=['vaccine', 'convalescent']))
+            ) +
+     aes('virus', 'frac_eroded', fill='sample_type') +
+     geom_jitter(position=position_dodge(width=0.75), size=2.5, alpha=0.6) +
+     scale_y_continuous(name='fraction of neutralization potency\neroded by mutation') +
+     theme_classic() +
+     theme(axis_title_y=element_blank(),
+           axis_title_x=element_text(size=9),
+           legend_title=element_text(size=10),
+           figure_size=(2.5, 0.75 * (muts_depletions['virus'].nunique()-2)),
+           ) +
+     geom_hline(yintercept=0, linetype='dashed', size=1,
+                alpha=0.6, color=CBPALETTE[0]) +
+     coord_flip() +
+     scale_fill_manual(values=['black', 'white'],
+                        name='')
+     )
+
+_ = p2.draw()
+
+plotfile = f'{resultsdir}/frac_eroded.pdf'
+print(f"Saving to {plotfile}")
+p2.save(plotfile, verbose=False)
+```
+
+    Saving to results/mutant_neuts_results//frac_eroded.pdf
+
+
+
+    
+![png](mutant_neuts_files/mutant_neuts_35_1.png)
+    
+
+
+
+```python
+p2 = (ggplot(mut_v_dep
+            .query("virus != 'wildtype' & virus != 'RBD antibodies depleted'")
+            .assign(sample_type=lambda x: pd.Categorical(x['sample_type'],ordered=True,categories=['vaccine', 'convalescent']))
+             .replace({'K417N-G446V-E484K':'K417N\nG446V\nE484K'})
+             .assign(virus=lambda x: pd.Categorical(x['virus'],ordered=True,categories=config['viruses']+['K417N\nG446V\nE484K']))
+
+            ) +
+     aes('virus', 'frac_eroded', fill='sample_type') +
+     geom_jitter(position=position_dodge(width=0.75), size=2.5, alpha=0.6) +
+     scale_y_continuous(name='fraction of neutralization\neroded by mutation') +
+     theme_classic() +
+     theme(axis_title_x=element_blank(),
+           axis_title_y=element_text(size=9),
+           legend_title=element_text(size=10),
+           figure_size=(0.75 * (muts_depletions['virus'].nunique()-2), 2.5),
+           ) +
+     geom_hline(yintercept=0, linetype='dashed', size=1,
+                alpha=0.6, color=CBPALETTE[0]) +
+     scale_fill_manual(values=['black', 'white'],
+                        name='sample type')
+     )
+
+_ = p2.draw()
+
+plotfile = f'{resultsdir}/frac_eroded_rotated.pdf'
+print(f"Saving to {plotfile}")
+p2.save(plotfile, verbose=False)
+```
+
+    Saving to results/mutant_neuts_results//frac_eroded_rotated.pdf
+
+
+
+    
+![png](mutant_neuts_files/mutant_neuts_36_1.png)
+    
+
+
+
+```python
+p = (ggplot(mut_v_dep
+            .query("virus != 'wildtype' & virus != 'RBD antibodies depleted'")
+            .assign(sample_type=lambda x: pd.Categorical(x['sample_type'],ordered=True,categories=['vaccine', 'convalescent']))
+            ) +
+     aes('virus', 'fc_eroded', fill='sample_type') +
+     geom_jitter(position=position_dodge(width=0.75), size=2.5, alpha=0.6) +
+     scale_y_log10(name='fraction of RBD antibody-derived\nneutralization eroded by mutation') +
+     theme_classic() +
+     theme(axis_title_y=element_blank(),
+           axis_title_x=element_text(size=9),
+           legend_title=element_text(size=10),
+           figure_size=(2.5, 0.75 * (muts_depletions['virus'].nunique()-2)),
+           ) +
+     geom_hline(yintercept=0, linetype='dashed', size=1,
+                alpha=0.6, color=CBPALETTE[0]) +
+     coord_flip() +
+     scale_fill_manual(values=['black', 'white'],
+                        name='')
+     )
+
+_ = p.draw()
+
+plotfile = f'{resultsdir}/fc_eroded.pdf'
+print(f"Saving to {plotfile}")
+p.save(plotfile, verbose=False)
+```
+
+    Saving to results/mutant_neuts_results//fc_eroded.pdf
+
+
+
+    
+![png](mutant_neuts_files/mutant_neuts_37_1.png)
+    
+
+
+
+```python
+mut_v_dep.head(n=25)
+mut_v_dep.to_csv(f'{resultsdir}/frac_eroded.csv', index=False)
+```
+
+
+```python
+# fig = plt.figure(figsize=(2.5*2, 0.5 * (muts_depletions['virus'].nunique()-2)))
+# p1 = fig.add_subplot(1, 2, 1)
+# p2 = fig.add_subplot(1, 2, 2)
+# p2 = (ggplot(mut_v_dep
+#             .query("virus != 'wildtype' & virus != 'RBD antibodies depleted'")
+#             .assign(sample_type=lambda x: pd.Categorical(x['sample_type'],ordered=True,categories=['vaccine', 'convalescent']))
+#             ) +
+#      aes('virus', 'frac_eroded', color='sample_type') +
+#      geom_jitter(position=position_dodge(width=0.75), size=2.5, alpha=0.6) +
+#      scale_y_continuous(name='fraction of RBD antibody-derived\nneutralization eroded by mutation') +
+#      theme_classic() +
+#      theme(axis_title_y=element_blank(),
+#            axis_title_x=element_text(size=9),
+#            legend_title=element_text(size=10),
+#            figure_size=(2.5, 0.5 * (muts_depletions['virus'].nunique()-2)),
+#            ) +
+#      geom_hline(yintercept=0, linetype='dashed', size=1,
+#                 alpha=0.6, color=CBPALETTE[0]) +
+#      coord_flip() +
+#      scale_color_manual(values=['#000000', CBPALETTE[0]],
+#                         name='sample type')
+#      )
+```
+
+
+```python
 !jupyter nbconvert mutant_neuts.ipynb --to markdown
 ```
+
+    [NbConvertApp] Converting notebook mutant_neuts.ipynb to markdown
+    [NbConvertApp] Support files will be in mutant_neuts_files/
+    [NbConvertApp] Making directory mutant_neuts_files
+    [NbConvertApp] Making directory mutant_neuts_files
+    [NbConvertApp] Making directory mutant_neuts_files
+    [NbConvertApp] Making directory mutant_neuts_files
+    [NbConvertApp] Writing 37466 bytes to mutant_neuts.md
+
