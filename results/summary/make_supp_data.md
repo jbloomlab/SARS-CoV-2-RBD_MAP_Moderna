@@ -69,6 +69,7 @@ print('Making supplementary data for the following condition sets:\n  ' + '\n  '
 
     Making supplementary data for the following condition sets:
       moderna_convalescent_all
+      all_convalescent
       Moderna_sera
 
 
@@ -197,12 +198,23 @@ for metric_type, (set_name, condition_set) in itertools.product(['mutation', 'si
 
     Saving plot to results/supp_data/moderna_convalescent_all-mutation-corr.pdf
     
-    Plotting correlations of mutation escape for Moderna_sera
+    Plotting correlations of mutation escape for all_convalescent
 
 
 
     
 ![png](make_supp_data_files/make_supp_data_16_3.png)
+    
+
+
+    Saving plot to results/supp_data/all_convalescent-mutation-corr.pdf
+    
+    Plotting correlations of mutation escape for Moderna_sera
+
+
+
+    
+![png](make_supp_data_files/make_supp_data_16_5.png)
     
 
 
@@ -213,18 +225,29 @@ for metric_type, (set_name, condition_set) in itertools.product(['mutation', 'si
 
 
     
-![png](make_supp_data_files/make_supp_data_16_5.png)
+![png](make_supp_data_files/make_supp_data_16_7.png)
     
 
 
     Saving plot to results/supp_data/moderna_convalescent_all-site-corr.pdf
+    
+    Plotting correlations of site escape for all_convalescent
+
+
+
+    
+![png](make_supp_data_files/make_supp_data_16_9.png)
+    
+
+
+    Saving plot to results/supp_data/all_convalescent-site-corr.pdf
     
     Plotting correlations of site escape for Moderna_sera
 
 
 
     
-![png](make_supp_data_files/make_supp_data_16_7.png)
+![png](make_supp_data_files/make_supp_data_16_11.png)
     
 
 
@@ -271,6 +294,9 @@ for set_name, condition_set in condition_sets.items():
     
     Raw data for moderna_convalescent_all:
     Writing to results/supp_data/moderna_convalescent_all_raw_data.csv
+    
+    Raw data for all_convalescent:
+    Writing to results/supp_data/all_convalescent_raw_data.csv
     
     Raw data for Moderna_sera:
     Writing to results/supp_data/Moderna_sera_raw_data.csv
@@ -457,6 +483,7 @@ for set_name, condition_set in condition_sets.items():
 ```
 
     Writing `dms-view` input file for moderna_convalescent_all mapped to PDB 6m0j to results/supp_data/moderna_convalescent_all_6m0j_dms-view_data.csv
+    Writing `dms-view` input file for all_convalescent mapped to PDB 6m0j to results/supp_data/all_convalescent_6m0j_dms-view_data.csv
     Writing `dms-view` input file for Moderna_sera mapped to PDB 6m0j to results/supp_data/Moderna_sera_6m0j_dms-view_data.csv
 
 

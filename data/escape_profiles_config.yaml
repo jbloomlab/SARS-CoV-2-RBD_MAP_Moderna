@@ -131,7 +131,7 @@ all_convalescent:
   exclude_sites: []
   site_color_scheme: barnes_serum_epitopes
   color_by_dms: false
-  make_supp_data: false
+  make_supp_data: True
   analyze_natural_mutations: True
   analyze_natural_mutations_specs:
     plot_average_only: true

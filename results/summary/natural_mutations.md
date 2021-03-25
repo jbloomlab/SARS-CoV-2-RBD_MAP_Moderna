@@ -657,11 +657,6 @@ for name, specs in escape_profiles_config.items():
     
 
 
-    
-    Analyzing natural mutations for Moderna_sera
-    Writing counts of mutations at sites of strong escape to results/GISAID_mutations/Moderna_sera_mutation_counts.csv. First few lines:
-
-
 
 <table border="1" class="dataframe">
   <thead>
@@ -759,12 +754,15 @@ for name, specs in escape_profiles_config.items():
 </table>
 
 
+    
+    Analyzing natural mutations for Moderna_sera
+    Writing counts of mutations at sites of strong escape to results/GISAID_mutations/Moderna_sera_mutation_counts.csv. First few lines:
     Plotting which antibodies / sera are escaped by mutations at all sites of escape with at least 5 mutation counts and saving to results/GISAID_mutations/Moderna_sera_mutation_counts.pdf.
 
 
 
     
-![png](natural_mutations_files/natural_mutations_20_7.png)
+![png](natural_mutations_files/natural_mutations_20_6.png)
     
 
 

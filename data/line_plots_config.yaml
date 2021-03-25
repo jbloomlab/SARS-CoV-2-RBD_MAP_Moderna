@@ -5,61 +5,7 @@
 #   conditions -> specify antibodies / sera and names to use when plotting
 
 compare_vax_conv:
-  convalescent (day 100-150):  # name of plot
-    conditions:  # antibodies / sera to show and names to use for them
-      23_d120_500: 23_d120
-      1C_d113_200: 1C_d113
-      24C_d104_200: 24C_d104
-      6C_d76_500: 6C_d76
-      22C_d104_200: 22C_d104
-      25C_d115_80: 25C_d115
-      25_d94_200: 25_d94
-      12C_d152_80: 12C_d152
-      23C_d102_80: 23C_d102
-      13_d121_1250: 13_d121
-      7C_d103_200: 7C_d103
-    # set y-max on logo plots
-    escape_profile_ymax:
-      quantile: 0.5
-      frac: 0.05
-      min_ymax: 1
-    dmslogo_draw_line_kwargs:
-      widthscale: 0.5
-      axisfontscale: 1
-    highlight_sites: [456,484]
-    highlight_color: '#E69F00'
-
-  convalescent (day 15-60):  # name of plot
-    conditions:  # antibodies / sera to show and names to use for them
-      23_d21_1250: 23_d21
-      23_d45_1250: 23_d45
-      1C_d26_200: 1C_d26
-      24C_d32_200: 24C_d32
-      6C_d33_500: 6C_d33
-      22C_d28_200: 22C_d28
-      25C_d48_200: 25C_d48
-      25_d18_500: 25_d18
-      12C_d61_160: 12C_d61
-      23C_d26_80: 23C_d26
-      13_d15_200: 13_d15
-      7C_d29_500: 7C_d29
-      COV-021_500: COV-021
-      COV-047_200: COV-047
-      COV-057_50: COV-057
-      COV-072_200: COV-072
-      COV-107_80: COV-107
-    # set y-max on logo plots
-    escape_profile_ymax:
-      quantile: 0.5
-      frac: 0.05
-      min_ymax: 1
-    dmslogo_draw_line_kwargs:
-      widthscale: 0.5
-      axisfontscale: 1
-    highlight_sites: [456,484]
-    highlight_color: '#E69F00'
-
-  mRNA-1273 (day 36):  # name of plot
+  mRNA-1273 (day 36, n=5):  # name of plot
     conditions:  # antibodies / sera to show and names to use for them
       M02-day-36_1250: M02 (day 36)
       M05-day-36_500: M05 (day 36)
@@ -76,7 +22,7 @@ compare_vax_conv:
     highlight_sites: [456,484]
     highlight_color: '#E69F00'
 
-  mRNA-1273 (day 119):  # name of plot
+  mRNA-1273 (day 119, n=22):  # name of plot
     conditions:  # antibodies / sera to show and names to use for them
       M01-day-119_80: M01 (day 119)
       M06-day-119_80: M06 (day 119)
@@ -112,35 +58,10 @@ compare_vax_conv:
       axisfontscale: 1
     highlight_sites: [456,484]
     highlight_color: '#E69F00'
-
-compare_vax_conv_250ug:
-  convalescent (day 100-150):  # name of plot
-    conditions:  # antibodies / sera to show and names to use for them
-      23_d120_500: 23_d120
-      1C_d113_200: 1C_d113
-      24C_d104_200: 24C_d104
-      6C_d76_500: 6C_d76
-      22C_d104_200: 22C_d104
-      25C_d115_80: 25C_d115
-      25_d94_200: 25_d94
-      12C_d152_80: 12C_d152
-      23C_d102_80: 23C_d102
-      13_d121_1250: 13_d121
-      7C_d103_200: 7C_d103
-    escape_profile_ymax:
-      quantile: 0.5
-      frac: 0.05
-      min_ymax: 1
-    dmslogo_draw_line_kwargs:
-      widthscale: 0.5
-      axisfontscale: 1
-    highlight_sites: [456,484]
-    highlight_color: '#E69F00'
-
-  convalescent (day 15-60):  # name of plot
+    
+  convalescent (day 15-60, n=16):  # name of plot
     conditions:  # antibodies / sera to show and names to use for them
       23_d21_1250: 23_d21
-      23_d45_1250: 23_d45
       1C_d26_200: 1C_d26
       24C_d32_200: 24C_d32
       6C_d33_500: 6C_d33
@@ -156,6 +77,31 @@ compare_vax_conv_250ug:
       COV-057_50: COV-057
       COV-072_200: COV-072
       COV-107_80: COV-107
+    # set y-max on logo plots
+    escape_profile_ymax:
+      quantile: 0.5
+      frac: 0.05
+      min_ymax: 1
+    dmslogo_draw_line_kwargs:
+      widthscale: 0.5
+      axisfontscale: 1
+    highlight_sites: [456,484]
+    highlight_color: '#E69F00'
+  
+  convalescent (day 100-150, n=11):  # name of plot
+    conditions:  # antibodies / sera to show and names to use for them
+      23_d120_500: 23_d120
+      1C_d113_200: 1C_d113
+      24C_d104_200: 24C_d104
+      6C_d76_500: 6C_d76
+      22C_d104_200: 22C_d104
+      25C_d115_80: 25C_d115
+      25_d94_200: 25_d94
+      12C_d152_80: 12C_d152
+      23C_d102_80: 23C_d102
+      13_d121_1250: 13_d121
+      7C_d103_200: 7C_d103
+    # set y-max on logo plots
     escape_profile_ymax:
       quantile: 0.5
       frac: 0.05
@@ -166,7 +112,8 @@ compare_vax_conv_250ug:
     highlight_sites: [456,484]
     highlight_color: '#E69F00'
 
-  mRNA-1273 (day 36):  # name of plot
+compare_vax_conv_250ug:
+  mRNA-1273 (day 36, n=5):  # name of plot
     conditions:  # antibodies / sera to show and names to use for them
       M02-day-36_1250: M02 (day 36)
       M05-day-36_500: M05 (day 36)
@@ -183,7 +130,7 @@ compare_vax_conv_250ug:
     highlight_sites: [456,484]
     highlight_color: '#E69F00'
 
-  mRNA-1273 (day 119):  # name of plot
+  mRNA-1273 (day 119, n=14):  # name of plot
     conditions:  # antibodies / sera to show and names to use for them
       M01-day-119_80: M01 (day 119)
       M06-day-119_80: M06 (day 119)
@@ -212,7 +159,75 @@ compare_vax_conv_250ug:
     highlight_sites: [456,484]
     highlight_color: '#E69F00'
 
+  convalescent (day 15-60, n=16):  # name of plot
+    conditions:  # antibodies / sera to show and names to use for them
+      23_d21_1250: 23_d21
+      1C_d26_200: 1C_d26
+      24C_d32_200: 24C_d32
+      6C_d33_500: 6C_d33
+      22C_d28_200: 22C_d28
+      25C_d48_200: 25C_d48
+      25_d18_500: 25_d18
+      12C_d61_160: 12C_d61
+      23C_d26_80: 23C_d26
+      13_d15_200: 13_d15
+      7C_d29_500: 7C_d29
+      COV-021_500: COV-021
+      COV-047_200: COV-047
+      COV-057_50: COV-057
+      COV-072_200: COV-072
+      COV-107_80: COV-107
+    escape_profile_ymax:
+      quantile: 0.5
+      frac: 0.05
+      min_ymax: 1
+    dmslogo_draw_line_kwargs:
+      widthscale: 0.5
+      axisfontscale: 1
+    highlight_sites: [456,484]
+    highlight_color: '#E69F00'
+
+  convalescent (day 100-150, n=11):  # name of plot
+    conditions:  # antibodies / sera to show and names to use for them
+      23_d120_500: 23_d120
+      1C_d113_200: 1C_d113
+      24C_d104_200: 24C_d104
+      6C_d76_500: 6C_d76
+      22C_d104_200: 22C_d104
+      25C_d115_80: 25C_d115
+      25_d94_200: 25_d94
+      12C_d152_80: 12C_d152
+      23C_d102_80: 23C_d102
+      13_d121_1250: 13_d121
+      7C_d103_200: 7C_d103
+    escape_profile_ymax:
+      quantile: 0.5
+      frac: 0.05
+      min_ymax: 1
+    dmslogo_draw_line_kwargs:
+      widthscale: 0.5
+      axisfontscale: 1
+    highlight_sites: [456,484]
+    highlight_color: '#E69F00'
+
 validations:
+  Moderna_validated:  # name of plot
+    conditions:  # antibodies / sera to show and names to use for them
+      M06-day-119_80: M06 (day 119)
+      M11-day-119_200: M11 (day 119)
+      M05-day-119_500: M05 (day 119)
+      M03-day-119_200: M03 (day 119)
+      M12-day-119_200: M12 (day 119)
+      M14-day-119_500: M14 (day 119)
+    escape_profile_ymax:
+      quantile: 0.5
+      frac: 0.05
+      min_ymax: 1
+    dmslogo_draw_line_kwargs:
+      widthscale: 0.5
+      axisfontscale: 1
+    highlight_sites: [456,484]
+    highlight_color: '#E69F00'
   convalescent_validated:  # name of plot
     conditions:  # antibodies / sera to show and names to use for them
       24C_d104_200: subject C (day 104)
@@ -232,26 +247,8 @@ validations:
     highlight_sites: [456,484]
     highlight_color: '#E69F00'
 
-  Moderna_validated:  # name of plot
-    conditions:  # antibodies / sera to show and names to use for them
-      M06-day-119_80: M06 (day 119)
-      M11-day-119_200: M11 (day 119)
-      M05-day-119_500: M05 (day 119)
-      M03-day-119_200: M03 (day 119)
-      M12-day-119_200: M12 (day 119)
-      M14-day-119_500: M14 (day 119)
-    escape_profile_ymax:
-      quantile: 0.5
-      frac: 0.05
-      min_ymax: 1
-    dmslogo_draw_line_kwargs:
-      widthscale: 0.5
-      axisfontscale: 1
-    highlight_sites: [456,484]
-    highlight_color: '#E69F00'
-
 100vs250ug_day119:
-  mRNA-1273 (100ug dose):
+  mRNA-1273 (100ug dose, n=8):
     conditions:
       M16-day-119_1250: M16 (day 119)
       M17-day-119_200: M17 (day 119)
@@ -271,7 +268,7 @@ validations:
     highlight_sites: [456,484]
     highlight_color: '#E69F00'
 
-  mRNA-1273 (250ug dose):
+  mRNA-1273 (250ug dose, n=14):
     conditions:
       M01-day-119_80: M01 (day 119)
       M02-day-119_200: M02 (day 119)
