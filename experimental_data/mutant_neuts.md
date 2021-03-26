@@ -427,12 +427,6 @@ for d in frac_infect['date'].unique():
     
 
 
-
-    
-![png](mutant_neuts_files/mutant_neuts_16_2.png)
-    
-
-
 ## Get depletion NT50s and fold-change
 
 
@@ -468,132 +462,6 @@ depletion_df = (pd.concat([moderna_depletions, haarvi_depletions], axis=0, ignor
 display(HTML(depletion_df.to_html(index=False)))
 ```
 
-
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>serum</th>
-      <th>fold_change</th>
-      <th>NT50</th>
-      <th>ic50</th>
-      <th>ic50_is_bound</th>
-      <th>log2_fold_change</th>
-      <th>virus</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>M03 (day 119)</td>
-      <td>44.120772</td>
-      <td>25.000000</td>
-      <td>0.040000</td>
-      <td>True</td>
-      <td>5.463386</td>
-      <td>RBD antibodies depleted</td>
-    </tr>
-    <tr>
-      <td>M05 (day 119)</td>
-      <td>70.659257</td>
-      <td>25.000000</td>
-      <td>0.040000</td>
-      <td>True</td>
-      <td>6.142807</td>
-      <td>RBD antibodies depleted</td>
-    </tr>
-    <tr>
-      <td>M06 (day 119)</td>
-      <td>13.299399</td>
-      <td>72.471105</td>
-      <td>0.013799</td>
-      <td>False</td>
-      <td>3.733289</td>
-      <td>RBD antibodies depleted</td>
-    </tr>
-    <tr>
-      <td>M11 (day 119)</td>
-      <td>51.592102</td>
-      <td>25.000000</td>
-      <td>0.040000</td>
-      <td>True</td>
-      <td>5.689078</td>
-      <td>RBD antibodies depleted</td>
-    </tr>
-    <tr>
-      <td>M12 (day 119)</td>
-      <td>67.771270</td>
-      <td>25.000000</td>
-      <td>0.040000</td>
-      <td>True</td>
-      <td>6.082602</td>
-      <td>RBD antibodies depleted</td>
-    </tr>
-    <tr>
-      <td>M14 (day 119)</td>
-      <td>52.573884</td>
-      <td>53.834278</td>
-      <td>0.018576</td>
-      <td>False</td>
-      <td>5.716274</td>
-      <td>RBD antibodies depleted</td>
-    </tr>
-    <tr>
-      <td>subject A (day 120)</td>
-      <td>43.058197</td>
-      <td>20.000000</td>
-      <td>0.050000</td>
-      <td>True</td>
-      <td>5.428216</td>
-      <td>RBD antibodies depleted</td>
-    </tr>
-    <tr>
-      <td>subject B (day 113)</td>
-      <td>14.243019</td>
-      <td>20.000000</td>
-      <td>0.050000</td>
-      <td>True</td>
-      <td>3.832183</td>
-      <td>RBD antibodies depleted</td>
-    </tr>
-    <tr>
-      <td>subject C (day 104)</td>
-      <td>69.152358</td>
-      <td>20.000000</td>
-      <td>0.050000</td>
-      <td>True</td>
-      <td>6.111707</td>
-      <td>RBD antibodies depleted</td>
-    </tr>
-    <tr>
-      <td>subject E (day 104)</td>
-      <td>35.318485</td>
-      <td>20.000000</td>
-      <td>0.050000</td>
-      <td>True</td>
-      <td>5.142352</td>
-      <td>RBD antibodies depleted</td>
-    </tr>
-    <tr>
-      <td>subject G (day 94)</td>
-      <td>14.653491</td>
-      <td>20.000000</td>
-      <td>0.050000</td>
-      <td>True</td>
-      <td>3.873172</td>
-      <td>RBD antibodies depleted</td>
-    </tr>
-    <tr>
-      <td>subject I (day 102)</td>
-      <td>11.695651</td>
-      <td>50.224569</td>
-      <td>0.019911</td>
-      <td>False</td>
-      <td>3.547900</td>
-      <td>RBD antibodies depleted</td>
-    </tr>
-  </tbody>
-</table>
-
-
 ## Read in escape fractions
 
 
@@ -607,129 +475,9 @@ display(HTML(escape_fracs.head().to_html(index=False)))
 ```
 
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>selection</th>
-      <th>library</th>
-      <th>condition</th>
-      <th>site</th>
-      <th>label_site</th>
-      <th>wildtype</th>
-      <th>mutation</th>
-      <th>protein_chain</th>
-      <th>protein_site</th>
-      <th>mut_escape_frac_epistasis_model</th>
-      <th>mut_escape_frac_single_mut</th>
-      <th>site_total_escape_frac_epistasis_model</th>
-      <th>site_total_escape_frac_single_mut</th>
-      <th>site_avg_escape_frac_epistasis_model</th>
-      <th>site_avg_escape_frac_single_mut</th>
-      <th>nlibs</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>12C_d152_80</td>
-      <td>average</td>
-      <td>12C_d152_80</td>
-      <td>1</td>
-      <td>331</td>
-      <td>N</td>
-      <td>A</td>
-      <td>E</td>
-      <td>331</td>
-      <td>0.002020</td>
-      <td>0.001326</td>
-      <td>0.04926</td>
-      <td>0.0478</td>
-      <td>0.003079</td>
-      <td>0.002988</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>12C_d152_80</td>
-      <td>average</td>
-      <td>12C_d152_80</td>
-      <td>1</td>
-      <td>331</td>
-      <td>N</td>
-      <td>D</td>
-      <td>E</td>
-      <td>331</td>
-      <td>0.005616</td>
-      <td>0.000537</td>
-      <td>0.04926</td>
-      <td>0.0478</td>
-      <td>0.003079</td>
-      <td>0.002988</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>12C_d152_80</td>
-      <td>average</td>
-      <td>12C_d152_80</td>
-      <td>1</td>
-      <td>331</td>
-      <td>N</td>
-      <td>E</td>
-      <td>E</td>
-      <td>331</td>
-      <td>0.002535</td>
-      <td>0.000482</td>
-      <td>0.04926</td>
-      <td>0.0478</td>
-      <td>0.003079</td>
-      <td>0.002988</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>12C_d152_80</td>
-      <td>average</td>
-      <td>12C_d152_80</td>
-      <td>1</td>
-      <td>331</td>
-      <td>N</td>
-      <td>F</td>
-      <td>E</td>
-      <td>331</td>
-      <td>0.003032</td>
-      <td>0.005816</td>
-      <td>0.04926</td>
-      <td>0.0478</td>
-      <td>0.003079</td>
-      <td>0.002988</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>12C_d152_80</td>
-      <td>average</td>
-      <td>12C_d152_80</td>
-      <td>1</td>
-      <td>331</td>
-      <td>N</td>
-      <td>G</td>
-      <td>E</td>
-      <td>331</td>
-      <td>0.003113</td>
-      <td>0.001273</td>
-      <td>0.04926</td>
-      <td>0.0478</td>
-      <td>0.003079</td>
-      <td>0.002988</td>
-      <td>2</td>
-    </tr>
-  </tbody>
-</table>
-
-
-
 ```python
 print(config['map_conditions'])
 ```
-
-    {'M06-day-119_80': 'M06 (day 119)', 'M11-day-119_200': 'M11 (day 119)', 'M05-day-119_500': 'M05 (day 119)', 'M03-day-119_200': 'M03 (day 119)', 'M12-day-119_200': 'M12 (day 119)', 'M14-day-119_500': 'M14 (day 119)', '24C_d104_200': 'subject C (day 104)', '22C_d104_200': 'subject E (day 104)', '23C_d102_80': 'subject I (day 102)', '1C_d113_200': 'subject B (day 113)', '23_d120_500': 'subject A (day 120)', '25_d94_200': 'subject G (day 94)'}
-
 
 
 ```python
@@ -754,51 +502,6 @@ escape_fracs_df = (escape_fracs
 display(HTML(escape_fracs_df.head().to_html(index=False)))
 ```
 
-
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>serum</th>
-      <th>site total escape</th>
-      <th>mutation escape</th>
-      <th>virus</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>subject B (day 113)</td>
-      <td>0.2028</td>
-      <td>0.01312</td>
-      <td>N331A</td>
-    </tr>
-    <tr>
-      <td>subject B (day 113)</td>
-      <td>0.2028</td>
-      <td>0.02020</td>
-      <td>N331D</td>
-    </tr>
-    <tr>
-      <td>subject B (day 113)</td>
-      <td>0.2028</td>
-      <td>0.01226</td>
-      <td>N331E</td>
-    </tr>
-    <tr>
-      <td>subject B (day 113)</td>
-      <td>0.2028</td>
-      <td>0.01330</td>
-      <td>N331F</td>
-    </tr>
-    <tr>
-      <td>subject B (day 113)</td>
-      <td>0.2028</td>
-      <td>0.01373</td>
-      <td>N331G</td>
-    </tr>
-  </tbody>
-</table>
-
-
 ## Make plot showing NT50 for each genotype (wildtype or mutant) for each serum.
 This is actually an important thing we should probably add to the paper. 
 Even though the NT50s decrease by ~10-fold or more for some sera against some mutants, the absolute NT50 remaining might still be quite potent. 
@@ -819,126 +522,9 @@ display(HTML(muts_depletions.tail().to_html(index=False)))
 ```
 
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>serum</th>
-      <th>fold_change</th>
-      <th>NT50</th>
-      <th>ic50</th>
-      <th>ic50_is_bound</th>
-      <th>log2_fold_change</th>
-      <th>virus</th>
-      <th>ic50_bound</th>
-      <th>date</th>
-      <th>wildtype_ic50</th>
-      <th>sample_type</th>
-      <th>site total escape</th>
-      <th>mutation escape</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>subject A (day 120)</td>
-      <td>1.771949</td>
-      <td>743.912663</td>
-      <td>0.001344</td>
-      <td>False</td>
-      <td>0.825337</td>
-      <td>L452R</td>
-      <td>interpolated</td>
-      <td>210312</td>
-      <td>0.000759</td>
-      <td>convalescent</td>
-      <td>1.156</td>
-      <td>0.1171</td>
-    </tr>
-    <tr>
-      <td>subject B (day 113)</td>
-      <td>1.928334</td>
-      <td>392.047104</td>
-      <td>0.002551</td>
-      <td>False</td>
-      <td>0.947355</td>
-      <td>F456A</td>
-      <td>interpolated</td>
-      <td>210312</td>
-      <td>0.001323</td>
-      <td>convalescent</td>
-      <td>3.510</td>
-      <td>0.4938</td>
-    </tr>
-    <tr>
-      <td>subject B (day 113)</td>
-      <td>10.647124</td>
-      <td>71.004888</td>
-      <td>0.014084</td>
-      <td>False</td>
-      <td>3.412392</td>
-      <td>E484K</td>
-      <td>interpolated</td>
-      <td>210312</td>
-      <td>0.001323</td>
-      <td>convalescent</td>
-      <td>3.019</td>
-      <td>0.1182</td>
-    </tr>
-    <tr>
-      <td>subject B (day 113)</td>
-      <td>1.000000</td>
-      <td>755.997863</td>
-      <td>0.001323</td>
-      <td>False</td>
-      <td>0.000000</td>
-      <td>wildtype</td>
-      <td>interpolated</td>
-      <td>210312</td>
-      <td>0.001323</td>
-      <td>convalescent</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>subject B (day 113)</td>
-      <td>4.559898</td>
-      <td>165.792731</td>
-      <td>0.006032</td>
-      <td>False</td>
-      <td>2.189001</td>
-      <td>L452R</td>
-      <td>interpolated</td>
-      <td>210312</td>
-      <td>0.001323</td>
-      <td>convalescent</td>
-      <td>1.505</td>
-      <td>0.1556</td>
-    </tr>
-  </tbody>
-</table>
-
-
-
 ```python
 muts_depletions['virus'].drop_duplicates()
 ```
-
-
-
-
-    0     RBD antibodies depleted
-    12                   wildtype
-    13                      E484P
-    14                      G446V
-    15                      K417N
-    16          K417N-G446V-E484K
-    17                      P384R
-    60                      L452R
-    61                      F456A
-    67                      E484K
-    Name: virus, dtype: category
-    Categories (10, object): ['wildtype' < 'P384R' < 'K417N' < 'F456A' ... 'E484K' < 'E484P' < 'K417N-G446V-E484K' < 'RBD antibodies depleted']
-
-
 
 
 ```python
@@ -969,15 +555,6 @@ print(f"Saving to {plotfile}")
 p.save(plotfile, verbose=False)
 ```
 
-    Saving to results/mutant_neuts_results//all_neuts_NT50.pdf
-
-
-
-    
-![png](mutant_neuts_files/mutant_neuts_26_1.png)
-    
-
-
 ### Plot fold-change IC50 relative to wild type for each mutant.
 You could also imagine drawing a dashed line with the fold-change with RBD depletion, which sets an upper limit on what we would expect to see (the max drop in NT50 we could see due to anything RBD-related). 
 
@@ -991,9 +568,6 @@ To do this you would need to:
 serum_order = list(config['sample_types'].keys())
 print(serum_order)
 ```
-
-    ['M06 (day 119)', 'M11 (day 119)', 'M05 (day 119)', 'M03 (day 119)', 'M12 (day 119)', 'M14 (day 119)', 'subject C (day 104)', 'subject E (day 104)', 'subject I (day 102)', 'subject B (day 113)', 'subject A (day 120)', 'subject G (day 94)']
-
 
 
 ```python
@@ -1039,15 +613,6 @@ print(f"Saving to {plotfile}")
 p.save(plotfile, verbose=False)
 ```
 
-    Saving to results/mutant_neuts_results//fold_change_IC50.pdf
-
-
-
-    
-![png](mutant_neuts_files/mutant_neuts_29_1.png)
-    
-
-
 
 ```python
 p = (ggplot(muts_depletions
@@ -1088,15 +653,6 @@ print(f"Saving to {plotfile}")
 p.save(plotfile, verbose=False)
 ```
 
-    Saving to results/mutant_neuts_results//fold_change_IC50_rotated.pdf
-
-
-
-    
-![png](mutant_neuts_files/mutant_neuts_30_1.png)
-    
-
-
 
 ```python
 p = (ggplot(muts_depletions
@@ -1124,15 +680,6 @@ plotfile = f'{resultsdir}/fold_change_IC50_rotated_grouped.pdf'
 print(f"Saving to {plotfile}")
 p.save(plotfile, verbose=False)
 ```
-
-    Saving to results/mutant_neuts_results//fold_change_IC50_rotated_grouped.pdf
-
-
-
-    
-![png](mutant_neuts_files/mutant_neuts_31_1.png)
-    
-
 
 
 ```python
@@ -1163,14 +710,10 @@ print(f"Saving to {plotfile}")
 p1.save(plotfile, verbose=False)
 ```
 
-    Saving to results/mutant_neuts_results//fold_change_IC50_rotated_dodged.pdf
 
-
-
-    
-![png](mutant_neuts_files/mutant_neuts_32_1.png)
-    
-
+```python
+muts_depletions['sample_type'].unique()
+```
 
 
 ```python
@@ -1180,8 +723,8 @@ p = (ggplot(muts_depletions
              .replace({'K417N-G446V-E484K':'K417N\nG446V\nE484K'})
              .assign(virus=lambda x: pd.Categorical(x['virus'],ordered=True,categories=config['viruses']+['K417N\nG446V\nE484K']))
             ) +
-     aes('virus', 'fold_change', fill='sample_type') +
-     geom_boxplot(aes(color='sample_type'),
+     aes('virus', 'fold_change', fill='sample_type', color='sample_type', shape='ic50_is_bound',) + 
+     geom_boxplot(aes(), #color='sample_type'
                   width=0.4,
                   position=position_dodge(width=0.5),
                   outlier_shape='',
@@ -1197,8 +740,9 @@ p = (ggplot(muts_depletions
            ) +
      geom_hline(yintercept=1, linetype='dashed', size=1,
                 alpha=0.6, color=CBPALETTE[0]) +
-     scale_fill_manual(values=['#CC6677', '#332288'], name='')+
-     scale_color_manual(values=['#CC6677', '#332288'])
+     scale_fill_manual(values=['#CC6677', '#332288'])+
+     scale_color_manual(values=['#CC6677', '#332288']) +
+     scale_shape_manual(values=['o','^'], name='upper limit')
      )
 
 _ = p.draw()
@@ -1208,14 +752,86 @@ print(f"Saving to {plotfile}")
 p.save(plotfile, verbose=False)
 ```
 
-    Saving to results/mutant_neuts_results//fold_change_IC50_dodged.pdf
+
+```python
+p = (ggplot(muts_depletions
+#             .query("virus != 'wildtype' & virus != 'RBD antibodies depleted'")
+            .assign(sample_type=lambda x: pd.Categorical(x['sample_type'],ordered=True,categories=['vaccine', 'convalescent']))
+             .replace({'K417N-G446V-E484K':'K417N\nG446V\nE484K',
+                       'RBD antibodies depleted':'RBD\nabs\ndepleted'
+                      }
+                     )
+             .assign(virus=lambda x: pd.Categorical(x['virus'],ordered=True,categories=config['viruses']+['K417N\nG446V\nE484K','RBD\nabs\ndepleted']))
+            ) +
+     aes('virus', 'fold_change', fill='sample_type', color='sample_type', shape='ic50_is_bound') + 
+     geom_boxplot(aes(), #color='sample_type'
+                  width=0.4,
+                  position=position_dodge(width=0.5),
+                  outlier_shape='',
+                 ) +
+     geom_jitter(position=position_dodge(width=0.5), size=2.5, alpha=0.5) +
+     scale_y_log10(name='fold-decrease in neutralization') +
+     theme_classic() +
+     theme(axis_title_x=element_blank(),
+           axis_title_y=element_text(size=9),
+           legend_title=element_blank(),
+#            legend_title=element_text(size=10),
+           figure_size=(0.75 * (muts_depletions['virus'].nunique()), 2.5),
+           ) +
+     geom_hline(yintercept=1, linetype='dashed', size=1,
+                alpha=0.6, color=CBPALETTE[0]) +
+     scale_fill_manual(values=['#CC6677', '#332288'])+
+     scale_color_manual(values=['#CC6677', '#332288'])+
+     scale_shape_manual(values=['o','^'], name='upper limit')
+     )
+
+_ = p.draw()
+
+plotfile = f'{resultsdir}/fold_change_IC50_dodged_wt.pdf'
+print(f"Saving to {plotfile}")
+p.save(plotfile, verbose=False)
+```
 
 
+```python
+muts_depletions.head()
+```
 
-    
-![png](mutant_neuts_files/mutant_neuts_33_1.png)
-    
 
+```python
+p = (ggplot(muts_depletions
+#             .query("virus != 'wildtype' & virus != 'RBD antibodies depleted'")
+            .assign(sample_type=lambda x: pd.Categorical(x['sample_type'],ordered=True,categories=['vaccine', 'convalescent']))
+             .replace({'K417N-G446V-E484K':'K417N\nG446V\nE484K',
+                       'RBD antibodies depleted':'RBD\nabs\ndepleted'
+                      }
+                     )
+             .assign(virus=lambda x: pd.Categorical(x['virus'],ordered=True,categories=config['viruses']+['K417N\nG446V\nE484K','RBD\nabs\ndepleted']))
+            ) +
+     aes('virus', 'ic50', fill='sample_type', color='sample_type') + 
+     geom_boxplot(aes(), #color='sample_type'
+                  width=0.4,
+                  position=position_dodge(width=0.5),
+                  outlier_shape='',
+                 ) +
+     geom_jitter(position=position_dodge(width=0.5), size=2.5, alpha=0.5) +
+     scale_y_log10(name='IC50\nlarger values are less potent') +
+     theme_classic() +
+     theme(axis_title_x=element_blank(),
+           axis_title_y=element_text(size=9),
+           legend_title=element_blank(),
+           figure_size=(0.75 * (muts_depletions['virus'].nunique()), 2.5),
+           ) +
+     scale_fill_manual(values=['#CC6677', '#332288'])+
+     scale_color_manual(values=['#CC6677', '#332288'])
+     )
+
+_ = p.draw()
+
+plotfile = f'{resultsdir}/IC50_dodged.pdf'
+print(f"Saving to {plotfile}")
+p.save(plotfile, verbose=False)
+```
 
 ### Calculate the fraction of the neutralization potency that is derived from RBD-binding antibodies that is eroded by mutations to the RBD.
 
