@@ -1181,18 +1181,24 @@ p = (ggplot(muts_depletions
              .assign(virus=lambda x: pd.Categorical(x['virus'],ordered=True,categories=config['viruses']+['K417N\nG446V\nE484K']))
             ) +
      aes('virus', 'fold_change', fill='sample_type') +
+     geom_boxplot(aes(color='sample_type'),
+                  width=0.4,
+                  position=position_dodge(width=0.5),
+                  outlier_shape='',
+                 ) +
      geom_jitter(position=position_dodge(width=0.5), size=2.5, alpha=0.5) +
      scale_y_log10(name='fold-decrease in neutralization') +
      theme_classic() +
      theme(axis_title_x=element_blank(),
            axis_title_y=element_text(size=9),
-           legend_title=element_text(size=10),
+           legend_title=element_blank(),
+#            legend_title=element_text(size=10),
            figure_size=(0.75 * (muts_depletions['virus'].nunique()-2), 2.5),
            ) +
      geom_hline(yintercept=1, linetype='dashed', size=1,
                 alpha=0.6, color=CBPALETTE[0]) +
-     scale_fill_manual(values=['black', 'white'],
-                        name='')
+     scale_fill_manual(values=['#CC6677', '#332288'], name='')+
+     scale_color_manual(values=['#CC6677', '#332288'])
      )
 
 _ = p.draw()
@@ -1259,15 +1265,6 @@ print(f"Saving to {plotfile}")
 p2.save(plotfile, verbose=False)
 ```
 
-    Saving to results/mutant_neuts_results//frac_eroded.pdf
-
-
-
-    
-![png](mutant_neuts_files/mutant_neuts_35_1.png)
-    
-
-
 
 ```python
 p2 = (ggplot(mut_v_dep
@@ -1289,7 +1286,7 @@ p2 = (ggplot(mut_v_dep
      geom_hline(yintercept=0, linetype='dashed', size=1,
                 alpha=0.6, color=CBPALETTE[0]) +
      scale_fill_manual(values=['black', 'white'],
-                        name='sample type')
+                        name='')
      )
 
 _ = p2.draw()
@@ -1298,15 +1295,6 @@ plotfile = f'{resultsdir}/frac_eroded_rotated.pdf'
 print(f"Saving to {plotfile}")
 p2.save(plotfile, verbose=False)
 ```
-
-    Saving to results/mutant_neuts_results//frac_eroded_rotated.pdf
-
-
-
-    
-![png](mutant_neuts_files/mutant_neuts_36_1.png)
-    
-
 
 
 ```python
@@ -1337,15 +1325,6 @@ print(f"Saving to {plotfile}")
 p.save(plotfile, verbose=False)
 ```
 
-    Saving to results/mutant_neuts_results//fc_eroded.pdf
-
-
-
-    
-![png](mutant_neuts_files/mutant_neuts_37_1.png)
-    
-
-
 
 ```python
 mut_v_dep.head(n=25)
@@ -1354,40 +1333,5 @@ mut_v_dep.to_csv(f'{resultsdir}/frac_eroded.csv', index=False)
 
 
 ```python
-# fig = plt.figure(figsize=(2.5*2, 0.5 * (muts_depletions['virus'].nunique()-2)))
-# p1 = fig.add_subplot(1, 2, 1)
-# p2 = fig.add_subplot(1, 2, 2)
-# p2 = (ggplot(mut_v_dep
-#             .query("virus != 'wildtype' & virus != 'RBD antibodies depleted'")
-#             .assign(sample_type=lambda x: pd.Categorical(x['sample_type'],ordered=True,categories=['vaccine', 'convalescent']))
-#             ) +
-#      aes('virus', 'frac_eroded', color='sample_type') +
-#      geom_jitter(position=position_dodge(width=0.75), size=2.5, alpha=0.6) +
-#      scale_y_continuous(name='fraction of RBD antibody-derived\nneutralization eroded by mutation') +
-#      theme_classic() +
-#      theme(axis_title_y=element_blank(),
-#            axis_title_x=element_text(size=9),
-#            legend_title=element_text(size=10),
-#            figure_size=(2.5, 0.5 * (muts_depletions['virus'].nunique()-2)),
-#            ) +
-#      geom_hline(yintercept=0, linetype='dashed', size=1,
-#                 alpha=0.6, color=CBPALETTE[0]) +
-#      coord_flip() +
-#      scale_color_manual(values=['#000000', CBPALETTE[0]],
-#                         name='sample type')
-#      )
-```
-
-
-```python
 !jupyter nbconvert mutant_neuts.ipynb --to markdown
 ```
-
-    [NbConvertApp] Converting notebook mutant_neuts.ipynb to markdown
-    [NbConvertApp] Support files will be in mutant_neuts_files/
-    [NbConvertApp] Making directory mutant_neuts_files
-    [NbConvertApp] Making directory mutant_neuts_files
-    [NbConvertApp] Making directory mutant_neuts_files
-    [NbConvertApp] Making directory mutant_neuts_files
-    [NbConvertApp] Writing 37466 bytes to mutant_neuts.md
-
