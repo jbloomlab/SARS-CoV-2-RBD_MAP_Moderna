@@ -340,6 +340,19 @@ for name, specs in mds_config.items():
 
 
     
+    Making plot 100vs250ug_conv_day119, which has the following antibodies:
+    ['M01-day-119_80', 'M02-day-119_200', 'M03-day-119_200', 'M04-day-119_200', 'M05-day-119_500', 'M06-day-119_80', 'M07-day-119_200', 'M08-day-119_200', 'M09-day-119_500', 'M10-day-119_200', 'M11-day-119_200', 'M12-day-119_200', 'M13-day-119_200', 'M14-day-119_500', 'M16-day-119_1250', 'M17-day-119_200', 'M18-day-119_80', 'M19-day-119_200', 'M20-day-119_200', 'M21-day-119_200', 'M22-day-119_200', 'M23-day-119_200', '23_d120_500', '1C_d113_200', '24C_d104_200', '6C_d76_500', '22C_d104_200', '25C_d115_80', '25_d94_200', '12C_d152_80', '23C_d102_80', '13_d121_1250', '7C_d103_200', 'CB6_400', 'LY-CoV555_400', 'REGN10933_400', 'REGN10987_400', 'CR3022_400', 'COV2-2677_400', 'COV2-2082_400', 'COV2-2094_400', 'COV2-2165_400', 'COV2-2832_400', 'COV2-2479_400', 'COV2-2050_400', 'COV2-2096_400', 'COV2-2499_400', 'C105_400', 'C144_400', 'C002_400', 'C121_400', 'C135_400', 'C110_400', 'COV2-2196_400', 'COV2-2130_400']
+    Using condition-level color scheme in column color_time of data/mds_colors_vax_conv.csv
+    Saving plot to results/multidimensional_scaling/100vs250ug_conv_day119_mds.pdf
+
+
+
+    
+![png](mds_escape_profiles_files/mds_escape_profiles_18_5.png)
+    
+
+
+    
     Making plot 100vs250ug_day119, which has the following antibodies:
     ['M01-day-119_80', 'M02-day-119_200', 'M03-day-119_200', 'M04-day-119_200', 'M05-day-119_500', 'M06-day-119_80', 'M07-day-119_200', 'M08-day-119_200', 'M09-day-119_500', 'M10-day-119_200', 'M11-day-119_200', 'M12-day-119_200', 'M13-day-119_200', 'M14-day-119_500', 'M16-day-119_1250', 'M17-day-119_200', 'M18-day-119_80', 'M19-day-119_200', 'M20-day-119_200', 'M21-day-119_200', 'M22-day-119_200', 'M23-day-119_200', 'CB6_400', 'LY-CoV555_400', 'REGN10933_400', 'REGN10987_400', 'CR3022_400', 'COV2-2677_400', 'COV2-2082_400', 'COV2-2094_400', 'COV2-2165_400', 'COV2-2832_400', 'COV2-2479_400', 'COV2-2050_400', 'COV2-2096_400', 'COV2-2499_400', 'C105_400', 'C144_400', 'C002_400', 'C121_400', 'C135_400', 'C110_400', 'COV2-2196_400', 'COV2-2130_400']
     Using condition-level color scheme in column color_time of data/mds_colors_vax_conv.csv
@@ -348,6 +361,6 @@ for name, specs in mds_config.items():
 
 
     
-![png](mds_escape_profiles_files/mds_escape_profiles_18_5.png)
+![png](mds_escape_profiles_files/mds_escape_profiles_18_7.png)
     
 
