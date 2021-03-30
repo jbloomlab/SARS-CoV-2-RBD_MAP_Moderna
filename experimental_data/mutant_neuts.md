@@ -35,6 +35,9 @@ import seaborn
 import yaml
 ```
 
+    Matplotlib is building the font cache using fc-list. This may take a moment.
+
+
 
 ```python
 warnings.simplefilter('ignore')
@@ -1097,9 +1100,9 @@ muts_depletions = (muts_depletions
 p = (ggplot(muts_depletions
             .query("virus != 'RBD antibodies depleted' & virus != 'wildtype'")
             ) +
-     aes('virus', 'fold_change', shape='ic50_is_bound', fill='epitope'
+     aes('virus', 'fold_change', shape='ic50_is_bound', #fill='epitope'
         ) +
-     geom_point(size=2.5, alpha=1, ) + #fill='#999999'
+     geom_point(size=2.5, alpha=1, fill='#999999) + #'
      scale_y_log10(name='fold decrease in neutralization') +
      facet_wrap('~serum', ncol=6, scales='free_x') +
      theme_classic() +
@@ -1107,8 +1110,8 @@ p = (ggplot(muts_depletions
            axis_title_x=element_blank(),
            strip_margin_y=0.35,
            strip_background_x=element_blank(),
-           subplots_adjust={'hspace':1},
-           figure_size=(0.2 * (muts_depletions['virus'].nunique()-1)*muts_depletions['serum'].nunique()/2, 6),
+#            subplots_adjust={'hspace':1},
+           figure_size=(0.2 * (muts_depletions['virus'].nunique()-1)*muts_depletions['serum'].nunique()/2, 4),
            ) +
      geom_hline(yintercept=1, linetype='dashed', size=1,
                 alpha=0.6, color=CBPALETTE[0]) +
@@ -1119,7 +1122,6 @@ p = (ggplot(muts_depletions
                 size=1,
                 linetype='dotted',
                ) +
-     scale_fill_manual(values=config['epitope_colors']) +
      scale_shape_manual(values=['o','^'], name='upper limit')
      )
 
@@ -1130,13 +1132,12 @@ print(f"Saving to {plotfile}")
 p.save(plotfile, verbose=False)
 ```
 
-    Saving to results/mutant_neuts_results//fold_change_IC50_nocolor.pdf
 
+      File "<ipython-input-21-6ff9e9d4c76e>", line 11
+        scale_y_log10(name='fold decrease in neutralization') +
+                    ^
+    SyntaxError: invalid syntax
 
-
-    
-![png](mutant_neuts_files/mutant_neuts_32_1.png)
-    
 
 
 
@@ -1175,15 +1176,6 @@ plotfile = f'{resultsdir}/fold_change_IC50_dodged.pdf'
 print(f"Saving to {plotfile}")
 p.save(plotfile, verbose=False)
 ```
-
-    Saving to results/mutant_neuts_results//fold_change_IC50_dodged.pdf
-
-
-
-    
-![png](mutant_neuts_files/mutant_neuts_33_1.png)
-    
-
 
 
 ```python
@@ -1246,15 +1238,6 @@ print(f"Saving to {plotfile}")
 p.save(plotfile, verbose=False)
 ```
 
-    Saving to results/mutant_neuts_results//fold_change_IC50_dodged_wt.pdf
-
-
-
-    
-![png](mutant_neuts_files/mutant_neuts_35_1.png)
-    
-
-
 
 ```python
 p = (ggplot(muts_depletions
@@ -1293,35 +1276,12 @@ print(f"Saving to {plotfile}")
 p.save(plotfile, verbose=False)
 ```
 
-    Saving to results/mutant_neuts_results//IC50_dodged.pdf
-
-
-
-    
-![png](mutant_neuts_files/mutant_neuts_36_1.png)
-    
-
-
-
-```python
-mut_v_dep.head(n=25)
-mut_v_dep.to_csv(f'{resultsdir}/frac_eroded.csv', index=False)
-```
-
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    <ipython-input-26-0273a33aa480> in <module>
-    ----> 1 mut_v_dep.head(n=25)
-          2 mut_v_dep.to_csv(f'{resultsdir}/frac_eroded.csv', index=False)
-
-
-    NameError: name 'mut_v_dep' is not defined
-
-
 
 ```python
 !jupyter nbconvert mutant_neuts.ipynb --to markdown
+```
+
+
+```python
+
 ```
