@@ -1,79 +1,79 @@
-﻿condition,group,color,color_time
-M01 (day 119),vaccine,#000000,#F0E442
-M02 (day 36),vaccine,#000000,#F0E442
-M02 (day 119),vaccine,#000000,#F0E442
-M03 (day 119),vaccine,#000000,#F0E442
-M04 (day 119),vaccine,#000000,#F0E442
-M05 (day 36),vaccine,#000000,#F0E442
-M05 (day 119),vaccine,#000000,#F0E442
-M06 (day 119),vaccine,#000000,#F0E442
-M07 (day 119),vaccine,#000000,#F0E442
-M08 (day 36),vaccine,#000000,#F0E442
-M08 (day 119),vaccine,#000000,#F0E442
-M09 (day 119),vaccine,#000000,#F0E442
-M10 (day 36),vaccine,#000000,#F0E442
-M10 (day 119),vaccine,#000000,#F0E442
-M11 (day 119),vaccine,#000000,#F0E442
-M12 (day 36),vaccine,#000000,#F0E442
-M12 (day 119),vaccine,#000000,#F0E442
-M13 (day 119),vaccine,#000000,#F0E442
-M14 (day 119),vaccine,#000000,#F0E442
-M15 (day 119),vaccine,#000000,#F0E442
-M16 (day 119),vaccine,#000000,#009E73
-M17 (day 119),vaccine,#000000,#009E73
-M18 (day 119),vaccine,#000000,#009E73
-M19 (day 119),vaccine,#000000,#009E73
-M20 (day 119),vaccine,#000000,#009E73
-M21 (day 119),vaccine,#000000,#009E73
-M22 (day 119),vaccine,#000000,#009E73
-M23 (day 119),vaccine,#000000,#009E73
-23_d21,convalescent,#FFFFFF,#FFFFFF
-23_d45,convalescent,#FFFFFF,#FFFFFF
-23_d120,convalescent,#FFFFFF,#FFFFFF
-1C_d26,convalescent,#FFFFFF,#FFFFFF
-1C_d113,convalescent,#FFFFFF,#FFFFFF
-24C_d32,convalescent,#FFFFFF,#FFFFFF
-24C_d104,convalescent,#FFFFFF,#FFFFFF
-6C_d33,convalescent,#FFFFFF,#FFFFFF
-6C_d76,convalescent,#FFFFFF,#FFFFFF
-22C_d28,convalescent,#FFFFFF,#FFFFFF
-22C_d104,convalescent,#FFFFFF,#FFFFFF
-25C_d48,convalescent,#FFFFFF,#FFFFFF
-25C_d115,convalescent,#FFFFFF,#FFFFFF
-25_d18,convalescent,#FFFFFF,#FFFFFF
-25_d94,convalescent,#FFFFFF,#FFFFFF
-12C_d61,convalescent,#FFFFFF,#FFFFFF
-12C_d152,convalescent,#FFFFFF,#FFFFFF
-23C_d26,convalescent,#FFFFFF,#FFFFFF
-23C_d102,convalescent,#FFFFFF,#FFFFFF
-13_d15,convalescent,#FFFFFF,#FFFFFF
-13_d121,convalescent,#FFFFFF,#FFFFFF
-7C_d29,convalescent,#FFFFFF,#FFFFFF
-7C_d103,convalescent,#FFFFFF,#FFFFFF
-COV-021,convalescent,#FFFFFF,#FFFFFF
-COV-047,convalescent,#FFFFFF,#FFFFFF
-COV-057,convalescent,#FFFFFF,#FFFFFF
-COV-072,convalescent,#FFFFFF,#FFFFFF
-COV-107,convalescent,#FFFFFF,#FFFFFF
-LY-CoV016,class_1,#E52794,#E52794
-REGN10933,class_1,#E52794,#E52794
-COV2-2165,class_1,#E52794,#E52794
-COV2-2832,class_1,#E52794,#E52794
-C105,class_1,#E52794,#E52794
-COV2-2196,class_1,#E52794,#E52794
-COV2-2479,class_2,#6a0dad,#6a0dad
-COV2-2050,class_2,#6a0dad,#6a0dad
-C144,class_2,#6a0dad,#6a0dad
-C002,class_2,#6a0dad,#6a0dad
-C121,class_2,#6a0dad,#6a0dad
-LY-CoV555,class_2,#6a0dad,#6a0dad
-REGN10987,class_3,#66CCEE,#66CCEE
-COV2-2096,class_3,#66CCEE,#66CCEE
-COV2-2499,class_3,#66CCEE,#66CCEE
-C135,class_3,#66CCEE,#66CCEE
-C110,class_3,#66CCEE,#66CCEE
-COV2-2130,class_3,#66CCEE,#66CCEE
-rCR3022,class_4,#E69F00,#E69F00
-COV2-2677,class_4,#E69F00,#E69F00
-COV2-2082,class_4,#E69F00,#E69F00
-COV2-2094,class_4,#E69F00,#E69F00
+﻿condition,group,color,color_time,timepoints
+M01 (day 119),vaccine,#000000,#F0E442,#F0E442
+M02 (day 36),vaccine,#000000,#F0E442,#f0b942
+M02 (day 119),vaccine,#000000,#F0E442,#F0E442
+M03 (day 119),vaccine,#000000,#F0E442,#F0E442
+M04 (day 119),vaccine,#000000,#F0E442,#F0E442
+M05 (day 36),vaccine,#000000,#F0E442,#f0b942
+M05 (day 119),vaccine,#000000,#F0E442,#F0E442
+M06 (day 119),vaccine,#000000,#F0E442,#F0E442
+M07 (day 119),vaccine,#000000,#F0E442,#F0E442
+M08 (day 36),vaccine,#000000,#F0E442,#f0b942
+M08 (day 119),vaccine,#000000,#F0E442,#F0E442
+M09 (day 119),vaccine,#000000,#F0E442,#F0E442
+M10 (day 36),vaccine,#000000,#F0E442,#f0b942
+M10 (day 119),vaccine,#000000,#F0E442,#F0E442
+M11 (day 119),vaccine,#000000,#F0E442,#F0E442
+M12 (day 36),vaccine,#000000,#F0E442,#f0b942
+M12 (day 119),vaccine,#000000,#F0E442,#F0E442
+M13 (day 119),vaccine,#000000,#F0E442,#F0E442
+M14 (day 119),vaccine,#000000,#F0E442,#F0E442
+M15 (day 119),vaccine,#000000,#F0E442,#F0E442
+M16 (day 119),vaccine,#000000,#009E73,#009E73
+M17 (day 119),vaccine,#000000,#009E73,#009E73
+M18 (day 119),vaccine,#000000,#009E73,#009E73
+M19 (day 119),vaccine,#000000,#009E73,#009E73
+M20 (day 119),vaccine,#000000,#009E73,#009E73
+M21 (day 119),vaccine,#000000,#009E73,#009E73
+M22 (day 119),vaccine,#000000,#009E73,#009E73
+M23 (day 119),vaccine,#000000,#009E73,#009E73
+23_d21,convalescent,#FFFFFF,#FFFFFF,#0072B2
+23_d45,convalescent,#FFFFFF,#FFFFFF,#0072B2
+23_d120,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+1C_d26,convalescent,#FFFFFF,#FFFFFF,#0072B2
+1C_d113,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+24C_d32,convalescent,#FFFFFF,#FFFFFF,#0072B2
+24C_d104,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+6C_d33,convalescent,#FFFFFF,#FFFFFF,#0072B2
+6C_d76,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+22C_d28,convalescent,#FFFFFF,#FFFFFF,#0072B2
+22C_d104,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+25C_d48,convalescent,#FFFFFF,#FFFFFF,#0072B2
+25C_d115,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+25_d18,convalescent,#FFFFFF,#FFFFFF,#0072B2
+25_d94,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+12C_d61,convalescent,#FFFFFF,#FFFFFF,#0072B2
+12C_d152,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+23C_d26,convalescent,#FFFFFF,#FFFFFF,#0072B2
+23C_d102,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+13_d15,convalescent,#FFFFFF,#FFFFFF,#0072B2
+13_d121,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+7C_d29,convalescent,#FFFFFF,#FFFFFF,#0072B2
+7C_d103,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+COV-021,convalescent,#FFFFFF,#FFFFFF,#0072B2
+COV-047,convalescent,#FFFFFF,#FFFFFF,#0072B2
+COV-057,convalescent,#FFFFFF,#FFFFFF,#0072B2
+COV-072,convalescent,#FFFFFF,#FFFFFF,#0072B2
+COV-107,convalescent,#FFFFFF,#FFFFFF,#0072B2
+LY-CoV016,class_1,#E52794,#E52794,#E52794
+REGN10933,class_1,#E52794,#E52794,#E52794
+COV2-2165,class_1,#E52794,#E52794,#E52794
+COV2-2832,class_1,#E52794,#E52794,#E52794
+C105,class_1,#E52794,#E52794,#E52794
+COV2-2196,class_1,#E52794,#E52794,#E52794
+COV2-2479,class_2,#6a0dad,#6a0dad,#6a0dad
+COV2-2050,class_2,#6a0dad,#6a0dad,#6a0dad
+C144,class_2,#6a0dad,#6a0dad,#6a0dad
+C002,class_2,#6a0dad,#6a0dad,#6a0dad
+C121,class_2,#6a0dad,#6a0dad,#6a0dad
+LY-CoV555,class_2,#6a0dad,#6a0dad,#6a0dad
+REGN10987,class_3,#66CCEE,#66CCEE,#66CCEE
+COV2-2096,class_3,#66CCEE,#66CCEE,#66CCEE
+COV2-2499,class_3,#66CCEE,#66CCEE,#66CCEE
+C135,class_3,#66CCEE,#66CCEE,#66CCEE
+C110,class_3,#66CCEE,#66CCEE,#66CCEE
+COV2-2130,class_3,#66CCEE,#66CCEE,#66CCEE
+rCR3022,class_4,#E69F00,#E69F00,#E69F00
+COV2-2677,class_4,#E69F00,#E69F00,#E69F00
+COV2-2082,class_4,#E69F00,#E69F00,#E69F00
+COV2-2094,class_4,#E69F00,#E69F00,#E69F00

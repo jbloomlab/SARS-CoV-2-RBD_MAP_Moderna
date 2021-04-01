@@ -117,6 +117,94 @@ Moderna_HAARVI_mAbs:
   pie_alpha: 0.5
   no_labels: True
 
+Moderna_HAARVI_mAbs_more_colors:
+  conditions:
+    M01-day-119_80: M01 (day 119)
+    M02-day-36_1250: M02 (day 36)
+    M02-day-119_200: M02 (day 119)
+    M03-day-119_200: M03 (day 119)
+    M04-day-119_200: M04 (day 119)
+    M05-day-36_500: M05 (day 36)
+    M05-day-119_500: M05 (day 119)
+    M06-day-119_80: M06 (day 119)
+    M07-day-119_200: M07 (day 119)
+    M08-day-36_1250: M08 (day 36)
+    M08-day-119_200: M08 (day 119)
+    M09-day-119_500: M09 (day 119)
+    M10-day-36_500: M10 (day 36)
+    M10-day-119_200: M10 (day 119)
+    M11-day-119_200: M11 (day 119)
+    M12-day-36_1250: M12 (day 36)
+    M12-day-119_200: M12 (day 119)
+    M13-day-119_200: M13 (day 119)
+    M14-day-119_500: M14 (day 119)
+    M16-day-119_1250: M16 (day 119)
+    M17-day-119_200: M17 (day 119)
+    M18-day-119_80: M18 (day 119)
+    M19-day-119_200: M19 (day 119)
+    M20-day-119_200: M20 (day 119)
+    M21-day-119_200: M21 (day 119)
+    M22-day-119_200: M22 (day 119)
+    M23-day-119_200: M23 (day 119)
+    23_d21_1250: 23_d21
+    23_d45_1250: 23_d45
+    23_d120_500: 23_d120
+    1C_d26_200: 1C_d26
+    1C_d113_200: 1C_d113
+    24C_d32_200: 24C_d32
+    24C_d104_200: 24C_d104
+    6C_d33_500: 6C_d33
+    6C_d76_500: 6C_d76
+    22C_d28_200: 22C_d28
+    22C_d104_200: 22C_d104
+    25C_d48_200: 25C_d48
+    25C_d115_80: 25C_d115
+    25_d18_500: 25_d18
+    25_d94_200: 25_d94
+    12C_d61_160: 12C_d61
+    12C_d152_80: 12C_d152
+    23C_d26_80: 23C_d26
+    23C_d102_80: 23C_d102
+    13_d15_200: 13_d15
+    13_d121_1250: 13_d121
+    7C_d29_500: 7C_d29
+    7C_d103_200: 7C_d103
+    COV-021_500: COV-021
+    COV-047_200: COV-047
+    COV-057_50: COV-057
+    COV-072_200: COV-072
+    COV-107_80: COV-107
+    CB6_400: LY-CoV016
+    LY-CoV555_400: LY-CoV555
+    REGN10933_400: REGN10933
+    REGN10987_400: REGN10987
+    CR3022_400: rCR3022
+    COV2-2677_400: COV2-2677
+    COV2-2082_400: COV2-2082
+    COV2-2094_400: COV2-2094
+    COV2-2165_400: COV2-2165
+    COV2-2832_400: COV2-2832
+    COV2-2479_400: COV2-2479
+    COV2-2050_400: COV2-2050
+    COV2-2096_400: COV2-2096
+    COV2-2499_400: COV2-2499
+    C105_400: C105 # class 1, COV-107
+    C144_400: C144 # class 2, clinical trials, COV-047
+    C002_400: C002 # class 2, COV-021
+    C121_400: C121 # class 2, COV-107
+    C135_400: C135 # class 3, clinical trials, COV-072
+    C110_400: C110 # class 3, COV-107
+    COV2-2196_400: COV2-2196
+    COV2-2130_400: COV2-2130
+  color_scheme: [data/mds_colors_vax_conv.csv, timepoints]
+  plot_size: 6
+  expand_points: [1.3, 1.7]
+  default_circle_color: "#000000"
+  random_state: 2
+  pie_size: 200
+  pie_alpha: 0.5
+  no_labels: True
+
 Moderna_HAARVI_mAbs_day100:
   conditions:
     M01-day-119_80: M01 (day 119)
