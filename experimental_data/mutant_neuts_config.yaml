@@ -46,36 +46,28 @@ sample_types:
   subject A (day 120): convalescent
   subject G (day 94): convalescent
 
-# viruses:
-#   - wildtype
-#   - P384R
-#   - K417N
-#   - G446V
-#   - L452R
-#   - F456A
-#   - E484K
-#   - E484P
-#   - K417N-G446V-E484K
-#   - RBD antibodies depleted
-
 viruses:
-  wildtype: other
-  P384R: class 4
-  K417N: class 1
-  G446V: class 3
-  L452R: class 3
-  F456A: class 1
-  E484K: class 2
-  E484P: class 2
-  K417N-G446V-E484K: other
-  RBD antibodies depleted: other
+  wildtype: naturally-occurring
+  P384R: naturally-occurring
+  K417N: naturally-occurring
+  G446V: naturally-occurring
+  L452R: naturally-occurring
+  F456A: not naturally-occurring
+  E484P: not naturally-occurring
+  E484K: naturally-occurring
+  K417N-G446V-E484K: not naturally-occurring
+  RBD antibodies depleted: not naturally-occurring
 
 epitope_colors:
-  - '#E52794' # class 1
-  - '#6A0DAD' # class 2
-  - '#66CCEE' # class 3
-  - '#E69F00' # class 4
-  - '#FFFFFF' # other
+  - '#FFFFFF'# naturally-occurring
+  - '#999999' # not naturally-occurring
+  
+# epitope_colors:
+#   - '#E52794' # class 1
+#   - '#6A0DAD' # class 2
+#   - '#66CCEE' # class 3
+#   - '#E69F00' # class 4
+#   - '#FFFFFF' # other
 
 map_conditions:
   M06-day-119_80: M06 (day 119)
@@ -90,3 +82,6 @@ map_conditions:
   1C_d113_200: subject B (day 113)
   23_d120_500: subject A (day 120)
   25_d94_200: subject G (day 94)
+
+# viral entry titers
+titer_input_file: data/entry_titers.csv

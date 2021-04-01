@@ -35,9 +35,6 @@ import seaborn
 import yaml
 ```
 
-    Matplotlib is building the font cache using fc-list. This may take a moment.
-
-
 
 ```python
 warnings.simplefilter('ignore')
@@ -436,6 +433,59 @@ for d in frac_infect['date'].unique():
     
 
 
+Plot the triple mutant and composite single mutants for one convalescent and one vaccine sample, for main-text figure.
+
+I think M11 and subject E
+
+
+```python
+# key sera of interest
+sera_to_plot = ['M06 (day 119)', 'M11 (day 119)',
+                'subject C (day 104)', 'subject E (day 104)']
+# key viruses of interest
+viruses_to_plot = ['WT',
+                   'K417N',
+                   'G446V',
+                   'E484K',
+                   'K417N-G446V-E484K'
+                   ]
+
+# Now plot by sera **not** including assay date; when multiple measurements for
+# an assay date just take the first one.
+df = (frac_infect
+      .query('(serum in @sera_to_plot) and (virus in @viruses_to_plot)')
+      .assign(first_assay_date=lambda x: x.groupby(['serum', 'virus'])['date'].transform('first'))
+      .query('date == first_assay_date')
+      .replace({'WT':'wildtype'})
+      )
+
+df.head()
+fits = neutcurve.CurveFits(df,
+                           serum_col='serum')
+fig, _ = fits.plotSera(xlabel='serum dilution',
+                       viruses=["wildtype" if x=="WT" else x for x in viruses_to_plot],
+                       ncol=2,
+                       heightscale=1,
+                       widthscale=1,
+                       max_viruses_per_subplot=len(viruses_to_plot),
+                       sharex=True,
+                       )
+display(fig)
+plotfile = os.path.join(resultsdir, 'main_fig_neut.pdf')
+print(f"Saving to {plotfile}")
+fig.savefig(plotfile, bbox_inches='tight')
+plt.close(fig)
+```
+
+
+    
+![png](mutant_neuts_files/mutant_neuts_18_0.png)
+    
+
+
+    Saving to results/mutant_neuts_results/main_fig_neut.pdf
+
+
 ## Get depletion NT50s and fold-change
 
 
@@ -453,6 +503,19 @@ haarvi_depletions = (pd.read_csv(config['haarvi_depletions'])
                      .query('serum in @haarvi_samples')
                     )
 
+haarvi_depletions_wt = (pd.read_csv(config['haarvi_depletions'])
+                     [['serum','fold_change', 'NT50_pre', 'pre-depletion_ic50']]
+                     .drop_duplicates()
+                     .rename(columns={'NT50_pre':'NT50', 
+                                      'pre-depletion_ic50':'ic50', 
+                                      })
+                     .assign(fold_change=1,
+                             log2_fold_change=lambda x: np.log(x['fold_change']) / np.log(2),
+                             virus='wildtype'
+                            )
+                     .query('serum in @haarvi_samples')
+                    )
+
 moderna_depletions = (pd.read_csv(config['moderna_depletions'])
                       [['serum','fold_change', 'NT50_post', 'post-depletion_ic50', 'post_ic50_bound']]
                       .drop_duplicates()
@@ -466,7 +529,25 @@ moderna_depletions = (pd.read_csv(config['moderna_depletions'])
                       .dropna(subset=['serum'])
                      )
 
-depletion_df = (pd.concat([moderna_depletions, haarvi_depletions], axis=0, ignore_index=True)
+moderna_depletions_wt = (pd.read_csv(config['moderna_depletions'])
+                      [['serum','fold_change', 'NT50_pre', 'pre-depletion_ic50']]
+                      .drop_duplicates()
+                      .rename(columns={'NT50_pre':'NT50', 
+                                      'pre-depletion_ic50':'ic50', 
+                                      })
+                      .assign(fold_change=1,
+                              log2_fold_change=lambda x: np.log(x['fold_change']) / np.log(2),
+                              serum=lambda x: x['serum'].map(config['validated_samples']),
+                              virus='wildtype'
+                             )
+                      .dropna(subset=['serum'])
+                     )
+
+depletion_df = (pd.concat(
+    [moderna_depletions, haarvi_depletions, moderna_depletions_wt, haarvi_depletions_wt],
+    axis=0,
+    ignore_index=True)
+                .fillna(False)
                )
 display(HTML(depletion_df.to_html(index=False)))
 ```
@@ -592,6 +673,114 @@ display(HTML(depletion_df.to_html(index=False)))
       <td>False</td>
       <td>3.547900</td>
       <td>RBD antibodies depleted</td>
+    </tr>
+    <tr>
+      <td>M03 (day 119)</td>
+      <td>1.000000</td>
+      <td>1103.019303</td>
+      <td>0.000907</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>wildtype</td>
+    </tr>
+    <tr>
+      <td>M05 (day 119)</td>
+      <td>1.000000</td>
+      <td>1766.481413</td>
+      <td>0.000566</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>wildtype</td>
+    </tr>
+    <tr>
+      <td>M06 (day 119)</td>
+      <td>1.000000</td>
+      <td>963.822145</td>
+      <td>0.001038</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>wildtype</td>
+    </tr>
+    <tr>
+      <td>M11 (day 119)</td>
+      <td>1.000000</td>
+      <td>1289.802558</td>
+      <td>0.000775</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>wildtype</td>
+    </tr>
+    <tr>
+      <td>M12 (day 119)</td>
+      <td>1.000000</td>
+      <td>1694.281738</td>
+      <td>0.000590</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>wildtype</td>
+    </tr>
+    <tr>
+      <td>M14 (day 119)</td>
+      <td>1.000000</td>
+      <td>2830.277055</td>
+      <td>0.000353</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>wildtype</td>
+    </tr>
+    <tr>
+      <td>subject A (day 120)</td>
+      <td>1.000000</td>
+      <td>861.163942</td>
+      <td>0.001161</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>wildtype</td>
+    </tr>
+    <tr>
+      <td>subject B (day 113)</td>
+      <td>1.000000</td>
+      <td>284.860372</td>
+      <td>0.003510</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>wildtype</td>
+    </tr>
+    <tr>
+      <td>subject C (day 104)</td>
+      <td>1.000000</td>
+      <td>1383.047158</td>
+      <td>0.000723</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>wildtype</td>
+    </tr>
+    <tr>
+      <td>subject E (day 104)</td>
+      <td>1.000000</td>
+      <td>706.369699</td>
+      <td>0.001416</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>wildtype</td>
+    </tr>
+    <tr>
+      <td>subject G (day 94)</td>
+      <td>1.000000</td>
+      <td>293.069811</td>
+      <td>0.003412</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>wildtype</td>
+    </tr>
+    <tr>
+      <td>subject I (day 102)</td>
+      <td>1.000000</td>
+      <td>587.409028</td>
+      <td>0.001702</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>wildtype</td>
     </tr>
   </tbody>
 </table>
@@ -858,7 +1047,7 @@ display(HTML(muts_depletions.tail().to_html(index=False)))
       <td>convalescent</td>
       <td>1.156</td>
       <td>0.1171</td>
-      <td>class 3</td>
+      <td>naturally-occurring</td>
     </tr>
     <tr>
       <td>subject B (day 113)</td>
@@ -874,7 +1063,7 @@ display(HTML(muts_depletions.tail().to_html(index=False)))
       <td>convalescent</td>
       <td>3.510</td>
       <td>0.4938</td>
-      <td>class 1</td>
+      <td>not naturally-occurring</td>
     </tr>
     <tr>
       <td>subject B (day 113)</td>
@@ -890,7 +1079,7 @@ display(HTML(muts_depletions.tail().to_html(index=False)))
       <td>convalescent</td>
       <td>3.019</td>
       <td>0.1182</td>
-      <td>class 2</td>
+      <td>naturally-occurring</td>
     </tr>
     <tr>
       <td>subject B (day 113)</td>
@@ -906,7 +1095,7 @@ display(HTML(muts_depletions.tail().to_html(index=False)))
       <td>convalescent</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>other</td>
+      <td>naturally-occurring</td>
     </tr>
     <tr>
       <td>subject B (day 113)</td>
@@ -922,7 +1111,7 @@ display(HTML(muts_depletions.tail().to_html(index=False)))
       <td>convalescent</td>
       <td>1.505</td>
       <td>0.1556</td>
-      <td>class 3</td>
+      <td>naturally-occurring</td>
     </tr>
   </tbody>
 </table>
@@ -938,16 +1127,16 @@ muts_depletions['virus'].drop_duplicates()
 
     0     RBD antibodies depleted
     12                   wildtype
-    13                      E484P
-    14                      G446V
-    15                      K417N
-    16          K417N-G446V-E484K
-    17                      P384R
-    60                      L452R
-    61                      F456A
-    67                      E484K
+    25                      E484P
+    26                      G446V
+    27                      K417N
+    28          K417N-G446V-E484K
+    29                      P384R
+    72                      L452R
+    73                      F456A
+    79                      E484K
     Name: virus, dtype: category
-    Categories (10, object): ['wildtype' < 'P384R' < 'K417N' < 'G446V' ... 'E484K' < 'E484P' < 'K417N-G446V-E484K' < 'RBD antibodies depleted']
+    Categories (10, object): ['wildtype' < 'P384R' < 'K417N' < 'G446V' ... 'E484P' < 'E484K' < 'K417N-G446V-E484K' < 'RBD antibodies depleted']
 
 
 
@@ -990,7 +1179,7 @@ p.save(plotfile, verbose=False)
 
 
     
-![png](mutant_neuts_files/mutant_neuts_27_1.png)
+![png](mutant_neuts_files/mutant_neuts_29_1.png)
     
 
 
@@ -1026,7 +1215,41 @@ p.save(plotfile, verbose=False)
 
 
     
-![png](mutant_neuts_files/mutant_neuts_29_1.png)
+![png](mutant_neuts_files/mutant_neuts_31_1.png)
+    
+
+
+
+```python
+p = (ggplot((muts_depletions.assign(serum=lambda x: pd.Categorical(x['serum'],ordered=True,categories=serum_order)))) +
+     aes('virus', 'ic50', shape='ic50_is_bound', fill='epitope') +
+     geom_point(size=2.5, alpha=0.75) +
+     scale_x_discrete(name='') +
+     scale_y_log10(name='inhibitory concentration 50% (IC50)', expand=(0.1,0.1)) +
+     facet_wrap('~serum', ncol=6) +
+     theme_classic() +
+     theme(axis_text_x=element_text(angle=90),
+           figure_size=(0.2 * muts_depletions['virus'].nunique()*muts_depletions['serum'].nunique()/2, 4),
+           strip_margin_y=0.35,
+           strip_background_x=element_blank(),
+           ) +
+     scale_fill_manual(values=config['epitope_colors'], name=' ') +
+     scale_shape_manual(values=['o','^'], name='upper limit')
+     )
+
+_ = p.draw()
+
+plotfile = f'{resultsdir}/all_neuts_IC50_nocolor.pdf'
+print(f"Saving to {plotfile}")
+p.save(plotfile, verbose=False)
+```
+
+    Saving to results/mutant_neuts_results//all_neuts_IC50_nocolor.pdf
+
+
+
+    
+![png](mutant_neuts_files/mutant_neuts_32_1.png)
     
 
 
@@ -1087,7 +1310,7 @@ p.save(plotfile, verbose=False)
 
 
     
-![png](mutant_neuts_files/mutant_neuts_31_1.png)
+![png](mutant_neuts_files/mutant_neuts_34_1.png)
     
 
 
@@ -1100,11 +1323,11 @@ muts_depletions = (muts_depletions
 p = (ggplot(muts_depletions
             .query("virus != 'RBD antibodies depleted' & virus != 'wildtype'")
             ) +
-     aes('virus', 'fold_change', shape='ic50_is_bound', #fill='epitope'
+     aes('virus', 'fold_change', shape='ic50_is_bound', fill='epitope'
         ) +
-     geom_point(size=2.5, alpha=1, fill='#999999) + #'
+     geom_point(size=2.5, alpha=1, ) + #fill='#999999'
      scale_y_log10(name='fold decrease in neutralization') +
-     facet_wrap('~serum', ncol=6, scales='free_x') +
+     facet_wrap('~serum', ncol=6, ) + #scales='free_x'
      theme_classic() +
      theme(axis_text_x=element_text(angle=90),
            axis_title_x=element_blank(),
@@ -1122,6 +1345,7 @@ p = (ggplot(muts_depletions
                 size=1,
                 linetype='dotted',
                ) +
+     scale_fill_manual(values=config['epitope_colors'], name=' ') +
      scale_shape_manual(values=['o','^'], name='upper limit')
      )
 
@@ -1132,12 +1356,13 @@ print(f"Saving to {plotfile}")
 p.save(plotfile, verbose=False)
 ```
 
+    Saving to results/mutant_neuts_results//fold_change_IC50_nocolor.pdf
 
-      File "<ipython-input-21-6ff9e9d4c76e>", line 11
-        scale_y_log10(name='fold decrease in neutralization') +
-                    ^
-    SyntaxError: invalid syntax
 
+
+    
+![png](mutant_neuts_files/mutant_neuts_35_1.png)
+    
 
 
 
@@ -1176,6 +1401,15 @@ plotfile = f'{resultsdir}/fold_change_IC50_dodged.pdf'
 print(f"Saving to {plotfile}")
 p.save(plotfile, verbose=False)
 ```
+
+    Saving to results/mutant_neuts_results//fold_change_IC50_dodged.pdf
+
+
+
+    
+![png](mutant_neuts_files/mutant_neuts_36_1.png)
+    
+
 
 
 ```python
@@ -1238,6 +1472,15 @@ print(f"Saving to {plotfile}")
 p.save(plotfile, verbose=False)
 ```
 
+    Saving to results/mutant_neuts_results//fold_change_IC50_dodged_wt.pdf
+
+
+
+    
+![png](mutant_neuts_files/mutant_neuts_38_1.png)
+    
+
+
 
 ```python
 p = (ggplot(muts_depletions
@@ -1275,6 +1518,110 @@ plotfile = f'{resultsdir}/IC50_dodged.pdf'
 print(f"Saving to {plotfile}")
 p.save(plotfile, verbose=False)
 ```
+
+    Saving to results/mutant_neuts_results//IC50_dodged.pdf
+
+
+
+    
+![png](mutant_neuts_files/mutant_neuts_39_1.png)
+    
+
+
+Show the triple and its composite mutations only
+
+
+```python
+triples = ['K417N', 'G446V', 'E484K', 'K417N-G446V-E484K', 'K417N\nG446V\nE484K']
+
+p = (ggplot(muts_depletions
+            .query("virus in @triples")
+            .assign(sample_type=lambda x: pd.Categorical(x['sample_type'],ordered=True,categories=['vaccine', 'convalescent']))
+             .replace({'K417N-G446V-E484K':'K417N\nG446V\nE484K',
+                       'RBD antibodies depleted':'all RBD\nantibodies\ndepleted'
+                      }
+                     )
+             .assign(virus=lambda x: pd.Categorical(x['virus'],ordered=True,categories=list(config['viruses'].keys())+['K417N\nG446V\nE484K','all RBD\nantibodies\ndepleted']))
+            ) +
+     aes('virus', 'fold_change', fill='sample_type', color='sample_type', ) + #shape='ic50_is_bound'
+     geom_crossbar(data=(median_df.query("virus in @triples")),
+                   mapping=aes(x='virus', ymin='fold_change', ymax='fold_change'),
+                   position=position_dodge(width=0.5),
+                  ) +
+     geom_jitter(position=position_dodge(width=0.5), size=2.5, alpha=0.5) +
+     scale_y_log10(name='fold-decrease in neutralization') +
+     theme_classic() +
+     theme(axis_title_x=element_blank(),
+           axis_title_y=element_text(size=9),
+           legend_title=element_blank(),
+#            legend_title=element_text(size=10),
+           figure_size=(0.8 * 4, 2.5),
+           ) +
+     geom_hline(yintercept=1, linetype='dashed', size=1,
+                alpha=0.6, color=CBPALETTE[0]) +
+     scale_fill_manual(values=['#44AA99', '#332288'])+
+     scale_color_manual(values=['#44AA99', '#332288']) #+
+#      scale_shape_manual(values=['o','^'], name='upper limit')
+     )
+
+_ = p.draw()
+
+plotfile = f'{resultsdir}/fold_change_IC50_triple.pdf'
+print(f"Saving to {plotfile}")
+p.save(plotfile, verbose=False)
+```
+
+    Saving to results/mutant_neuts_results//fold_change_IC50_triple.pdf
+
+
+
+    
+![png](mutant_neuts_files/mutant_neuts_41_1.png)
+    
+
+
+Plot viral entry titers as RLU/uL
+
+
+```python
+entry_titers = (pd.read_csv(config['titer_input_file'])
+                .assign(virus=lambda x: pd.Categorical(x['virus'], 
+                                                       categories=config['viruses'].keys(), 
+                                                       ordered=True),
+                        epitope=lambda x: x['virus'].map(config['viruses']),
+                       )
+               )
+
+p = (ggplot(entry_titers, 
+            aes(x='virus', y='RLU per uL', fill='epitope')
+           ) +
+     geom_point(size=2.5,alpha=0.8) +
+     theme_classic() +
+     theme(axis_text_x=element_text(angle=90, vjust=1, hjust=0.5),
+           figure_size=(2.5,2),
+           axis_title_x=element_blank(),
+          ) +
+     scale_y_log10(limits=[100,1.1e6]) +
+     ylab('relative luciferase units\nper uL')+
+     labs(title='pseudovirus entry titers') +
+     scale_fill_manual(values=config['epitope_colors'], name=' ')
+    )
+
+_ = p.draw()
+
+plotfile = f'{resultsdir}/entry_titers.pdf'
+print(f"Saving to {plotfile}")
+p.save(plotfile, verbose=False)
+```
+
+    Saving to results/mutant_neuts_results//entry_titers.pdf
+
+
+
+    
+![png](mutant_neuts_files/mutant_neuts_43_1.png)
+    
+
 
 
 ```python
