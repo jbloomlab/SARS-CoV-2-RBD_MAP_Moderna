@@ -84,4 +84,4 @@ map_conditions:
   25_d94_200: subject G (day 94)
 
 # viral entry titers
-titer_input_file: data/entry_titers.csv
+titer_input_file: data/entry_titers_all.csv
