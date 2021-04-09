@@ -122,79 +122,6 @@ frac_infect = (frac_infect
 frac_infect.head(2)
 ```
 
-    Length before dropping anything = 1024
-    Length after dropping neut_samples_ignore = 896
-
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>serum</th>
-      <th>virus</th>
-      <th>replicate</th>
-      <th>concentration</th>
-      <th>fraction infectivity</th>
-      <th>date</th>
-      <th>day</th>
-      <th>age</th>
-      <th>dose</th>
-      <th>subject_name</th>
-      <th>mapped</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>M13-day-36</td>
-      <td>pre-depletion</td>
-      <td>1</td>
-      <td>0.04</td>
-      <td>-0.000665</td>
-      <td>210127</td>
-      <td>36</td>
-      <td>18-55y</td>
-      <td>250ug</td>
-      <td>M13</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>M13-day-36</td>
-      <td>pre-depletion</td>
-      <td>1</td>
-      <td>0.01</td>
-      <td>-0.000023</td>
-      <td>210127</td>
-      <td>36</td>
-      <td>18-55y</td>
-      <td>250ug</td>
-      <td>M13</td>
-      <td>False</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
 ### Fit Hill curve to data using [`neutcurve`](https://jbloomlab.github.io/neutcurve/)
 * Then pivot table, grouping by `serum` and keeping the `serum` and `ic50` columns
 * Calculate fold-change ic50 post-depletion vs. pre-depletion
@@ -219,75 +146,6 @@ fitparams['ic50_is_bound'] = fitparams['ic50_bound'].apply(lambda x: True if x!=
 
 fitparams.head(2)
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>serum</th>
-      <th>depletion</th>
-      <th>ic50</th>
-      <th>ic50_bound</th>
-      <th>NT50</th>
-      <th>day</th>
-      <th>age</th>
-      <th>dose</th>
-      <th>subject_name</th>
-      <th>mapped</th>
-      <th>ic50_is_bound</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>M13-day-36</td>
-      <td>pre-depletion</td>
-      <td>0.000234</td>
-      <td>interpolated</td>
-      <td>4266.426176</td>
-      <td>36</td>
-      <td>18-55y</td>
-      <td>250ug</td>
-      <td>M13</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>M13-day-36</td>
-      <td>post-depletion</td>
-      <td>0.021151</td>
-      <td>interpolated</td>
-      <td>47.278690</td>
-      <td>36</td>
-      <td>18-55y</td>
-      <td>250ug</td>
-      <td>M13</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
 
 ### Make horizontal line plot connecting pre- and post-IC50
 * Order with greatest fold-change at the top
@@ -319,99 +177,6 @@ foldchange = (
 foldchange['perc_RBD_str'] = np.where(foldchange['post_ic50_bound'], '>'+foldchange['perc_RBD_str']+'%', foldchange['perc_RBD_str']+'%')
 foldchange.head(2)
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>serum</th>
-      <th>post-depletion_ic50</th>
-      <th>pre-depletion_ic50</th>
-      <th>fold_change</th>
-      <th>percent_RBD</th>
-      <th>NT50_pre</th>
-      <th>NT50_post</th>
-      <th>post_ic50_bound</th>
-      <th>perc_RBD_str</th>
-      <th>depletion</th>
-      <th>ic50</th>
-      <th>ic50_bound</th>
-      <th>NT50</th>
-      <th>day</th>
-      <th>age</th>
-      <th>dose</th>
-      <th>subject_name</th>
-      <th>mapped</th>
-      <th>ic50_is_bound</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>M01-day-119</td>
-      <td>0.04</td>
-      <td>0.002663</td>
-      <td>15.018827</td>
-      <td>93</td>
-      <td>375.470679</td>
-      <td>25.0</td>
-      <td>True</td>
-      <td>&gt;93%</td>
-      <td>pre-depletion</td>
-      <td>0.002663</td>
-      <td>interpolated</td>
-      <td>375.470679</td>
-      <td>119</td>
-      <td>18-55y</td>
-      <td>250ug</td>
-      <td>M01</td>
-      <td>True</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>M01-day-119</td>
-      <td>0.04</td>
-      <td>0.002663</td>
-      <td>15.018827</td>
-      <td>93</td>
-      <td>375.470679</td>
-      <td>25.0</td>
-      <td>True</td>
-      <td>&gt;93%</td>
-      <td>post-depletion</td>
-      <td>0.040000</td>
-      <td>lower</td>
-      <td>25.000000</td>
-      <td>119</td>
-      <td>18-55y</td>
-      <td>250ug</td>
-      <td>M01</td>
-      <td>True</td>
-      <td>True</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
 
 ### Plot fold-change NT50 pre- and post-RBD antibody depletion for the serum samples only 
 Exclude pre-pandemic serum, which was not depleted.
@@ -472,12 +237,6 @@ _ = p.draw()
 p.save(f'{resultsdir}/NT50_lineplot_nocolors.pdf')
 ```
 
-
-    
-![png](rbd_depletions_files/rbd_depletions_18_0.png)
-    
-
-
 ## Plot neut curves for all samples
 
 
@@ -485,10 +244,10 @@ p.save(f'{resultsdir}/NT50_lineplot_nocolors.pdf')
 fig, axes = fits.plotSera(sera=natsort.natsorted(df['serum'].unique()), #+['pre-pandemic'],
                           xlabel='serum dilution',
                           ncol=6,
-                          widthscale=0.5,
-                          heightscale=0.55,
-                          titlesize=10, labelsize=12, ticksize=8, legendfontsize=12, yticklocs=[0,0.5,1],
-                          markersize=2, linewidth=0.5,
+                          widthscale=0.8,
+                          heightscale=0.8,
+                          titlesize=20, labelsize=24, ticksize=15, legendfontsize=24, yticklocs=[0,0.5,1],
+                          markersize=8, linewidth=2,
                          )
 
 plotfile = PdfPages(f'{resultsdir}/sera_frac_infectivity.pdf')
