@@ -1,7 +1,12 @@
-# Mutational antigenic profiling of SARS-CoV-2 RBD
+# Mutational antigenic profiling of SARS-CoV-2 RBD with Moderna mRNA-1273 vaccine sera.
 Analysis of mutational antigenic profiling of barcoded codon variants of SARS-CoV-2 RBD.
 
 Study and analysis by Allie Greaney, Tyler Starr, [Jesse Bloom](https://research.fhcrc.org/bloom/en.html), and co-authors.
+These experiments are described in this [preprint](https://www.biorxiv.org/content/10.1101/2021.04.14.439844v1?ct=).
+
+This work examines mutations that reduce binding by polyclonal serum antibodies from individuals vaccinated with the Moderna mRNA-1273 vaccine, and compares the results to those from individuals infected with SARS-CoV-2. 
+
+The vaccine samples are from the [mRNA-1273 phase 1 study](https://www.nejm.org/doi/full/10.1056/nejmoa2022483), funded by the National Institutes of Allergy and Infectious Diseases. 
 
 ## Summary of workflow and results
 For a summary of the workflow and links to key results files, [click here](results/summary/summary.md).
