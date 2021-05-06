@@ -27,29 +27,29 @@ M20 (day 119),vaccine,#000000,#009E73,#009E73
 M21 (day 119),vaccine,#000000,#009E73,#009E73
 M22 (day 119),vaccine,#000000,#009E73,#009E73
 M23 (day 119),vaccine,#000000,#009E73,#009E73
-23_d21,convalescent,#FFFFFF,#FFFFFF,#0072B2
-23_d45,convalescent,#FFFFFF,#FFFFFF,#0072B2
-23_d120,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
-1C_d26,convalescent,#FFFFFF,#FFFFFF,#0072B2
-1C_d113,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
-24C_d32,convalescent,#FFFFFF,#FFFFFF,#0072B2
-24C_d104,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
-6C_d33,convalescent,#FFFFFF,#FFFFFF,#0072B2
-6C_d76,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
-22C_d28,convalescent,#FFFFFF,#FFFFFF,#0072B2
-22C_d104,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
-25C_d48,convalescent,#FFFFFF,#FFFFFF,#0072B2
-25C_d115,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
-25_d18,convalescent,#FFFFFF,#FFFFFF,#0072B2
-25_d94,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
-12C_d61,convalescent,#FFFFFF,#FFFFFF,#0072B2
-12C_d152,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
-23C_d26,convalescent,#FFFFFF,#FFFFFF,#0072B2
-23C_d102,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
-13_d15,convalescent,#FFFFFF,#FFFFFF,#0072B2
-13_d121,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
-7C_d29,convalescent,#FFFFFF,#FFFFFF,#0072B2
-7C_d103,convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+subject A (day 21),convalescent,#FFFFFF,#FFFFFF,#0072B2
+subject A (day 45),convalescent,#FFFFFF,#FFFFFF,#0072B2
+subject A (day 120),convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+subject B (day 26),convalescent,#FFFFFF,#FFFFFF,#0072B2
+subject B (day 113),convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+subject C (day 32),convalescent,#FFFFFF,#FFFFFF,#0072B2
+subject C (day 104),convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+subject D (day 33),convalescent,#FFFFFF,#FFFFFF,#0072B2
+subject D (day 76),convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+subject E (day 28),convalescent,#FFFFFF,#FFFFFF,#0072B2
+subject E (day 104),convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+subject F (day 48),convalescent,#FFFFFF,#FFFFFF,#0072B2
+subject F (day 115),convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+subject G (day 18),convalescent,#FFFFFF,#FFFFFF,#0072B2
+subject G (day 94),convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+subject H (day 61),convalescent,#FFFFFF,#FFFFFF,#0072B2
+subject H (day 152),convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+subject I (day 26),convalescent,#FFFFFF,#FFFFFF,#0072B2
+subject I (day 102),convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+subject J (day 15),convalescent,#FFFFFF,#FFFFFF,#0072B2
+subject J (day 121),convalescent,#FFFFFF,#FFFFFF,#FFFFFF
+subject K (day 29),convalescent,#FFFFFF,#FFFFFF,#0072B2
+subject K (day 103),convalescent,#FFFFFF,#FFFFFF,#FFFFFF
 COV-021,convalescent,#FFFFFF,#FFFFFF,#0072B2
 COV-047,convalescent,#FFFFFF,#FFFFFF,#0072B2
 COV-057,convalescent,#FFFFFF,#FFFFFF,#0072B2
@@ -73,7 +73,7 @@ COV2-2499,class_3,#66CCEE,#66CCEE,#66CCEE
 C135,class_3,#66CCEE,#66CCEE,#66CCEE
 C110,class_3,#66CCEE,#66CCEE,#66CCEE
 COV2-2130,class_3,#66CCEE,#66CCEE,#66CCEE
-rCR3022,class_4,#E69F00,#E69F00,#E69F00
+CR3022,class_4,#E69F00,#E69F00,#E69F00
 COV2-2677,class_4,#E69F00,#E69F00,#E69F00
 COV2-2082,class_4,#E69F00,#E69F00,#E69F00
 COV2-2094,class_4,#E69F00,#E69F00,#E69F00
