@@ -196,13 +196,13 @@ Moderna_HAARVI_mAbs_more_colors:
     C110_400: C110 # class 3, COV-107
     COV2-2196_400: COV2-2196
     COV2-2130_400: COV2-2130
-  color_scheme: [data/mds_colors_vax_conv.csv, timepoints]
+  color_scheme: [data/mds_colors_vax_conv.csv, detailed_color]
   plot_size: 6
   expand_points: [1.3, 1.7]
   default_circle_color: "#000000"
   random_state: 2
   pie_size: 200
-  pie_alpha: 0.5
+  pie_alpha: 0.75
   no_labels: True
 
 Moderna_HAARVI_mAbs_day100:
