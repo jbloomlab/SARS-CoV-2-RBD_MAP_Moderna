@@ -1,51 +1,52 @@
-subject_name,day,dose,sample,sorting dilution,NT50,staining background,FACS plot shape,escape map,sample_type
-M01,119,250ug,M01-day-119,80,375.5,medium-high,normal-no escape,456-484,vaccine
-M02,36,250ug,M02-day-36,1250,8304.5,low,normal,flat,vaccine
-M02,119,250ug,M02-day-119,200,2402,low-medium,normal,456-484 low magnitude,vaccine
-M03,119,250ug,M03-day-119,200,1103,medium-high,normal-no escape,core,vaccine
-M04,119,250ug,M04-day-119,200,1657.8,low,extra escape,flat,vaccine
-M05,36,250ug,M05-day-36,500,4516.3,low,normal,flat,vaccine
-M05,119,250ug,M05-day-119,500,1766.5,low,normal,456-484 low magnitude,vaccine
-M06,119,250ug,M06-day-119,80,963.8,low,extra escape,456-484,vaccine
-M07,119,250ug,M07-day-119,200,813.3,high,no escape,456-484 low magnitude - noisy,vaccine
-M08,36,250ug,M08-day-36,1250,2227.2,low-medium,normal,flat,vaccine
-M08,119,250ug,M08-day-119,200,729.4,high,no escape,core,vaccine
-M09,119,250ug,M09-day-119,500,1477.2,low,extra escape,flat,vaccine
-M10,36,250ug,M10-day-36,500,3404.5,low,normal,flat,vaccine
-M10,119,250ug,M10-day-119,200,1087.1,medium-high,normal-no escape,456-484,vaccine
-M11,119,250ug,M11-day-119,200,1289.8,medium-high,normal-no escape,456-484,vaccine
-M12,36,250ug,M12-day-36,1250,4126.6,low,extra escape,flat,vaccine
-M12,119,250ug,M12-day-119,200,1694.3,low,normal,flat,vaccine
-M13,119,250ug,M13-day-119,200,1976.6,low,normal,flat,vaccine
-M14,119,250ug,M14-day-119,500,6036.1,low,normal,flat,vaccine
-M15,119,250ug,M15-day-119,200,,high,no escape,flat - noisy,vaccine
-M16,119,100ug,M16-day-119,1250,,high,no escape,flat - noisy,vaccine
-M17,119,100ug,M17-day-119,200,,medium,normal,flat,vaccine
-M18,119,100ug,M18-day-119,80,,medium-high,normal-no escape,core,vaccine
-M19,119,100ug,M19-day-119,200,,medium-high,normal-no escape,456-484 low magnitude - noisy,vaccine
-M20,119,100ug,M20-day-119,200,,medium,normal-no escape,flat,vaccine
-M21,119,100ug,M21-day-119,200,,medium,normal,456-484 low magnitude,vaccine
-M22,119,100ug,M22-day-119,200,,medium,normal,flat,vaccine
-M23,119,100ug,M23-day-119,200,,low,extra escape,flat,vaccine
-subject A,21,,subject A (day 21),1250,6881.22457,low,normal,456-484,convalescent
-subject A,45,,subject A (day 45),1250,2751.80774,medium,normal-no escape,456-484,convalescent
-subject A,120,,subject A (day 120),500,861.163942,high,no escape,456-484 low magnitude - noisy,convalescent
-subject B,23,,subject B (day 26),200,1563.43726,low,normal,456-484,convalescent
-subject B,113,,subject B (day 113),200,284.860372,high,no escape,456-484 noisy,convalescent
-subject C,32,,subject C (day 32),200,3479.69983,low,normal,456-484,convalescent
-subject C,104,,subject C (day 104),200,1383.04716,low,normal,456-484,convalescent
-subject D,33,,subject D (day 33),500,830.38448,low,normal,456-484,convalescent
-subject D,76,,subject D (day 76),500,1013.71042,low,normal,flat,convalescent
-subject E,28,,subject E (day 28),200,807.27475,low,normal,456-484,convalescent
-subject E,104,,subject E (day 104),200,706.369699,low,normal,456-484,convalescent
-subject F,48,,subject F (day 48),200,147.666088,low,normal,456-484,convalescent
-subject F,115,,subject F (day 115),80,140.831884,medium,normal-no escape,443-450,convalescent
-subject G,18,,subject G (day 18),500,29366.9959,medium,normal-no escape,443-450,convalescent
-subject G,94,,subject G (day 94),200,293.069811,high,no escape,flat,convalescent
-subject H,61,,subject H (day 61),160,1243.26373,high,no escape,443-450,convalescent
-subject H,152,,subject H (day 152),80,640.728766,high,no escape,443-450,convalescent
-subject I,26,,subject I (day 26),80,140.247727,high,no escape,443-450,convalescent
-subject I,102,,subject I (day 102),80,587.409029,high,no escape,443-450,convalescent
-subject J,15,,subject J (day 15),200,610.352369,low,normal,core,convalescent
-subject J,121,,subject J (day 121),1250,504.160069,high,no escape,flat,convalescent
-subject K,103,,subject K (day 103),200,408.812677,low,normal,456-484 low magnitude,convalescent
+subject_name,day,dose,sample,sorting dilution,NT50,staining background,FACS plot shape,escape map,sample_type,time_category
+M01,119,250ug,M01 (day 119),80,375.5,medium-high,normal-no escape,456-484,vaccine,late
+M02,36,250ug,M02 (day 36),1250,8304.5,low,normal,flat,vaccine,early
+M02,119,250ug,M02 (day 119),200,2402,low-medium,normal,456-484 low magnitude,vaccine,late
+M03,119,250ug,M03 (day 119),200,1103,medium-high,normal-no escape,core,vaccine,late
+M04,119,250ug,M04 (day 119),200,1657.8,low,extra escape,flat,vaccine,late
+M05,36,250ug,M05 (day 36),500,4516.3,low,normal,flat,vaccine,early
+M05,119,250ug,M05 (day 119),500,1766.5,low,normal,456-484 low magnitude,vaccine,late
+M06,119,250ug,M06 (day 119),80,963.8,low,extra escape,456-484,vaccine,late
+M07,119,250ug,M07 (day 119),200,813.3,high,no escape,456-484 low magnitude - noisy,vaccine,late
+M08,36,250ug,M08 (day 36),1250,2227.2,low-medium,normal,flat,vaccine,early
+M08,119,250ug,M08 (day 119),200,729.4,high,no escape,core,vaccine,late
+M09,119,250ug,M09 (day 119),500,1477.2,low,extra escape,flat,vaccine,late
+M10,36,250ug,M10 (day 36),500,3404.5,low,normal,flat,vaccine,early
+M10,119,250ug,M10 (day 119),200,1087.1,medium-high,normal-no escape,456-484,vaccine,late
+M11,119,250ug,M11 (day 119),200,1289.8,medium-high,normal-no escape,456-484,vaccine,late
+M12,36,250ug,M12 (day 36),1250,4126.6,low,extra escape,flat,vaccine,early
+M12,119,250ug,M12 (day 119),200,1694.3,low,normal,flat,vaccine,late
+M13,119,250ug,M13 (day 119),200,1976.6,low,normal,flat,vaccine,late
+M14,119,250ug,M14 (day 119),500,6036.1,low,normal,flat,vaccine,late
+M15,119,250ug,M15 (day 119),200,,high,no escape,flat - noisy,vaccine,late
+M16,119,100ug,M16 (day 119),1250,,high,no escape,flat - noisy,vaccine,late
+M17,119,100ug,M17 (day 119),200,,medium,normal,flat,vaccine,late
+M18,119,100ug,M18 (day 119),80,,medium-high,normal-no escape,core,vaccine,late
+M19,119,100ug,M19 (day 119),200,,medium-high,normal-no escape,456-484 low magnitude - noisy,vaccine,late
+M20,119,100ug,M20 (day 119),200,,medium,normal-no escape,flat,vaccine,late
+M21,119,100ug,M21 (day 119),200,,medium,normal,456-484 low magnitude,vaccine,late
+M22,119,100ug,M22 (day 119),200,,medium,normal,flat,vaccine,late
+M23,119,100ug,M23 (day 119),200,,low,extra escape,flat,vaccine,late
+subject A,21,,subject A (day 21),1250,6881.22457,low,normal,456-484,convalescent,early
+subject A,45,,subject A (day 45),1250,2751.80774,medium,normal-no escape,456-484,convalescent,early
+subject A,120,,subject A (day 120),500,861.163942,high,no escape,456-484 low magnitude - noisy,convalescent,late
+subject B,23,,subject B (day 26),200,1563.43726,low,normal,456-484,convalescent,early
+subject B,113,,subject B (day 113),200,284.860372,high,no escape,456-484 noisy,convalescent,late
+subject C,32,,subject C (day 32),200,3479.69983,low,normal,456-484,convalescent,early
+subject C,104,,subject C (day 104),200,1383.04716,low,normal,456-484,convalescent,late
+subject D,33,,subject D (day 33),500,830.38448,low,normal,456-484,convalescent,early
+subject D,76,,subject D (day 76),500,1013.71042,low,normal,flat,convalescent,late
+subject E,28,,subject E (day 28),200,807.27475,low,normal,456-484,convalescent,early
+subject E,104,,subject E (day 104),200,706.369699,low,normal,456-484,convalescent,late
+subject F,48,,subject F (day 48),200,147.666088,low,normal,456-484,convalescent,early
+subject F,115,,subject F (day 115),80,140.831884,medium,normal-no escape,443-450,convalescent,late
+subject G,18,,subject G (day 18),500,29366.9959,medium,normal-no escape,443-450,convalescent,early
+subject G,94,,subject G (day 94),200,293.069811,high,no escape,flat,convalescent,late
+subject H,61,,subject H (day 61),160,1243.26373,high,no escape,443-450,convalescent,early
+subject H,152,,subject H (day 152),80,640.728766,high,no escape,443-450,convalescent,late
+subject I,26,,subject I (day 26),80,140.247727,high,no escape,443-450,convalescent,early
+subject I,102,,subject I (day 102),80,587.409029,high,no escape,443-450,convalescent,late
+subject J,15,,subject J (day 15),200,610.352369,low,normal,core,convalescent,early
+subject J,121,,subject J (day 121),1250,504.160069,high,no escape,flat,convalescent,late
+subject K,29,,subject K (day 29),500,354.3817633,low,normal,456-484 low magnitude,convalescent,early
+subject K,103,,subject K (day 103),200,408.812677,low,normal,456-484 low magnitude,convalescent,late
