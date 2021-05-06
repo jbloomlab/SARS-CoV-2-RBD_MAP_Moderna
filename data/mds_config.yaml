@@ -58,29 +58,29 @@ Moderna_HAARVI_mAbs:
     M21-day-119_200: M21 (day 119)
     M22-day-119_200: M22 (day 119)
     M23-day-119_200: M23 (day 119)
-    23_d21_1250: 23_d21
-    23_d45_1250: 23_d45
-    23_d120_500: 23_d120
-    1C_d26_200: 1C_d26
-    1C_d113_200: 1C_d113
-    24C_d32_200: 24C_d32
-    24C_d104_200: 24C_d104
-    6C_d33_500: 6C_d33
-    6C_d76_500: 6C_d76
-    22C_d28_200: 22C_d28
-    22C_d104_200: 22C_d104
-    25C_d48_200: 25C_d48
-    25C_d115_80: 25C_d115
-    25_d18_500: 25_d18
-    25_d94_200: 25_d94
-    12C_d61_160: 12C_d61
-    12C_d152_80: 12C_d152
-    23C_d26_80: 23C_d26
-    23C_d102_80: 23C_d102
-    13_d15_200: 13_d15
-    13_d121_1250: 13_d121
-    7C_d29_500: 7C_d29
-    7C_d103_200: 7C_d103
+    23_d21_1250: subject A (day 21)
+    23_d45_1250: subject A (day 45)
+    23_d120_500: subject A (day 120)
+    1C_d26_200: subject B (day 26)
+    1C_d113_200: subject B (day 113)
+    24C_d32_200: subject C (day 32)
+    24C_d104_200: subject C (day 104)
+    6C_d33_500: subject D (day 33)
+    6C_d76_500: subject D (day 76)
+    22C_d28_200: subject E (day 28)
+    22C_d104_200: subject E (day 104)
+    25C_d48_200: subject F (day 48)
+    25C_d115_80: subject F (day 115)
+    25_d18_500: subject G (day 18)
+    25_d94_200: subject G (day 94)
+    12C_d61_160: subject H (day 61)
+    12C_d152_80: subject H (day 152)
+    23C_d26_80: subject I (day 26)
+    23C_d102_80: subject I (day 102)
+    13_d15_200: subject J (day 15)
+    13_d121_1250: subject J (day 121)
+    7C_d29_500: subject K (day 29)
+    7C_d103_200: subject K (day 103)
     COV-021_500: COV-021
     COV-047_200: COV-047
     COV-057_50: COV-057
@@ -90,7 +90,7 @@ Moderna_HAARVI_mAbs:
     LY-CoV555_400: LY-CoV555
     REGN10933_400: REGN10933
     REGN10987_400: REGN10987
-    CR3022_400: rCR3022
+    CR3022_400: CR3022
     COV2-2677_400: COV2-2677
     COV2-2082_400: COV2-2082
     COV2-2094_400: COV2-2094
@@ -146,29 +146,29 @@ Moderna_HAARVI_mAbs_more_colors:
     M21-day-119_200: M21 (day 119)
     M22-day-119_200: M22 (day 119)
     M23-day-119_200: M23 (day 119)
-    23_d21_1250: 23_d21
-    23_d45_1250: 23_d45
-    23_d120_500: 23_d120
-    1C_d26_200: 1C_d26
-    1C_d113_200: 1C_d113
-    24C_d32_200: 24C_d32
-    24C_d104_200: 24C_d104
-    6C_d33_500: 6C_d33
-    6C_d76_500: 6C_d76
-    22C_d28_200: 22C_d28
-    22C_d104_200: 22C_d104
-    25C_d48_200: 25C_d48
-    25C_d115_80: 25C_d115
-    25_d18_500: 25_d18
-    25_d94_200: 25_d94
-    12C_d61_160: 12C_d61
-    12C_d152_80: 12C_d152
-    23C_d26_80: 23C_d26
-    23C_d102_80: 23C_d102
-    13_d15_200: 13_d15
-    13_d121_1250: 13_d121
-    7C_d29_500: 7C_d29
-    7C_d103_200: 7C_d103
+    23_d21_1250: subject A (day 21)
+    23_d45_1250: subject A (day 45)
+    23_d120_500: subject A (day 120)
+    1C_d26_200: subject B (day 26)
+    1C_d113_200: subject B (day 113)
+    24C_d32_200: subject C (day 32)
+    24C_d104_200: subject C (day 104)
+    6C_d33_500: subject D (day 33)
+    6C_d76_500: subject D (day 76)
+    22C_d28_200: subject E (day 28)
+    22C_d104_200: subject E (day 104)
+    25C_d48_200: subject F (day 48)
+    25C_d115_80: subject F (day 115)
+    25_d18_500: subject G (day 18)
+    25_d94_200: subject G (day 94)
+    12C_d61_160: subject H (day 61)
+    12C_d152_80: subject H (day 152)
+    23C_d26_80: subject I (day 26)
+    23C_d102_80: subject I (day 102)
+    13_d15_200: subject J (day 15)
+    13_d121_1250: subject J (day 121)
+    7C_d29_500: subject K (day 29)
+    7C_d103_200: subject K (day 103)
     COV-021_500: COV-021
     COV-047_200: COV-047
     COV-057_50: COV-057
@@ -178,7 +178,7 @@ Moderna_HAARVI_mAbs_more_colors:
     LY-CoV555_400: LY-CoV555
     REGN10933_400: REGN10933
     REGN10987_400: REGN10987
-    CR3022_400: rCR3022
+    CR3022_400: CR3022
     COV2-2677_400: COV2-2677
     COV2-2082_400: COV2-2082
     COV2-2094_400: COV2-2094
@@ -196,13 +196,13 @@ Moderna_HAARVI_mAbs_more_colors:
     C110_400: C110 # class 3, COV-107
     COV2-2196_400: COV2-2196
     COV2-2130_400: COV2-2130
-  color_scheme: [data/mds_colors_vax_conv.csv, timepoints]
+  color_scheme: [data/mds_colors_vax_conv.csv, detailed_color]
   plot_size: 6
   expand_points: [1.3, 1.7]
   default_circle_color: "#000000"
   random_state: 2
   pie_size: 200
-  pie_alpha: 0.5
+  pie_alpha: 0.75
   no_labels: True
 
 Moderna_HAARVI_mAbs_day100:
@@ -229,22 +229,22 @@ Moderna_HAARVI_mAbs_day100:
     M21-day-119_200: M21 (day 119)
     M22-day-119_200: M22 (day 119)
     M23-day-119_200: M23 (day 119)
-    23_d120_500: 23_d120
-    1C_d113_200: 1C_d113
-    24C_d104_200: 24C_d104
-    6C_d76_500: 6C_d76
-    22C_d104_200: 22C_d104
-    25C_d115_80: 25C_d115
-    25_d94_200: 25_d94
-    12C_d152_80: 12C_d152
-    23C_d102_80: 23C_d102
-    13_d121_1250: 13_d121
-    7C_d103_200: 7C_d103
+    23_d120_500: subject A (day 120)
+    1C_d113_200: subject B (day 113)
+    24C_d104_200: subject C (day 104)
+    6C_d76_500: subject D (day 76)
+    22C_d104_200: subject E (day 104)
+    25C_d115_80: subject F (day 115)
+    25_d94_200: subject G (day 94)
+    12C_d152_80: subject H (day 152)
+    23C_d102_80: subject I (day 102)
+    13_d121_1250: subject J (day 121)
+    7C_d103_200: subject K (day 103)
     CB6_400: LY-CoV016
     LY-CoV555_400: LY-CoV555
     REGN10933_400: REGN10933
     REGN10987_400: REGN10987
-    CR3022_400: rCR3022
+    CR3022_400: CR3022
     COV2-2677_400: COV2-2677
     COV2-2082_400: COV2-2082
     COV2-2094_400: COV2-2094
@@ -295,22 +295,22 @@ Moderna_HAARVI_mAbs_day100:
     M21-day-119_200: M21 (day 119)
     M22-day-119_200: M22 (day 119)
     M23-day-119_200: M23 (day 119)
-    23_d120_500: 23_d120
-    1C_d113_200: 1C_d113
-    24C_d104_200: 24C_d104
-    6C_d76_500: 6C_d76
-    22C_d104_200: 22C_d104
-    25C_d115_80: 25C_d115
-    25_d94_200: 25_d94
-    12C_d152_80: 12C_d152
-    23C_d102_80: 23C_d102
-    13_d121_1250: 13_d121
-    7C_d103_200: 7C_d103
+    23_d120_500: subject A (day 120)
+    1C_d113_200: subject B (day 113)
+    24C_d104_200: subject C (day 104)
+    6C_d76_500: subject D (day 76)
+    22C_d104_200: subject E (day 104)
+    25C_d115_80: subject F (day 115)
+    25_d94_200: subject G (day 94)
+    12C_d152_80: subject H (day 152)
+    23C_d102_80: subject I (day 102)
+    13_d121_1250: subject J (day 121)
+    7C_d103_200: subject K (day 103)
     CB6_400: LY-CoV016
     LY-CoV555_400: LY-CoV555
     REGN10933_400: REGN10933
     REGN10987_400: REGN10987
-    CR3022_400: rCR3022
+    CR3022_400: CR3022
     COV2-2677_400: COV2-2677
     COV2-2082_400: COV2-2082
     COV2-2094_400: COV2-2094
@@ -365,7 +365,7 @@ Moderna_HAARVI_mAbs_day100:
     LY-CoV555_400: LY-CoV555
     REGN10933_400: REGN10933
     REGN10987_400: REGN10987
-    CR3022_400: rCR3022
+    CR3022_400: CR3022
     COV2-2677_400: COV2-2677
     COV2-2082_400: COV2-2082
     COV2-2094_400: COV2-2094
