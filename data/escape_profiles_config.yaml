@@ -34,29 +34,29 @@
 
 moderna_convalescent_all:  # name of plot
   conditions:  # antibodies / sera to show and names to use for them
-    23_d21_1250: subject A (day 21)
-    23_d45_1250: subject A (day 45)
-    23_d120_500: subject A (day 120)
-    1C_d26_200: subject B (day 26)
-    1C_d113_200: subject B (day 113)
-    24C_d32_200: subject C (day 32)
-    24C_d104_200: subject C (day 104)
-    6C_d33_500: subject D (day 33)
-    6C_d76_500: subject D (day 76)
-    22C_d28_200: subject E (day 28)
-    22C_d104_200: subject E (day 104)
-    25C_d48_200: subject F (day 48)
-    25C_d115_80: subject F (day 115)
-    25_d18_500: subject G (day 18)
-    25_d94_200: subject G (day 94)
-    12C_d61_160: subject H (day 61)
-    12C_d152_80: subject H (day 152)
-    23C_d26_80: subject I (day 26)
-    23C_d102_80: subject I (day 102)
-    13_d15_200: subject J (day 15)
-    13_d121_1250: subject J (day 121)
-    7C_d29_500: subject K (day 29)
-    7C_d103_200: subject K (day 103)
+    23_d21_1250: participant A (day 21)
+    23_d45_1250: participant A (day 45)
+    23_d120_500: participant A (day 120)
+    1C_d26_200: participant B (day 26)
+    1C_d113_200: participant B (day 113)
+    24C_d32_200: participant C (day 32)
+    24C_d104_200: participant C (day 104)
+    6C_d33_500: participant D (day 33)
+    6C_d76_500: participant D (day 76)
+    22C_d28_200: participant E (day 28)
+    22C_d104_200: participant E (day 104)
+    25C_d48_200: participant F (day 48)
+    25C_d115_80: participant F (day 115)
+    25_d18_500: participant G (day 18)
+    25_d94_200: participant G (day 94)
+    12C_d61_160: participant H (day 61)
+    12C_d152_80: participant H (day 152)
+    23C_d26_80: participant I (day 26)
+    23C_d102_80: participant I (day 102)
+    13_d15_200: participant J (day 15)
+    13_d121_1250: participant J (day 121)
+    7C_d29_500: participant K (day 29)
+    7C_d103_200: participant K (day 103)
     COV-021_500: COV-021
     COV-047_200: COV-047
     COV-057_50: COV-057
@@ -556,12 +556,12 @@ convalescent_30d:  # name of plot
 
 haarvi_6validations:  # name of plot
   conditions:  # antibodies / sera to show and names to use for them
-    24C_d104_200: subject C (day 104)
-    22C_d104_200: subject E (day 104)
-    23C_d102_80: subject I (day 102)
-    1C_d113_200: subject B (day 113)
-    23_d120_500: subject A (day 120)
-    25_d94_200: subject G (day 94)
+    24C_d104_200: participant C (day 104)
+    22C_d104_200: participant E (day 104)
+    23C_d102_80: participant I (day 102)
+    1C_d113_200: participant B (day 113)
+    23_d120_500: participant A (day 120)
+    25_d94_200: participant G (day 94)
   plot_auto_identified_sites: default
   add_sites: [384, 417, 446, 455, 456, 484, 452, 501, 477]
   exclude_sites: []
@@ -581,12 +581,12 @@ haarvi_6validations:  # name of plot
 
 haarvi_6validations_27sites:  # name of plot
   conditions:  # antibodies / sera to show and names to use for them
-    24C_d104_200: subject C (day 104)
-    22C_d104_200: subject E (day 104)
-    23C_d102_80: subject I (day 102)
-    1C_d113_200: subject B (day 113)
-    23_d120_500: subject A (day 120)
-    25_d94_200: subject G (day 94)
+    24C_d104_200: participant C (day 104)
+    22C_d104_200: participant E (day 104)
+    23C_d102_80: participant I (day 102)
+    1C_d113_200: participant B (day 113)
+    23_d120_500: participant A (day 120)
+    25_d94_200: participant G (day 94)
   plot_auto_identified_sites: false
   add_sites: [383, 384, 385, 386, 417, 446, 447, 448, 449, 450, 452, 455, 456, 472, 473, 475, 477, 484, 485, 486, 487, 489, 490, 493, 494, 496, 501]
   exclude_sites: []

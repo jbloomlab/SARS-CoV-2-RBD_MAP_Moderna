@@ -58,7 +58,7 @@ compare_vax_conv:
       axisfontscale: 1
     highlight_sites: [456,484]
     highlight_color: '#E69F00'
-    
+
   convalescent (day 15-60, n=16):  # name of plot
     conditions:  # antibodies / sera to show and names to use for them
       23_d21_1250: 23_d21
@@ -87,7 +87,7 @@ compare_vax_conv:
       axisfontscale: 1
     highlight_sites: [456,484]
     highlight_color: '#E69F00'
-  
+
   convalescent (day 100-150, n=11):  # name of plot
     conditions:  # antibodies / sera to show and names to use for them
       23_d120_500: 23_d120
@@ -230,12 +230,12 @@ validations:
     highlight_color: '#E69F00'
   convalescent_validated:  # name of plot
     conditions:  # antibodies / sera to show and names to use for them
-      24C_d104_200: subject C (day 104)
-      22C_d104_200: subject E (day 104)
-      23C_d102_80: subject I (day 102)
-      1C_d113_200: subject B (day 113)
-      23_d120_500: subject A (day 120)
-      25_d94_200: subject G (day 94)
+      24C_d104_200: participant C (day 104)
+      22C_d104_200: participant E (day 104)
+      23C_d102_80: participant I (day 102)
+      1C_d113_200: participant B (day 113)
+      23_d120_500: participant A (day 120)
+      25_d94_200: participant G (day 94)
     # set y-max on logo plots
     escape_profile_ymax:
       quantile: 0.5
