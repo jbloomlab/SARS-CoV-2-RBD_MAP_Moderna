@@ -25,12 +25,12 @@ validated_samples:
   M03-day-119: M03 (day 119)
   M12-day-119: M12 (day 119)
   M14-day-119: M14 (day 119)
-  24C_d104: subject C (day 104)
-  22C_d104: subject E (day 104)
-  23C_d102: subject I (day 102)
-  1C_d113: subject B (day 113)
-  23_d120: subject A (day 120)
-  25_d94: subject G (day 94)
+  24C_d104: participant C (day 104)
+  22C_d104: participant E (day 104)
+  23C_d102: participant I (day 102)
+  1C_d113: participant B (day 113)
+  23_d120: participant A (day 120)
+  25_d94: participant G (day 94)
 
 sample_types:
   M06 (day 119): vaccine
@@ -39,12 +39,12 @@ sample_types:
   M03 (day 119): vaccine
   M12 (day 119): vaccine
   M14 (day 119): vaccine
-  subject C (day 104): convalescent
-  subject E (day 104): convalescent
-  subject I (day 102): convalescent
-  subject B (day 113): convalescent
-  subject A (day 120): convalescent
-  subject G (day 94): convalescent
+  participant C (day 104): convalescent
+  participant E (day 104): convalescent
+  participant I (day 102): convalescent
+  participant B (day 113): convalescent
+  participant A (day 120): convalescent
+  participant G (day 94): convalescent
 
 viruses:
   wildtype: naturally-occurring
@@ -61,7 +61,7 @@ viruses:
 epitope_colors:
   - '#FFFFFF'# naturally-occurring
   - '#999999' # not naturally-occurring
-  
+
 # epitope_colors:
 #   - '#E52794' # class 1
 #   - '#6A0DAD' # class 2
@@ -76,12 +76,12 @@ map_conditions:
   M03-day-119_200: M03 (day 119)
   M12-day-119_200: M12 (day 119)
   M14-day-119_500: M14 (day 119)
-  24C_d104_200: subject C (day 104)
-  22C_d104_200: subject E (day 104)
-  23C_d102_80: subject I (day 102)
-  1C_d113_200: subject B (day 113)
-  23_d120_500: subject A (day 120)
-  25_d94_200: subject G (day 94)
+  24C_d104_200: participant C (day 104)
+  22C_d104_200: participant E (day 104)
+  23C_d102_80: participant I (day 102)
+  1C_d113_200: participant B (day 113)
+  23_d120_500: participant A (day 120)
+  25_d94_200: participant G (day 94)
 
 # viral entry titers
 titer_input_file: data/entry_titers_all.csv
