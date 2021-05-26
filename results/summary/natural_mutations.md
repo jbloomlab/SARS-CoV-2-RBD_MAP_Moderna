@@ -565,7 +565,7 @@ for name, specs in escape_profiles_config.items():
   </thead>
   <tbody>
     <tr>
-      <td>25C_d115</td>
+      <td>participant F (day 115)</td>
       <td>default</td>
       <td>452</td>
       <td>L</td>
@@ -573,7 +573,7 @@ for name, specs in escape_profiles_config.items():
       <td>L452R (14285), L452Q (123), L452M (106)</td>
     </tr>
     <tr>
-      <td>12C_d152</td>
+      <td>participant H (day 152)</td>
       <td>default</td>
       <td>452</td>
       <td>L</td>
@@ -581,7 +581,7 @@ for name, specs in escape_profiles_config.items():
       <td>L452R (14285), L452Q (123), L452M (106)</td>
     </tr>
     <tr>
-      <td>23_d21</td>
+      <td>participant A (day 21)</td>
       <td>default</td>
       <td>484</td>
       <td>E</td>
@@ -589,7 +589,7 @@ for name, specs in escape_profiles_config.items():
       <td>E484K (7651), E484Q (137), E484G (24), E484A (22), E484D (12), E484R (3), E484V (1)</td>
     </tr>
     <tr>
-      <td>25_d18</td>
+      <td>participant G (day 18)</td>
       <td>default</td>
       <td>484</td>
       <td>E</td>
@@ -597,7 +597,7 @@ for name, specs in escape_profiles_config.items():
       <td>E484K (7651), E484Q (137), E484G (24), E484A (22), E484D (12), E484R (3), E484V (1)</td>
     </tr>
     <tr>
-      <td>22C_d104</td>
+      <td>participant E (day 104)</td>
       <td>default</td>
       <td>484</td>
       <td>E</td>
@@ -605,7 +605,7 @@ for name, specs in escape_profiles_config.items():
       <td>E484K (7651), E484Q (137), E484G (24), E484A (22), E484D (12), E484R (3), E484V (1)</td>
     </tr>
     <tr>
-      <td>25C_d48</td>
+      <td>participant F (day 48)</td>
       <td>default</td>
       <td>484</td>
       <td>E</td>
@@ -613,7 +613,7 @@ for name, specs in escape_profiles_config.items():
       <td>E484K (7651), E484Q (137), E484G (24), E484A (22), E484D (12), E484R (3), E484V (1)</td>
     </tr>
     <tr>
-      <td>23C_d26</td>
+      <td>participant I (day 26)</td>
       <td>default</td>
       <td>484</td>
       <td>E</td>
@@ -629,7 +629,7 @@ for name, specs in escape_profiles_config.items():
       <td>E484K (7651), E484Q (137), E484G (24), E484A (22), E484D (12), E484R (3), E484V (1)</td>
     </tr>
     <tr>
-      <td>23C_d102</td>
+      <td>participant I (day 102)</td>
       <td>default</td>
       <td>484</td>
       <td>E</td>
