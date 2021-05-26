@@ -122,6 +122,79 @@ frac_infect = (frac_infect
 frac_infect.head(2)
 ```
 
+    Length before dropping anything = 1024
+    Length after dropping neut_samples_ignore = 896
+
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>serum</th>
+      <th>virus</th>
+      <th>replicate</th>
+      <th>concentration</th>
+      <th>fraction infectivity</th>
+      <th>date</th>
+      <th>day</th>
+      <th>age</th>
+      <th>dose</th>
+      <th>subject_name</th>
+      <th>mapped</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>M13-day-36</td>
+      <td>pre-depletion</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>-0.000665</td>
+      <td>210127</td>
+      <td>36</td>
+      <td>18-55y</td>
+      <td>250ug</td>
+      <td>M13</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>M13-day-36</td>
+      <td>pre-depletion</td>
+      <td>1</td>
+      <td>0.01</td>
+      <td>-0.000023</td>
+      <td>210127</td>
+      <td>36</td>
+      <td>18-55y</td>
+      <td>250ug</td>
+      <td>M13</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 ### Fit Hill curve to data using [`neutcurve`](https://jbloomlab.github.io/neutcurve/)
 * Then pivot table, grouping by `serum` and keeping the `serum` and `ic50` columns
 * Calculate fold-change ic50 post-depletion vs. pre-depletion
@@ -146,6 +219,75 @@ fitparams['ic50_is_bound'] = fitparams['ic50_bound'].apply(lambda x: True if x!=
 
 fitparams.head(2)
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>serum</th>
+      <th>depletion</th>
+      <th>ic50</th>
+      <th>ic50_bound</th>
+      <th>NT50</th>
+      <th>day</th>
+      <th>age</th>
+      <th>dose</th>
+      <th>subject_name</th>
+      <th>mapped</th>
+      <th>ic50_is_bound</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>M13-day-36</td>
+      <td>pre-depletion</td>
+      <td>0.000234</td>
+      <td>interpolated</td>
+      <td>4266.426176</td>
+      <td>36</td>
+      <td>18-55y</td>
+      <td>250ug</td>
+      <td>M13</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>M13-day-36</td>
+      <td>post-depletion</td>
+      <td>0.021151</td>
+      <td>interpolated</td>
+      <td>47.278690</td>
+      <td>36</td>
+      <td>18-55y</td>
+      <td>250ug</td>
+      <td>M13</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ### Make horizontal line plot connecting pre- and post-IC50
 * Order with greatest fold-change at the top
@@ -177,6 +319,99 @@ foldchange = (
 foldchange['perc_RBD_str'] = np.where(foldchange['post_ic50_bound'], '>'+foldchange['perc_RBD_str']+'%', foldchange['perc_RBD_str']+'%')
 foldchange.head(2)
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>serum</th>
+      <th>post-depletion_ic50</th>
+      <th>pre-depletion_ic50</th>
+      <th>fold_change</th>
+      <th>percent_RBD</th>
+      <th>NT50_pre</th>
+      <th>NT50_post</th>
+      <th>post_ic50_bound</th>
+      <th>perc_RBD_str</th>
+      <th>depletion</th>
+      <th>ic50</th>
+      <th>ic50_bound</th>
+      <th>NT50</th>
+      <th>day</th>
+      <th>age</th>
+      <th>dose</th>
+      <th>subject_name</th>
+      <th>mapped</th>
+      <th>ic50_is_bound</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>M01-day-119</td>
+      <td>0.04</td>
+      <td>0.002663</td>
+      <td>15.018827</td>
+      <td>93</td>
+      <td>375.470679</td>
+      <td>25.0</td>
+      <td>True</td>
+      <td>&gt;93%</td>
+      <td>pre-depletion</td>
+      <td>0.002663</td>
+      <td>interpolated</td>
+      <td>375.470679</td>
+      <td>119</td>
+      <td>18-55y</td>
+      <td>250ug</td>
+      <td>M01</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>M01-day-119</td>
+      <td>0.04</td>
+      <td>0.002663</td>
+      <td>15.018827</td>
+      <td>93</td>
+      <td>375.470679</td>
+      <td>25.0</td>
+      <td>True</td>
+      <td>&gt;93%</td>
+      <td>post-depletion</td>
+      <td>0.040000</td>
+      <td>lower</td>
+      <td>25.000000</td>
+      <td>119</td>
+      <td>18-55y</td>
+      <td>250ug</td>
+      <td>M01</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ### Plot fold-change NT50 pre- and post-RBD antibody depletion for the serum samples only 
 Exclude pre-pandemic serum, which was not depleted.
@@ -237,6 +472,12 @@ _ = p.draw()
 p.save(f'{resultsdir}/NT50_lineplot_nocolors.pdf')
 ```
 
+
+    
+![png](rbd_depletions_files/rbd_depletions_18_0.png)
+    
+
+
 ## Plot neut curves for all samples
 
 
@@ -255,6 +496,12 @@ plotfile.savefig(bbox_inches='tight', transparent=True)
 plotfile.close()
 ```
 
+
+    
+![png](rbd_depletions_files/rbd_depletions_20_0.png)
+    
+
+
 ## Compare the change in NT50 pre- vs. post-depletion for the Moderna sera vs. the HAARVI convalescent plasma
 
 The only columns we need are:
@@ -268,13 +515,13 @@ Concatenate the 2 dataframes.
 
 ```python
 conv_plasma = (pd.read_csv(config['convalescent_data'])
-               [['serum', 'depletion', 'NT50', 'fold_change', 'Days Post-Symptom Onset']]
+               [['serum', 'depletion', 'NT50', 'fold_change', 'Days Post-Symptom Onset', 'post_ic50_bound']]
                .rename(columns={'Days Post-Symptom Onset':'day'})
                .assign(conv_or_vax='convalescent')
               )
 
 compare_df = (pd.concat([conv_plasma, 
-                        (foldchange[['serum', 'depletion', 'NT50', 'fold_change', 'day']]
+                        (foldchange[['serum', 'depletion', 'NT50', 'fold_change', 'day', 'post_ic50_bound']]
                          .assign(conv_or_vax='vaccine'))
                        ],
                        ignore_index=True
@@ -314,6 +561,81 @@ NT50_lines = (ggplot(compare_df, aes(x='depletion', y='NT50', group='serum')) +
 _ = NT50_lines.draw()
 NT50_lines.save(f'./{resultsdir}/NT50_lines.pdf')
 ```
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>serum</th>
+      <th>depletion</th>
+      <th>NT50</th>
+      <th>fold_change</th>
+      <th>day</th>
+      <th>post_ic50_bound</th>
+      <th>conv_or_vax</th>
+      <th>early_late</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>participant A (day 120)</td>
+      <td>pre</td>
+      <td>861.163942</td>
+      <td>43.058197</td>
+      <td>120</td>
+      <td>True</td>
+      <td>convalescent</td>
+      <td>day 100-150</td>
+    </tr>
+    <tr>
+      <td>participant A (day 120)</td>
+      <td>post</td>
+      <td>20.000000</td>
+      <td>43.058197</td>
+      <td>120</td>
+      <td>True</td>
+      <td>convalescent</td>
+      <td>day 100-150</td>
+    </tr>
+    <tr>
+      <td>participant A (day 21)</td>
+      <td>pre</td>
+      <td>6881.224570</td>
+      <td>8.142050</td>
+      <td>21</td>
+      <td>False</td>
+      <td>convalescent</td>
+      <td>day 30-60</td>
+    </tr>
+    <tr>
+      <td>participant A (day 21)</td>
+      <td>post</td>
+      <td>845.146407</td>
+      <td>8.142050</td>
+      <td>21</td>
+      <td>False</td>
+      <td>convalescent</td>
+      <td>day 30-60</td>
+    </tr>
+    <tr>
+      <td>participant A (day 45)</td>
+      <td>pre</td>
+      <td>2751.807740</td>
+      <td>5.954031</td>
+      <td>45</td>
+      <td>False</td>
+      <td>convalescent</td>
+      <td>day 30-60</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+    
+![png](rbd_depletions_files/rbd_depletions_22_1.png)
+    
+
 
 # Compare Moderna vs. convalescent change in IC50
 
@@ -364,6 +686,38 @@ for (timepoint_1, serum_type_1), (timepoint_2, serum_type_2) in itertools.combin
     print(f"  Cox proportional-hazards censored: P = {cph.summary.at['groupA', 'p']:.2g}")
 ```
 
+    Comparing first/convalescent to first/vaccine
+      Mann-Whitney test:      P = 1.3e-05
+      Log-rank test:          P = 7.9e-06
+      Log-rank test censored: P = 1e-06
+      Cox proportional-hazards censored: P = 1.2e-05
+    Comparing first/convalescent to last/convalescent
+      Mann-Whitney test:      P = 0.087
+      Log-rank test:          P = 0.33
+      Log-rank test censored: P = 0.0074
+      Cox proportional-hazards censored: P = 0.011
+    Comparing first/convalescent to last/vaccine
+      Mann-Whitney test:      P = 0.00012
+      Log-rank test:          P = 0.00049
+      Log-rank test censored: P = 1.9e-05
+      Cox proportional-hazards censored: P = 0.00015
+    Comparing first/vaccine to last/convalescent
+      Mann-Whitney test:      P = 1.3e-05
+      Log-rank test:          P = 3.7e-06
+      Log-rank test censored: P = 0.072
+      Cox proportional-hazards censored: P = 0.084
+    Comparing first/vaccine to last/vaccine
+      Mann-Whitney test:      P = 0.0057
+      Log-rank test:          P = 0.0076
+      Log-rank test censored: P = 0.64
+      Cox proportional-hazards censored: P = 0.63
+    Comparing last/convalescent to last/vaccine
+      Mann-Whitney test:      P = 0.00088
+      Log-rank test:          P = 0.0013
+      Log-rank test censored: P = 0.15
+      Cox proportional-hazards censored: P = 0.17
+
+
 Change to facet on time point with x-axis as serum_type
 
 
@@ -393,12 +747,29 @@ _ = p.draw()
 p.save(f'{resultsdir}/compare_percentRBD_facet.pdf')
 ```
 
+
+    
+![png](rbd_depletions_files/rbd_depletions_26_0.png)
+    
+
+
 Save `foldchange` file as Table S1.
 
 
 ```python
 foldchange.columns
 ```
+
+
+
+
+    Index(['serum', 'post-depletion_ic50', 'pre-depletion_ic50', 'fold_change',
+           'percent_RBD', 'NT50_pre', 'NT50_post', 'post_ic50_bound',
+           'perc_RBD_str', 'depletion', 'ic50', 'ic50_bound', 'NT50', 'day', 'age',
+           'dose', 'subject_name', 'mapped', 'ic50_is_bound'],
+          dtype='object')
+
+
 
 
 ```python
@@ -412,6 +783,209 @@ TableS1 = (foldchange
 TableS1.to_csv(f'{resultsdir}/TableS1.csv', index=False)
 display(HTML(TableS1.head().to_html(index=False)))
 ```
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>subject_name</th>
+      <th>day</th>
+      <th>serum</th>
+      <th>dose</th>
+      <th>age</th>
+      <th>pre-depletion_ic50</th>
+      <th>post-depletion_ic50</th>
+      <th>NT50_pre</th>
+      <th>NT50_post</th>
+      <th>fold_change</th>
+      <th>percent_RBD</th>
+      <th>post_ic50_bound</th>
+      <th>perc_RBD_str</th>
+      <th>mapped</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>250ug</td>
+      <td>18-55y</td>
+      <td>0.000444</td>
+      <td>0.022167</td>
+      <td>2250.198641</td>
+      <td>45.112089</td>
+      <td>49.880169</td>
+      <td>97</td>
+      <td>False</td>
+      <td>97%</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>M01</td>
+      <td>119</td>
+      <td>M01-day-119</td>
+      <td>250ug</td>
+      <td>18-55y</td>
+      <td>0.002663</td>
+      <td>0.040000</td>
+      <td>375.470679</td>
+      <td>25.000000</td>
+      <td>15.018827</td>
+      <td>93</td>
+      <td>True</td>
+      <td>&gt;93%</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>M02</td>
+      <td>36</td>
+      <td>M02-day-36</td>
+      <td>250ug</td>
+      <td>18-55y</td>
+      <td>0.000120</td>
+      <td>0.007992</td>
+      <td>8304.529058</td>
+      <td>125.129252</td>
+      <td>66.367607</td>
+      <td>98</td>
+      <td>False</td>
+      <td>98%</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>M02</td>
+      <td>119</td>
+      <td>M02-day-119</td>
+      <td>250ug</td>
+      <td>18-55y</td>
+      <td>0.000416</td>
+      <td>0.006558</td>
+      <td>2401.979726</td>
+      <td>152.483576</td>
+      <td>15.752383</td>
+      <td>93</td>
+      <td>False</td>
+      <td>93%</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>M03</td>
+      <td>36</td>
+      <td>M03-day-36</td>
+      <td>250ug</td>
+      <td>18-55y</td>
+      <td>0.000407</td>
+      <td>0.040000</td>
+      <td>2455.948338</td>
+      <td>25.000000</td>
+      <td>98.237934</td>
+      <td>98</td>
+      <td>True</td>
+      <td>&gt;98%</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+```python
+compare_df.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>serum</th>
+      <th>depletion</th>
+      <th>NT50</th>
+      <th>fold_change</th>
+      <th>day</th>
+      <th>post_ic50_bound</th>
+      <th>conv_or_vax</th>
+      <th>early_late</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>participant A (day 120)</td>
+      <td>pre</td>
+      <td>861.163942</td>
+      <td>43.058197</td>
+      <td>120</td>
+      <td>True</td>
+      <td>convalescent</td>
+      <td>day 100-150</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>participant A (day 120)</td>
+      <td>post</td>
+      <td>20.000000</td>
+      <td>43.058197</td>
+      <td>120</td>
+      <td>True</td>
+      <td>convalescent</td>
+      <td>day 100-150</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>participant A (day 21)</td>
+      <td>pre</td>
+      <td>6881.224570</td>
+      <td>8.142050</td>
+      <td>21</td>
+      <td>False</td>
+      <td>convalescent</td>
+      <td>day 30-60</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>participant A (day 21)</td>
+      <td>post</td>
+      <td>845.146407</td>
+      <td>8.142050</td>
+      <td>21</td>
+      <td>False</td>
+      <td>convalescent</td>
+      <td>day 30-60</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>participant A (day 45)</td>
+      <td>pre</td>
+      <td>2751.807740</td>
+      <td>5.954031</td>
+      <td>45</td>
+      <td>False</td>
+      <td>convalescent</td>
+      <td>day 30-60</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ## Titration ELISAs
 
@@ -452,6 +1026,102 @@ display(titration_df.head())  # display first few lines
 ```
 
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject</th>
+      <th>timepoint</th>
+      <th>serum</th>
+      <th>depleted</th>
+      <th>ligand</th>
+      <th>date</th>
+      <th>dilution_factor</th>
+      <th>OD450</th>
+      <th>dilution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>500</td>
+      <td>3.6820</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>post</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>500</td>
+      <td>0.0747</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>pre</td>
+      <td>spike</td>
+      <td>210205</td>
+      <td>500</td>
+      <td>3.3455</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>post</td>
+      <td>spike</td>
+      <td>210205</td>
+      <td>500</td>
+      <td>3.1715</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <th>120</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>1500</td>
+      <td>2.6068</td>
+      <td>0.000667</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 ```python
 nconditions = df['serum'].nunique()
 ncol = np.minimum(6, nconditions)
@@ -488,6 +1158,12 @@ _ = p.draw()
 p.save(f'{resultsdir}/rbd_depletion_elisa.pdf')
 ```
 
+
+    
+![png](rbd_depletions_files/rbd_depletions_33_0.png)
+    
+
+
 ### Calculate area under curves (AUCs)
 Calculate area under curve (AUC) for each ELISA. Note that these are areas calculated using a trapezoidal rule between the min and max dilutions with the x-axis being the natural log dilution factor.
 
@@ -499,6 +1175,105 @@ Merge with HAARVI ELISA data (but remember not comparable!!)
 ```python
 titration_df.head()
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject</th>
+      <th>timepoint</th>
+      <th>serum</th>
+      <th>depleted</th>
+      <th>ligand</th>
+      <th>date</th>
+      <th>dilution_factor</th>
+      <th>OD450</th>
+      <th>dilution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>500</td>
+      <td>3.6820</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>post</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>500</td>
+      <td>0.0747</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>pre</td>
+      <td>spike</td>
+      <td>210205</td>
+      <td>500</td>
+      <td>3.3455</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>post</td>
+      <td>spike</td>
+      <td>210205</td>
+      <td>500</td>
+      <td>3.1715</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <th>120</th>
+      <td>M01</td>
+      <td>36</td>
+      <td>M01-day-36</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>1500</td>
+      <td>2.6068</td>
+      <td>0.000667</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 
 ```python
@@ -568,6 +1343,144 @@ background
 ```
 
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>serum</th>
+      <th>depleted</th>
+      <th>ligand</th>
+      <th>date</th>
+      <th>dilution_factor</th>
+      <th>OD450</th>
+      <th>replicate</th>
+      <th>dilution</th>
+      <th>log_dilution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>pre-pandemic</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>201022</td>
+      <td>100</td>
+      <td>0.0314</td>
+      <td>1</td>
+      <td>0.010000</td>
+      <td>-4.605170</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>pre-pandemic</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>201022</td>
+      <td>300</td>
+      <td>0.0082</td>
+      <td>1</td>
+      <td>0.003333</td>
+      <td>-5.703782</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>pre-pandemic</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>201022</td>
+      <td>900</td>
+      <td>0.0011</td>
+      <td>1</td>
+      <td>0.001111</td>
+      <td>-6.802395</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>pre-pandemic</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>201022</td>
+      <td>2700</td>
+      <td>-0.0017</td>
+      <td>1</td>
+      <td>0.000370</td>
+      <td>-7.901007</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>pre-pandemic</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>201022</td>
+      <td>8100</td>
+      <td>-0.0042</td>
+      <td>1</td>
+      <td>0.000123</td>
+      <td>-8.999619</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ligand</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RBD</td>
+      <td>0.041994</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>spike</td>
+      <td>0.364025</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
 ```python
 AUC_lines = (ggplot(auc_df
                     .query('serum!="pre-pandemic"'), 
@@ -596,6 +1509,12 @@ _ = AUC_lines.draw()
 AUC_lines.save(f'./{resultsdir}/AUC_lines_compare.pdf')
 ```
 
+
+    
+![png](rbd_depletions_files/rbd_depletions_39_0.png)
+    
+
+
 ### Make ELISA plots more similar to the NT50 plots (facet on time point)
 
 
@@ -610,6 +1529,75 @@ display(HTML(auc_df.head().to_html(index=False)))
 ```
 
 
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>serum</th>
+      <th>depleted</th>
+      <th>ligand</th>
+      <th>date</th>
+      <th>timepoint</th>
+      <th>AUC</th>
+      <th>conv_or_vax</th>
+      <th>early_late</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>M01-day-119</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>119</td>
+      <td>2.889735</td>
+      <td>vaccine</td>
+      <td>day 100-150</td>
+    </tr>
+    <tr>
+      <td>M01-day-119</td>
+      <td>pre</td>
+      <td>spike</td>
+      <td>210205</td>
+      <td>119</td>
+      <td>4.748092</td>
+      <td>vaccine</td>
+      <td>day 100-150</td>
+    </tr>
+    <tr>
+      <td>M01-day-119</td>
+      <td>post</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>119</td>
+      <td>0.016314</td>
+      <td>vaccine</td>
+      <td>day 100-150</td>
+    </tr>
+    <tr>
+      <td>M01-day-119</td>
+      <td>post</td>
+      <td>spike</td>
+      <td>210205</td>
+      <td>119</td>
+      <td>3.382243</td>
+      <td>vaccine</td>
+      <td>day 100-150</td>
+    </tr>
+    <tr>
+      <td>M01-day-36</td>
+      <td>pre</td>
+      <td>RBD</td>
+      <td>210123</td>
+      <td>36</td>
+      <td>8.207787</td>
+      <td>vaccine</td>
+      <td>day 30-60</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
 ```python
 for ligand in ['RBD', 'spike']:
     AUC_facet = (ggplot(auc_df
@@ -617,7 +1605,7 @@ for ligand in ['RBD', 'spike']:
                         aes(x='depleted', y='AUC', group='serum')) +
                       geom_point(size=2.5, alpha=0.25) +
                       geom_line(alpha=0.25) +
-                      facet_grid('early_late ~ conv_or_vax ', scales='free_y',) +
+                      facet_grid('early_late ~ conv_or_vax ', scales='fixed',) +
                       theme(axis_text_x=element_text(angle=0, vjust=1, hjust=0.5),
                             axis_title_y=element_text(margin={'r': 12}),
                             strip_background=element_blank(),
@@ -641,9 +1629,148 @@ for ligand in ['RBD', 'spike']:
 ```
 
 
+    
+![png](rbd_depletions_files/rbd_depletions_42_0.png)
+    
+
+
+
+    
+![png](rbd_depletions_files/rbd_depletions_42_1.png)
+    
+
+
+Export CSV file as Data File S1 with ELISA AUC and NT50 pre- and post-RBD depletion for all samples. 
+
+
+```python
+# display(HTML(auc_df.head().to_html()))
+# display(HTML(compare_df.head().to_html()))
+
+data_file_s1=(compare_df
+              .rename(columns={'fold_change':'fold_change_NT50',
+                               'depletion':'depleted',
+                               'post_ic50_bound':'NT50 at lower limit of detection',
+                              }
+                     )
+              .merge((auc_df
+                     [['serum', 'depleted','ligand','timepoint','AUC']]
+                     .rename(columns={'timepoint':'day'})
+                     .pivot_table(index=['serum', 'depleted','day',],
+                                  columns=['ligand'],
+                                  values='AUC'
+                                 )
+                     .rename(columns={'RBD':'RBD ELISA AUC', 'spike':'spike ELISA AUC'}) 
+                     ),
+                     how='outer',
+                     on=['serum', 'depleted','day']
+                    )
+              .rename(columns={'depelted':'RBD-binding antibodies depleted',
+                               'day':'day sample collected',
+                               'fold_change_NT50':'fold-change in NT50 due to depletion of RBD-binding antibodies',
+                               'conv_or_vax':'sample type',
+                               'early_late':'approximate sample collection time point',
+                              }
+                     )
+              .replace({'pre':'pre-depletion of RBD binding antibodies', 
+                        'post':'post-depletion of RBD binding antibodies', 
+                       }
+                      )
+             )
+
+data_file_s1.to_csv(f'{resultsdir}/data_file_s1.csv', index=False)
+display(HTML(data_file_s1.head().to_html(index=False)))
+```
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>serum</th>
+      <th>depleted</th>
+      <th>NT50</th>
+      <th>fold-change in NT50 due to depletion of RBD-binding antibodies</th>
+      <th>day sample collected</th>
+      <th>NT50 at lower limit of detection</th>
+      <th>sample type</th>
+      <th>approximate sample collection time point</th>
+      <th>RBD ELISA AUC</th>
+      <th>spike ELISA AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>participant A (day 120)</td>
+      <td>pre-depletion of RBD binding antibodies</td>
+      <td>861.163942</td>
+      <td>43.058197</td>
+      <td>120</td>
+      <td>True</td>
+      <td>convalescent</td>
+      <td>day 100-150</td>
+      <td>7.570427</td>
+      <td>12.759970</td>
+    </tr>
+    <tr>
+      <td>participant A (day 120)</td>
+      <td>post-depletion of RBD binding antibodies</td>
+      <td>20.000000</td>
+      <td>43.058197</td>
+      <td>120</td>
+      <td>True</td>
+      <td>convalescent</td>
+      <td>day 100-150</td>
+      <td>0.392809</td>
+      <td>10.782934</td>
+    </tr>
+    <tr>
+      <td>participant A (day 21)</td>
+      <td>pre-depletion of RBD binding antibodies</td>
+      <td>6881.224570</td>
+      <td>8.142050</td>
+      <td>21</td>
+      <td>False</td>
+      <td>convalescent</td>
+      <td>day 30-60</td>
+      <td>7.295884</td>
+      <td>10.585020</td>
+    </tr>
+    <tr>
+      <td>participant A (day 21)</td>
+      <td>post-depletion of RBD binding antibodies</td>
+      <td>845.146407</td>
+      <td>8.142050</td>
+      <td>21</td>
+      <td>False</td>
+      <td>convalescent</td>
+      <td>day 30-60</td>
+      <td>0.223568</td>
+      <td>9.526561</td>
+    </tr>
+    <tr>
+      <td>participant A (day 45)</td>
+      <td>pre-depletion of RBD binding antibodies</td>
+      <td>2751.807740</td>
+      <td>5.954031</td>
+      <td>45</td>
+      <td>False</td>
+      <td>convalescent</td>
+      <td>day 30-60</td>
+      <td>10.757666</td>
+      <td>13.365332</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
 ```python
 !jupyter nbconvert rbd_depletions.ipynb --to markdown
 ```
+
+    [NbConvertApp] Converting notebook rbd_depletions.ipynb to markdown
+    [NbConvertApp] Writing 25515 bytes to rbd_depletions.md
+
 
 
 ```python

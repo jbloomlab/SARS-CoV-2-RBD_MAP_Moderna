@@ -1,0 +1,127 @@
+serum,depleted,NT50,fold-change in NT50 due to depletion of RBD-binding antibodies,day sample collected,NT50 at lower limit of detection,sample type,approximate sample collection time point,RBD ELISA AUC,spike ELISA AUC
+participant A (day 120),pre-depletion of RBD binding antibodies,861.1639424000001,43.05819712,120,True,convalescent,day 100-150,7.570427486,12.75996976
+participant A (day 120),post-depletion of RBD binding antibodies,20.0,43.05819712,120,True,convalescent,day 100-150,0.39280883299999997,10.78293448
+participant A (day 21),pre-depletion of RBD binding antibodies,6881.22457,8.14205032,21,False,convalescent,day 30-60,7.295884416,10.58501952
+participant A (day 21),post-depletion of RBD binding antibodies,845.1464066,8.14205032,21,False,convalescent,day 30-60,0.223567606,9.526561297
+participant A (day 45),pre-depletion of RBD binding antibodies,2751.8077399999997,5.954031262999999,45,False,convalescent,day 30-60,10.75766649,13.36533242
+participant A (day 45),post-depletion of RBD binding antibodies,462.17556119999995,5.954031262999999,45,False,convalescent,day 30-60,0.48580635,11.24781229
+participant B (day 113),pre-depletion of RBD binding antibodies,284.86037189999996,14.24301859,113,True,convalescent,day 100-150,3.2587037389999995,10.21182081
+participant B (day 113),post-depletion of RBD binding antibodies,20.0,14.24301859,113,True,convalescent,day 100-150,0.021642663,9.641421381
+participant B (day 26),pre-depletion of RBD binding antibodies,1563.437255,11.48431404,26,False,convalescent,day 30-60,4.981822204,10.82654917
+participant B (day 26),post-depletion of RBD binding antibodies,136.13675569999998,11.48431404,26,False,convalescent,day 30-60,0.08739461400000001,9.566715683
+participant C (day 104),pre-depletion of RBD binding antibodies,1383.047158,69.15235791,104,True,convalescent,day 100-150,7.526318267000001,11.09664339
+participant C (day 104),post-depletion of RBD binding antibodies,20.0,69.15235791,104,True,convalescent,day 100-150,0.271906534,9.868394944
+participant C (day 32),pre-depletion of RBD binding antibodies,3479.6998310000004,125.36672720000001,32,False,convalescent,day 30-60,7.436012224,10.88757741
+participant C (day 32),post-depletion of RBD binding antibodies,27.75616712,125.36672720000001,32,False,convalescent,day 30-60,0.231862125,9.151605191
+participant D (day 33),pre-depletion of RBD binding antibodies,830.3844803,2.736580773,33,False,convalescent,day 30-60,11.10372934,13.50282409
+participant D (day 33),post-depletion of RBD binding antibodies,303.43868829999997,2.736580773,33,False,convalescent,day 30-60,0.817861906,12.001240600000001
+participant D (day 76),pre-depletion of RBD binding antibodies,1013.710417,5.336357325,76,False,convalescent,day 100-150,10.73000879,13.96100026
+participant D (day 76),post-depletion of RBD binding antibodies,189.9629945,5.336357325,76,False,convalescent,day 100-150,0.602533929,12.5701022
+participant E (day 104),pre-depletion of RBD binding antibodies,706.3696994,35.31848497,104,True,convalescent,day 100-150,6.531634595,8.75511604
+participant E (day 104),post-depletion of RBD binding antibodies,20.0,35.31848497,104,True,convalescent,day 100-150,0.221754893,6.481537958
+participant E (day 28),pre-depletion of RBD binding antibodies,807.2747498,3.4874342019999998,28,False,convalescent,day 30-60,6.023086772,8.424323707000001
+participant E (day 28),post-depletion of RBD binding antibodies,231.48099810000002,3.4874342019999998,28,False,convalescent,day 30-60,0.13562369400000002,5.970738106000001
+participant F (day 115),pre-depletion of RBD binding antibodies,140.8318843,7.041594214,115,True,convalescent,day 100-150,3.2858395710000003,7.5230771910000005
+participant F (day 115),post-depletion of RBD binding antibodies,20.0,7.041594214,115,True,convalescent,day 100-150,0.039659902000000004,6.297300482000001
+participant F (day 48),pre-depletion of RBD binding antibodies,147.6660876,4.099771734,48,False,convalescent,day 30-60,3.8063071739999996,8.478045809
+participant F (day 48),post-depletion of RBD binding antibodies,36.01812423,4.099771734,48,False,convalescent,day 30-60,0.04608678,6.807001727
+participant G (day 18),pre-depletion of RBD binding antibodies,29366.995919999998,40.36367587,18,False,convalescent,day 30-60,2.710331456,5.946403742999999
+participant G (day 18),post-depletion of RBD binding antibodies,727.5599977999999,40.36367587,18,False,convalescent,day 30-60,0.11337679,5.589025124
+participant G (day 94),pre-depletion of RBD binding antibodies,293.0698107,14.65349053,94,True,convalescent,day 100-150,4.724911629,9.806762414
+participant G (day 94),post-depletion of RBD binding antibodies,20.0,14.65349053,94,True,convalescent,day 100-150,0.16451718,9.15671362
+participant H (day 152),pre-depletion of RBD binding antibodies,640.7287665,3.863613458,152,False,convalescent,day 100-150,6.115974637000001,9.366439021
+participant H (day 152),post-depletion of RBD binding antibodies,165.8366639,3.863613458,152,False,convalescent,day 100-150,0.35622504,7.295389887000001
+participant H (day 61),pre-depletion of RBD binding antibodies,1243.263729,3.370657523,61,False,convalescent,day 30-60,5.268999423,8.197185798
+participant H (day 61),post-depletion of RBD binding antibodies,368.8490215,3.370657523,61,False,convalescent,day 30-60,0.159738228,6.404470106000001
+participant I (day 102),pre-depletion of RBD binding antibodies,587.4090285,11.69565099,102,False,convalescent,day 100-150,1.6055120459999999,4.737051451
+participant I (day 102),post-depletion of RBD binding antibodies,50.22456887,11.69565099,102,False,convalescent,day 100-150,0.033068225,4.099966048
+participant I (day 26),pre-depletion of RBD binding antibodies,140.2477274,6.581280802,26,False,convalescent,day 30-60,0.778476666,3.1659259810000004
+participant I (day 26),post-depletion of RBD binding antibodies,21.31009625,6.581280802,26,False,convalescent,day 30-60,0.019170783,2.946038694
+participant J (day 121),pre-depletion of RBD binding antibodies,504.1600695,25.20800347,121,True,convalescent,day 100-150,4.763912574,8.890190537999999
+participant J (day 121),post-depletion of RBD binding antibodies,20.0,25.20800347,121,True,convalescent,day 100-150,0.16385802300000002,7.769660817
+participant J (day 15),pre-depletion of RBD binding antibodies,610.3523693,3.668848152,15,False,convalescent,day 30-60,8.025362604,11.26401684
+participant J (day 15),post-depletion of RBD binding antibodies,166.3607607,3.668848152,15,False,convalescent,day 30-60,0.441806939,10.771124400000001
+participant K (day 103),pre-depletion of RBD binding antibodies,408.812677,20.44063385,103,True,convalescent,day 100-150,7.515277198,9.784076071
+participant K (day 103),post-depletion of RBD binding antibodies,20.0,20.44063385,103,True,convalescent,day 100-150,0.16605524900000002,7.391408628
+participant K (day 29),pre-depletion of RBD binding antibodies,354.3817633,7.029377808,29,False,convalescent,day 30-60,10.89751964,12.64456029
+participant K (day 29),post-depletion of RBD binding antibodies,50.4143856,7.029377808,29,False,convalescent,day 30-60,0.5918224329999999,9.683992567
+participant L (day 35),pre-depletion of RBD binding antibodies,614.2458291,12.28913676,35,False,convalescent,day 30-60,1.140799002,4.277117456
+participant L (day 35),post-depletion of RBD binding antibodies,49.98282962,12.28913676,35,False,convalescent,day 30-60,0.025103287999999998,3.695841619
+participant L (day 99),pre-depletion of RBD binding antibodies,169.7355666,5.032618187,99,False,convalescent,day 100-150,0.9214061259999999,4.319358896000001
+participant L (day 99),post-depletion of RBD binding antibodies,33.72709002,5.032618187,99,False,convalescent,day 100-150,0.015215778000000001,4.0168011880000005
+participant M (day 26),pre-depletion of RBD binding antibodies,2118.601022,5.530511664,26,False,convalescent,day 30-60,4.95358789,11.07489062
+participant M (day 26),post-depletion of RBD binding antibodies,383.07504819999997,5.530511664,26,False,convalescent,day 30-60,0.13265743300000002,10.51597172
+participant M (day 97),pre-depletion of RBD binding antibodies,396.4319143,1.980999569,97,False,convalescent,day 100-150,3.306328585,9.649715815
+participant M (day 97),post-depletion of RBD binding antibodies,200.1171129,1.980999569,97,False,convalescent,day 100-150,0.048284010999999995,9.244053227
+participant N (day 110),pre-depletion of RBD binding antibodies,35.812189700000005,1.790609485,110,True,convalescent,day 100-150,1.447861145,3.632286812
+participant N (day 110),post-depletion of RBD binding antibodies,20.0,1.790609485,110,True,convalescent,day 100-150,0.012249531000000001,2.704838363
+participant N (day 32),pre-depletion of RBD binding antibodies,120.5476369,3.4563726210000003,32,False,convalescent,day 30-60,2.195741467,4.529633418
+participant N (day 32),post-depletion of RBD binding antibodies,34.8769216,3.4563726210000003,32,False,convalescent,day 30-60,0.024883562,3.73736922
+participant P (day 109),pre-depletion of RBD binding antibodies,217.17262180000003,10.85863109,109,True,convalescent,day 100-150,2.616400143,6.070986522
+participant P (day 109),post-depletion of RBD binding antibodies,20.0,10.85863109,109,True,convalescent,day 100-150,0.028069545,5.6356614810000005
+participant P (day 32),pre-depletion of RBD binding antibodies,438.23114419999996,8.539699267,32,False,convalescent,day 30-60,3.65266621,7.9057786629999995
+participant P (day 32),post-depletion of RBD binding antibodies,51.31692938,8.539699267,32,False,convalescent,day 30-60,0.115354297,6.982504851
+participant Q (day 105),pre-depletion of RBD binding antibodies,202.3869888,6.068764301,105,False,convalescent,day 100-150,1.954870734,9.574351257
+participant Q (day 105),post-depletion of RBD binding antibodies,33.348961800000005,6.068764301,105,False,convalescent,day 100-150,0.002362013,8.618668278
+participant Q (day 27),pre-depletion of RBD binding antibodies,468.0423932,3.094936192,27,False,convalescent,day 30-60,3.235468167,10.22588326
+participant Q (day 27),post-depletion of RBD binding antibodies,151.2284468,3.094936192,27,False,convalescent,day 30-60,0.026037116000000003,11.16618518
+participant R (day 48),pre-depletion of RBD binding antibodies,307.6802113,4.879299644,48,False,convalescent,day 30-60,2.629089069,6.702798396
+participant R (day 48),post-depletion of RBD binding antibodies,63.05827347,4.879299644,48,False,convalescent,day 30-60,0.107773866,5.3853425999999995
+participant R (day 79),pre-depletion of RBD binding antibodies,166.79253490000002,5.540308972999999,79,False,convalescent,day 100-150,1.16601215,4.407852206
+participant R (day 79),post-depletion of RBD binding antibodies,30.10527675,5.540308972999999,79,False,convalescent,day 100-150,0.019610227,3.747256554
+M01-day-119,pre-depletion of RBD binding antibodies,375.47067885952794,15.018827154381118,119,True,vaccine,day 100-150,2.889734833498163,4.748092478409317
+M01-day-119,post-depletion of RBD binding antibodies,25.0,15.018827154381118,119,True,vaccine,day 100-150,0.016314392486721434,3.382242786227589
+M01-day-36,pre-depletion of RBD binding antibodies,2250.1986407711206,49.88016887256785,36,False,vaccine,day 30-60,8.207787339253882,9.317440673183516
+M01-day-36,post-depletion of RBD binding antibodies,45.11208946625363,49.88016887256785,36,False,vaccine,day 30-60,0.07750709696553515,6.445558443731235
+M02-day-119,pre-depletion of RBD binding antibodies,2401.979726299149,15.752383224800287,119,False,vaccine,day 100-150,5.483064071513669,7.112580750328562
+M02-day-119,post-depletion of RBD binding antibodies,152.48357610532943,15.752383224800287,119,False,vaccine,day 100-150,0.07503521931603191,5.553485093949213
+M02-day-36,pre-depletion of RBD binding antibodies,8304.529058486552,66.36760713656686,36,False,vaccine,day 30-60,8.900901832174593,10.043348811034932
+M02-day-36,post-depletion of RBD binding antibodies,125.12925230825398,66.36760713656686,36,False,vaccine,day 30-60,0.0739915376417972,7.550762386905638
+M03-day-119,pre-depletion of RBD binding antibodies,1103.0193026697177,44.12077210678871,119,True,vaccine,day 100-150,5.157050874851408,7.317252263651922
+M03-day-119,post-depletion of RBD binding antibodies,25.0,44.12077210678871,119,True,vaccine,day 100-150,0.0390007362477179,6.224572515948908
+M03-day-36,pre-depletion of RBD binding antibodies,2455.948337779491,98.23793351117965,36,True,vaccine,day 30-60,9.921347856503965,11.047974511894655
+M03-day-36,post-depletion of RBD binding antibodies,25.0,98.23793351117965,36,True,vaccine,day 30-60,0.1399632055763172,8.346597044223671
+M04-day-119,pre-depletion of RBD binding antibodies,1657.8327635839821,66.31331054335928,119,True,vaccine,day 100-150,6.161402229151793,8.486340307619797
+M04-day-119,post-depletion of RBD binding antibodies,25.0,66.31331054335928,119,True,vaccine,day 100-150,0.05778700638394259,6.570250871479716
+M04-day-36,pre-depletion of RBD binding antibodies,3383.796221101595,135.3518488440638,36,True,vaccine,day 30-60,10.427808121579965,11.510875162816323
+M04-day-36,post-depletion of RBD binding antibodies,25.0,135.3518488440638,36,True,vaccine,day 30-60,0.136282854409279,8.485242003491875
+M05-day-119,pre-depletion of RBD binding antibodies,1766.4814128009448,70.6592565120378,119,True,vaccine,day 100-150,6.656931301955545,8.320999354277541
+M05-day-119,post-depletion of RBD binding antibodies,25.0,70.6592565120378,119,True,vaccine,day 100-150,0.07250841105209525,6.198809874860694
+M05-day-36,pre-depletion of RBD binding antibodies,4516.267790353017,180.65071161412067,36,True,vaccine,day 30-60,9.871415927984001,10.351015030318631
+M05-day-36,post-depletion of RBD binding antibodies,25.0,180.65071161412067,36,True,vaccine,day 30-60,0.0828902971800089,7.3548797900187255
+M06-day-119,pre-depletion of RBD binding antibodies,963.8221445969104,13.29939903329148,119,False,vaccine,day 100-150,2.968999710125567,5.054220825605055
+M06-day-119,post-depletion of RBD binding antibodies,72.47110506153248,13.29939903329148,119,False,vaccine,day 100-150,0.04136275266835434,3.872168783102719
+M06-day-36,pre-depletion of RBD binding antibodies,1939.015255354762,14.385855108500916,36,False,vaccine,day 30-60,6.963553991722814,8.376753783459932
+M06-day-36,post-depletion of RBD binding antibodies,134.7862355577984,14.385855108500916,36,False,vaccine,day 30-60,0.09942441212446393,6.1356946362295295
+M07-day-119,pre-depletion of RBD binding antibodies,813.2572325843905,32.530289303375625,119,True,vaccine,day 100-150,4.59851638729254,6.359152327405682
+M07-day-119,post-depletion of RBD binding antibodies,25.0,32.530289303375625,119,True,vaccine,day 100-150,0.036364066754914444,4.492280507019231
+M07-day-36,pre-depletion of RBD binding antibodies,2128.0092565277214,85.12037026110886,36,True,vaccine,day 30-60,8.27919713801731,10.47493872663967
+M07-day-36,post-depletion of RBD binding antibodies,25.0,85.12037026110886,36,True,vaccine,day 30-60,0.13946883004641655,8.524517297232492
+M08-day-119,pre-depletion of RBD binding antibodies,729.4249634712411,29.176998538849645,119,True,vaccine,day 100-150,4.012461661902538,6.112788550785084
+M08-day-119,post-depletion of RBD binding antibodies,25.0,29.176998538849645,119,True,vaccine,day 100-150,0.053667210301437174,4.360117471214007
+M08-day-36,pre-depletion of RBD binding antibodies,2227.166977889796,89.08667911559183,36,True,vaccine,day 30-60,9.557926911412556,11.124328326328202
+M08-day-36,post-depletion of RBD binding antibodies,25.0,89.08667911559183,36,True,vaccine,day 30-60,0.21214203294181203,8.092377983749293
+M09-day-119,pre-depletion of RBD binding antibodies,1477.192924908814,59.087716996352555,119,True,vaccine,day 100-150,6.667093465625726,8.507323976463406
+M09-day-119,post-depletion of RBD binding antibodies,25.0,59.087716996352555,119,True,vaccine,day 100-150,0.044603658919925265,5.762990483764916
+M09-day-36,pre-depletion of RBD binding antibodies,2748.713982417758,109.94855929671033,36,True,vaccine,day 30-60,10.676314141077995,10.798754670709982
+M09-day-36,post-depletion of RBD binding antibodies,25.0,109.94855929671033,36,True,vaccine,day 30-60,0.11722193779256107,7.553948039550764
+M10-day-119,pre-depletion of RBD binding antibodies,1087.0788002818163,6.056718022644378,119,False,vaccine,day 100-150,3.347087129270697,5.494654466314711
+M10-day-119,post-depletion of RBD binding antibodies,179.48314519803168,6.056718022644378,119,False,vaccine,day 100-150,0.04872345500243067,4.0480567461971
+M10-day-36,pre-depletion of RBD binding antibodies,3404.530261375104,28.94130166633601,36,False,vaccine,day 30-60,8.541600655151074,8.674862257103248
+M10-day-36,post-depletion of RBD binding antibodies,117.63569934158116,28.94130166633601,36,False,vaccine,day 30-60,0.13897446165749577,6.10509829717347
+M11-day-119,pre-depletion of RBD binding antibodies,1289.802558146183,51.59210232584732,119,True,vaccine,day 100-150,5.589025226755709,8.039040509841563
+M11-day-119,post-depletion of RBD binding antibodies,25.0,51.59210232584732,119,True,vaccine,day 100-150,0.04229657311372223,5.913390383588309
+M11-day-36,pre-depletion of RBD binding antibodies,6531.305803597844,187.24042878254266,36,False,vaccine,day 30-60,12.32813264825424,12.441125010032735
+M11-day-36,post-depletion of RBD binding antibodies,34.881920779957056,187.24042878254266,36,False,vaccine,day 30-60,0.2990971977871175,9.521013457765305
+M12-day-119,pre-depletion of RBD binding antibodies,1694.2817381923455,67.77126952769382,119,True,vaccine,day 100-150,5.840003204101938,8.202568975925812
+M12-day-119,post-depletion of RBD binding antibodies,25.0,67.77126952769382,119,True,vaccine,day 100-150,0.06393923520048399,6.063076428217387
+M12-day-36,pre-depletion of RBD binding antibodies,4126.647284551525,165.065891382061,36,True,vaccine,day 30-60,11.188102728487424,10.922019026077075
+M12-day-36,post-depletion of RBD binding antibodies,25.0,165.065891382061,36,True,vaccine,day 30-60,0.3321105047518802,8.079194805471568
+M13-day-119,pre-depletion of RBD binding antibodies,1976.5921565779956,57.473862154862424,119,False,vaccine,day 100-150,6.353659379668713,7.930277984997547
+M13-day-119,post-depletion of RBD binding antibodies,34.39114899312141,57.473862154862424,119,False,vaccine,day 100-150,0.077891611266569,5.712948854962785
+M13-day-36,pre-depletion of RBD binding antibodies,4266.4261764672,90.23994052200179,36,False,vaccine,day 30-60,11.453802254969323,11.063080482498618
+M13-day-36,post-depletion of RBD binding antibodies,47.27869003223671,90.23994052200179,36,False,vaccine,day 30-60,0.4432900590268885,8.252610687673174
+M14-day-119,pre-depletion of RBD binding antibodies,2830.2770548912345,52.57388373370122,119,False,vaccine,day 100-150,8.035030556860821,9.338039633821019
+M14-day-119,post-depletion of RBD binding antibodies,53.83427766583189,52.57388373370122,119,False,vaccine,day 100-150,0.08744953817798155,6.529107890157341
+M14-day-36,pre-depletion of RBD binding antibodies,6036.130561647723,241.44522246590893,36,True,vaccine,day 30-60,11.797557728087684,11.614144665217736
+M14-day-36,post-depletion of RBD binding antibodies,25.0,241.44522246590893,36,True,vaccine,day 30-60,0.2202168343621349,9.563749626304379
