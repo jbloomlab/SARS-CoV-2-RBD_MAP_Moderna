@@ -3,7 +3,7 @@
 Below are links to interactive visualizations of the effects of single mutations to the SARS-CoV-2 spike receptor-binding domain (RBD) on binding by sera from mRNA-1273-vaccinated individuals.
 
 These visualizations are built using [dms-view](https://dms-view.github.io/docs/).
-These experiments are described in this [preprint](https://www.biorxiv.org/content/10.1101/2021.04.14.439844v1?ct=), and raw data are available [here](https://github.com/jbloomlab/SARS-CoV-2-RBD_MAP_Moderna/blob/main/results/supp_data/moderna_convalescent_all_raw_data.csv).
+These experiments are described in [this paper](https://stm.sciencemag.org/content/early/2021/06/08/scitranslmed.abi9915.1), and raw data are available [here](https://github.com/jbloomlab/SARS-CoV-2-RBD_MAP_Moderna/blob/main/results/supp_data/moderna_convalescent_all_raw_data.csv).
 The samples from vaccinated individuals were first described in [Jackson, et al. (2020)](https://www.nejm.org/doi/full/10.1056/nejmoa2022483).
 
 The escape maps from comparable samples from SARS-CoV-2 convalescent individuals were first described in [Greaney et al. (2021a)](https://www.sciencedirect.com/science/article/pii/S1931312821000822) and [Greaney et al. (2021b)](https://www.biorxiv.org/content/10.1101/2021.03.17.435863v1). These convalescent plasma samples were first described in [Crawford et al. (2020)](https://academic.oup.com/jid/article/223/2/197/5916372) and [Robbiani, et al. (2020)](https://www.nature.com/articles/s41586-020-2456-9).
